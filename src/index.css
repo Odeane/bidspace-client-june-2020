@@ -38,9 +38,13 @@ code {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: none;
   color: #dec3be;
-  font-size: 7vh;
-  margin-top: 40%;
-  margin-left: 25%;
+  font-size: xx-large;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   outline: none;
 }
 
@@ -54,8 +58,13 @@ code {
   border: none;
   color: #3a4f41;
   font-size: 7vh;
-  margin-top: 40%;
-  margin-left: 18%;
+  font-size: xx-large;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   outline: none;
 }
 
@@ -101,6 +110,6 @@ code {
   position: absolute;
   left: 0;
   top: 0;
-  height: 7vh;
-  width: 25vw;
+  height: 15vh;
+  width: auto;
 }
