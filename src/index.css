@@ -57,12 +57,11 @@ code {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: none;
   color: #3a4f41;
-  font-size: 7vh;
   font-size: xx-large;
   margin: 0;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 51%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   outline: none;
