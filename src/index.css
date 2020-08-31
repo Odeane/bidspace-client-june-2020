@@ -115,3 +115,13 @@ code {
   width: auto;
   max-width: 50vw;
 }
+
+#longmenu {
+  color: #3a4f41;
+}
+
+#longmenu:hover {
+  float: right;
+  color: #e1dee3;
+  outline: none;
+}

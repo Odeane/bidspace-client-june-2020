@@ -25,7 +25,7 @@ function LongMenu() {
 
   return (
     <div>
-      <IconButton
+      <IconButton id="longmenu"
         aria-label="more"
         aria-controls="long-menu"
         aria-haspopup="true"
@@ -43,6 +43,9 @@ function LongMenu() {
           style: {
             maxHeight: ITEM_HEIGHT * 4.5,
             width: '20ch',
+            backgroundColor: '#e1dee3',
+            color: '#3a4f41',
+            fontfamily: 'verdana'
           },
         }}
       >
