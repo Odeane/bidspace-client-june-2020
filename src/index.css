@@ -83,6 +83,7 @@ code {
   font-weight: bold;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: transparent;
+  outline: none;
 }
 
 #login-button:hover {
@@ -98,6 +99,7 @@ code {
   font-weight: bold;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: transparent;
+  outline: none;
 }
 
 #signup-button:hover {
