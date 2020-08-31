@@ -116,11 +116,11 @@ code {
   max-width: 50vw;
 }
 
-#longmenu {
+#hamburger-menu {
   color: #3a4f41;
 }
 
-#longmenu:hover {
+#hamburger-menu:hover {
   float: right;
   color: #e1dee3;
   outline: none;
