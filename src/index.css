@@ -11,3 +11,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#left-pane {
+  background-color: #d5a18e;
+  width: 50%;
+  position: fixed;
+  align-items: left;
+  left: 0;
+  height: 100vh;
+}
+
+#right-pane {
+  background-color: #dec3be;
+  width: 50%;
+  position: fixed;
+  align-items: right;
+  right: 0;
+  height: 100vh;
+}
+
+#rent-button {
+  background-color: #d5a18e;
+  border: none;
+  border-radius: 10px;
+  padding: 48px 54px;
+  color: #3a4f41;
+  font-size: 32px;
+  margin-top: 40%;
+  margin-left: 25%;
+}
+
+#rent-button:hover {
+  background-color: #3a4f41;
+  color: #d5a18e;
+}

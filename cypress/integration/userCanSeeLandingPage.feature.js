@@ -1,7 +1,7 @@
 describe("Visitors can see landing page", () => {
-  before(() = {
+  before(() => {
   cy.visit("/")
-  }
+  })
   
   it("and choose whether to rent out or rent a space", () => {
     cy.get("#logo").should("be.visible")
