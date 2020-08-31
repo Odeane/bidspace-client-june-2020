@@ -110,6 +110,8 @@ code {
   position: absolute;
   left: 0;
   top: 0;
-  height: 15vh;
+  height: auto;
+  max-height: 15vh;
   width: auto;
+  max-width: 50vw;
 }
