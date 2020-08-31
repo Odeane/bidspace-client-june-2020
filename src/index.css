@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  width: 100vw;
 }
 
 code {
@@ -13,7 +15,7 @@ code {
 }
 
 #left-pane {
-  background-color: #d5a18e;
+  background-color: #3a4f41;
   width: 50%;
   position: fixed;
   align-items: left;
@@ -31,17 +33,29 @@ code {
 }
 
 #rent-button {
-  background-color: #d5a18e;
+  background-color: #3a4f41;
   border: none;
-  border-radius: 10px;
-  padding: 48px 54px;
-  color: #3a4f41;
-  font-size: 32px;
+  color: #dec3be;
+  font-size: 7vh;
   margin-top: 40%;
   margin-left: 25%;
+  outline: none;
 }
 
 #rent-button:hover {
-  background-color: #3a4f41;
-  color: #d5a18e;
+  color: #E1DEE3;
+}
+
+#rentout-button {
+  background-color: #dec3be;
+  border: none;
+  color: #3a4f41;
+  font-size: 7vh;
+  margin-top: 40%;
+  margin-left: 18%;
+  outline: none;
+}
+
+#rentout-button:hover {
+  color: #E1DEE3;
 }
