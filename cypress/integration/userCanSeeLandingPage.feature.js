@@ -1,14 +1,21 @@
-describe("Visitors can see landing page", () => {
+describe("Landing page successfully render", () => {
   before(() => {
   cy.visit("/")
   })
   
-  it("and choose whether to rent out or rent a space", () => {
+  it("vistiors can see different elements", () => {
     cy.get("#logo").should("be.visible")
     cy.get("#login-button").should("be.visible")
     cy.get("#signup-button").should("be.visible")
-    cy.get("hamburger-menu").should("be.visble")
+    cy.get("#burger-menu").should("be.visible")
     cy.get("#rentout-button").should("be.visible")
     cy.get("#rent-button").should("be.visible")
   })
+ 
+  it("visitors can see items on burger menu", () => {
+    cy.get("#burger-menu").click()
+    cy.contains("FAQs")
+    cy.contains("Contact us")
+  })
+
 })

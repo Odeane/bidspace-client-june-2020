@@ -25,7 +25,7 @@ function LongMenu() {
 
   return (
     <div>
-      <IconButton id="longmenu"
+      <IconButton id="burger-menu"
         aria-label="more"
         aria-controls="long-menu"
         aria-haspopup="true"
