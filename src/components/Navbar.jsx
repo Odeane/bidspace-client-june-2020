@@ -1,5 +1,6 @@
 import React from "react";
 import { Menu } from "semantic-ui-react";
+import LongMenu from "./LongMenu";
 
 const Navbar = () => {
   return (
@@ -12,6 +13,10 @@ const Navbar = () => {
 
           <Menu.Item>
             <button id="signup-button">Signup</button>
+          </Menu.Item>
+
+          <Menu.Item>
+          <LongMenu />
           </Menu.Item>
         </Menu.Menu>
       </Menu>
