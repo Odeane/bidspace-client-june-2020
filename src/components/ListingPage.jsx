@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Grid } from "semantic-ui-react"
 
 const ListingPage = () => {
   const [listings, setListings] = useState([]);
@@ -24,7 +25,14 @@ const ListingPage = () => {
   return (
     <>
       <h1 id="rent-space-title">Rent your space</h1>
-      <div>{content}</div>
+      <Grid columns={2} relaxed="very">
+        <Grid.Column>
+         <div>{content}</div>
+        </Grid.Column>
+        <Grid.Column>
+         <img src="https://www.google.com/maps/d/thumbnail?mid=1Q0KaFi_mtsXrkPd9jfIEwRu4wyk&hl=en" alt=""/>
+        </Grid.Column>
+      </Grid>
     </>
   );
 };
