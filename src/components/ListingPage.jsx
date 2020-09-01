@@ -10,10 +10,12 @@ const ListingPage = (props) => {
 
   const getListings = async () => {
     let response = await axios.get(`/listings`);
-    setListings(response.data.articles);
+    setListings(response.data.listings);
   };
 
-  let content = <>{listings.map((listing) => (listing = { listing }))}</>;
+  let content = listings.map((listing) => (
+    <p>{listing.lead}</p>
+  ));
 
   return (
     <>
