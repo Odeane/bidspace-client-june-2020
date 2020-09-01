@@ -14,7 +14,11 @@ const ListingPage = (props) => {
   };
 
   let content = listings.map((listing) => (
+    <>
     <p>{listing.lead}</p>
+    <p>{listing.category}</p>
+    <p>{listing.scene}</p>
+    </>
   ));
 
   return (
