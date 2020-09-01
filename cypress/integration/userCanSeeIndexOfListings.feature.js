@@ -9,23 +9,23 @@ describe("Vistors can see index of listings", () => {
     cy.visit("/rent-space");
   });
   it("Visitors can see listing one", () => {
-    cy.get("#listing-1").within(() => {
-      cy.get("#lead").should("contain", "Vacant");
-      cy.get("#scene").should("contain", "indoor");
+    cy.get('[data-cy=listing-1]').within(() => {
+      cy.get('[data-cy=lead]').should("contain", "Vacant");
+      cy.get('[data-cy=scene]').should("contain", "indoor");
     });
   });
 
   it("Visitors can see listing two", () => {
-    cy.get("#listing-2").within(() => {
-      cy.get("#lead").should("contain", "Great parking spot in central of Stockholm.");
-      cy.get("#scene").should("contain", "indoor");
+    cy.get('[data-cy=listing-2]').within(() => {
+      cy.get('[data-cy=lead]').should("contain", "Great parking spot in central of Stockholm.");
+      cy.get('[data-cy=scene]').should("contain", "indoor");
     });
   });
 
   it("Visitors can see listing three", () => {
-    cy.get("#listing-3").within(() => {
-      cy.get("#lead").should("contain", "Parking spot in villa area.");
-      cy.get("#scene").should("contain", "outdoor");
+    cy.get('[data-cy=listing-3]').within(() => {
+      cy.get('[data-cy=lead]').should("contain", "Parking spot in villa area.");
+      cy.get('[data-cy=scene]').should("contain", "outdoor");
     });
   });
 });

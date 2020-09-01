@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const ListingPage = (props) => {
+const ListingPage = () => {
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
@@ -14,11 +14,11 @@ const ListingPage = (props) => {
   };
 
   let content = listings.map((listing) => (
-    <>
-    <p>{listing.lead}</p>
-    <p>{listing.category}</p>
-    <p>{listing.scene}</p>
-    </>
+    <div data-cy={`listing-${listing.id}`} data-id={listing.id}>
+    <p data-cy="lead">{listing.lead}</p>
+    <p data-cy="category">{listing.category}</p>
+    <p data-cy="scene">{listing.scene}</p>
+    </div>
   ));
 
   return (
