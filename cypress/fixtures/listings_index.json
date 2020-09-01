@@ -1,0 +1,22 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "lead": "Vacant",
+      "scene": "indoor",
+      "category": "Parking spot"
+    },
+    {
+      "id": 2,
+      "lead": "Great parking spot in central of Stockholm.",
+      "scene": "indoor",
+      "category": "Parking spot"
+    },
+    {
+      "id": 3,
+      "lead": "Parking spot in villa area.",
+      "scene": "outdoor",
+      "category": "Parking spot"
+    }
+  ]
+}
