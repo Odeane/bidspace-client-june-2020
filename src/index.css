@@ -89,6 +89,8 @@ code {
   float: right;
   color: #e1dee3;
   outline: none;
+  border-bottom: 2px solid;
+  border-color: #e1dee3;
 }
 
 #signup-button {
@@ -105,6 +107,8 @@ code {
   float: right;
   color: #e1dee3;
   outline: none;
+  border-bottom: 2px solid;
+  border-color: #e1dee3;
 }
 
 #logo {
