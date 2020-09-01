@@ -18,4 +18,13 @@ describe("Landing page successfully render", () => {
     cy.contains("Contact us")
   })
 
+  it('visitor can navigate to landlord page', () => {
+    cy.get('[href="/rentout-page"]').click()
+    cy.get("#rentout-title").contains("List your shit")
+  })
+
+  it('visitor can navigate to listing page', () => {
+    cy.get('[href="/listing-page"]').click()
+    cy.get("#rent-space-title").contains("Find your shit")
+  })
 })
