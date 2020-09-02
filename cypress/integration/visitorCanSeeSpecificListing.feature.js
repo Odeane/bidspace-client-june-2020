@@ -22,7 +22,7 @@ describe("Vistors can see specific listing", () => {
       cy.get('[data-cy=lead]').should("contain", "Great parking spot in central of Stockholm.");
       cy.get('[data-cy=scene]').should("contain", "indoor");
       cy.get('[data-cy=price]').should("contain", "200")
-      cy.get('[data-cy=adress]').should("contain", "Sibyllegatan 18, 11442 Stockholm")
+      cy.get('[data-cy=address]').should("contain", "Sibyllegatan 18, 11442 Stockholm")
       cy.get('[data-cy=description]').should(
         "contain",
         "Heated garage in the middle of Stockholm that fits one big SUV."

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Grid, Item, Label, Button } from "semantic-ui-react";
-import {Link } from "react-router-dom";
+import { Grid, Item, Label, Button, Icon } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 const ListingPage = () => {
   const [listings, setListings] = useState([]);
@@ -23,9 +23,11 @@ const ListingPage = () => {
           <Item.Meta id="category">{listing.category}</Item.Meta>
           <Item.Extra>
             <Label data-cy="scene">{listing.scene}</Label>
-            <Link to={`listing/${listing.id}`}><Button data-cy="button" >
-               Check me out
-            </Button>
+            <Link to={`listing/${listing.id}`}>
+              <Button data-cy="button" primary floated="right">
+                Check me out
+                <Icon name="right chevron" />
+              </Button>
             </Link>
           </Item.Extra>
         </Item.Content>
