@@ -23,7 +23,7 @@ const ListingPage = () => {
           <Item.Meta id="category">{listing.category}</Item.Meta>
           <Item.Extra>
             <Label data-cy="scene">{listing.scene}</Label>
-            <Link to="/single-listing"><Button data-cy="button" >
+            <Link to={`listing/${listing.id}`}><Button data-cy="button" >
                Check me out
             </Button>
             </Link>

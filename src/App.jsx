@@ -6,14 +6,14 @@ import ListingPage from "./components/ListingPage"
 import LandlordPage from "./components/LandlordPage"
 import SingleListing from "./components/SingleListing"
 
-const App = () => {
+const App = (props) => {
   return (
     <div>
       <Switch>
         <Route exact path="/"> <LandingPage /> </Route>
         <Route exact path="/rent-space"> <ListingPage /> </Route>
         <Route exact path="/rentout-space"> <LandlordPage /> </Route>
-        <Route exact path="/single-listing"> <SingleListing /> </Route>
+        <Route exact path="/listing/:id"> <SingleListing /> </Route>
       </Switch>
     </div>
   );
