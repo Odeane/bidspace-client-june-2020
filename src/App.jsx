@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import LandingPage from "./components/LandingPage";
 import ListingPage from "./components/ListingPage"
 import LandlordPage from "./components/LandlordPage"
+import SingleListing from "./components/SingleListing"
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
         <Route exact path="/"> <LandingPage /> </Route>
         <Route exact path="/rent-space"> <ListingPage /> </Route>
         <Route exact path="/rentout-space"> <LandlordPage /> </Route>
+        <Route exact path="/single-listing"> <SingleListing /> </Route>
       </Switch>
     </div>
   );
