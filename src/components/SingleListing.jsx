@@ -11,7 +11,6 @@ const SingleListing = (props) => {
   }, []);
 
   const getSingleListing = async () => {
-    debugger;
     let id = listingId;
     let response = await axios.get(`/listings/${id}`);
     setSingleListing(response.data.listings);
@@ -34,7 +33,6 @@ const SingleListing = (props) => {
     </Item.Group>
   ));
 
-  console.log(singleListing);
 
   return (
     <>
