@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 import LandingPage from "./components/LandingPage";
 import ListingPage from "./components/ListingPage"
 import LandlordPage from "./components/LandlordPage"
@@ -16,4 +17,10 @@ const App = () => {
   );
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return{
+    state: state
+  }
+}
+
+export default connect(mapStateToProps)(App);
