@@ -13,7 +13,7 @@ const App = (props) => {
         <Route exact path="/"> <LandingPage /> </Route>
         <Route exact path="/rent-space"> <ListingPage /> </Route>
         <Route exact path="/rentout-space"> <LandlordPage /> </Route>
-        <Route exact path="/listing/:id"> <SingleListing /> </Route>
+        <Route exact path="/listing/:id" component={SingleListing}></Route>
       </Switch>
     </div>
   );
