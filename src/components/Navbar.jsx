@@ -28,6 +28,7 @@ const Navbar = (props) => {
 
 const mapStateToProps = (state) => {
   return {
+    renderLoginForm: state.renderLoginForm,
     authenticated: state.authenticated
   }
 }

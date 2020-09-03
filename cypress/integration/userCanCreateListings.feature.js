@@ -21,7 +21,7 @@ describe("User can create listing", () => {
     cy.get("[data-cy=login-form]").within(() => {
       cy.get("[data-cy=email]").type("user@mail.com");
       cy.get("[data-cy=password]").type("password");
-      cy.get("[data-cy=button]").contains("submit").click();
+      cy.get("[data-cy=button]").contains("Submit").click();
     });
   });
 

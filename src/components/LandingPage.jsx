@@ -1,8 +1,11 @@
 import React from "react";
 import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux"
+import LoginForm from "./LoginForm"
+import LoginButton from "./LoginButton"
 
-const LandingPage = () => {
+const LandingPage = (props) => {
   return (
     <>
       <div id="left-pane">
@@ -13,8 +16,16 @@ const LandingPage = () => {
         <Navbar />
         <Link data-cy="button" id="rentout-button" to="/rentout-space">Rent out a space!</Link>
       </div>
+      {props.renderLoginForm && <LoginForm />}
     </>
   );
 };
 
-export default LandingPage;
+const mapStateToProps = (state) => {
+  return{
+    renderLoginForm: state.renderLoginForm,
+    authenticated: state.authenticated,
+  }
+}
+
+export default connect(mapStateToProps)(LandingPage);

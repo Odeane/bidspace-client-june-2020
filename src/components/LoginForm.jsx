@@ -1,9 +1,9 @@
 import React from "react";
+import { Button, Form, Input } from "semantic-ui-react";
 import { connect } from "react-redux";
 import auth from "../modules/auth";
 
-
-const LoginForm = (props)=> {
+const LoginForm = (props) => {
   const authenticate = async (event) => {
     event.preventDefault();
     try {
@@ -18,7 +18,6 @@ const LoginForm = (props)=> {
         },
       });
     } catch (error) {
-      
       props.dispatch({
         type: "FAIL_AUTHENTICATE",
         payload: {
@@ -29,13 +28,31 @@ const LoginForm = (props)=> {
   };
 
   return (
-    <div>
-   <input data-cy="email"></input>
-    <input data-cy="password"></input>
-    <button data-cy="button">submit</button>
-    </div>
-  )
-}
+    <>
+      <Form data-cy="login-form" onSubmit={authenticate} id="login-form">
+        <Form.Group id="form-group">
+          <Form.Field
+            control={Input}
+            label="Email"
+            placeholder="Email"
+            inline
+            data-cy="email"
+          />
+          <Form.Field
+            control={Input}
+            label="Password"
+            placeholder="Password"
+            inline
+            data-cy="password"
+          />
+          <Button data-cy="button" content="Login" id="login-submit" primary inline>Submit</Button>
+        </Form.Group>
+
+        <p>{props.errorMessage}</p>
+      </Form>
+    </>
+  );
+};
 const mapStateToProps = (state) => {
   return {
     errorMessage: state.errorMessage,

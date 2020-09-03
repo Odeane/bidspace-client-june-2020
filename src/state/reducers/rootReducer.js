@@ -17,15 +17,15 @@ const rootReducer = (state = initialState, action) => {
         renderLoginForm: true,
       };
 
-    case "LOGIN_FORM_VISIBILTY":
+    case "LOGIN_FORM_VISIBILITY":
       return {
         ...state,
         ...action.payload,
       };
 
-      default:
-        return state;
+    default:
+      return state;
   }
 };
 
-export default rootReducer;
+export default rootReducer; 

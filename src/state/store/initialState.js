@@ -2,7 +2,7 @@ const initialState = {
   currentUser: { email: undefined, role: undefined },
   authenticated: false,
   renderLoginForm: false,
-  errorMessage: "", 
-}
+  errorMessage: "",
+};
 
 export default initialState;

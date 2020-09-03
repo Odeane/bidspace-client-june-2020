@@ -130,3 +130,9 @@ code {
   color: #e1dee3;
   outline: none;
 }
+
+#form-group {
+  float: right;
+  margin-right: 10%;
+  margin-top: 5%;
+}
