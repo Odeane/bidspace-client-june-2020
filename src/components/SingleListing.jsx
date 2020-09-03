@@ -11,10 +11,9 @@ const SingleListing = (props) => {
   }, []);
 
   const getSingleListing = async () => {
-    debugger;
     let id = listingId;
     let response = await axios.get(`/listings/${id}`);
-    setSingleListing(response.data);
+    setSingleListing(response.data.listing);
   };
 
   let listingContent = (
