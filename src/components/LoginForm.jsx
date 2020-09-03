@@ -5,6 +5,7 @@ import auth from "../modules/auth";
 
 const LoginForm = (props) => {
   const authenticate = async (event) => {
+    debugger;
     event.preventDefault();
     try {
       let response = await auth.signIn(
@@ -32,6 +33,7 @@ const LoginForm = (props) => {
       <Form data-cy="login-form" onSubmit={authenticate} id="login-form">
         <Form.Group id="form-group">
           <Form.Field
+            id="email"
             control={Input}
             label="Email"
             placeholder="Email"
@@ -39,13 +41,23 @@ const LoginForm = (props) => {
             data-cy="email"
           />
           <Form.Field
+            id="password"
             control={Input}
             label="Password"
             placeholder="Password"
             inline
             data-cy="password"
+            type="password"
           />
-          <Button data-cy="button" content="Login" id="login-submit" primary inline>Submit</Button>
+          <Button
+            data-cy="button"
+            content="Login"
+            id="login-submit"
+            primary
+            inline
+          >
+            Submit
+          </Button>
         </Form.Group>
 
         <p>{props.errorMessage}</p>

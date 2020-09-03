@@ -5,7 +5,6 @@ import LandingPage from "./components/LandingPage";
 import ListingPage from "./components/ListingPage"
 import LandlordPage from "./components/LandlordPage"
 import SingleListing from "./components/SingleListing"
-import LoginForm from "./components/LoginForm"
 
 const App = (props) => {
   return (
@@ -23,6 +22,7 @@ const App = (props) => {
 const mapStateToProps = (state) => {
   return{
     renderLoginForm: state.renderLoginForm,
+    authenticated: state.authenticated
   }
 }
 

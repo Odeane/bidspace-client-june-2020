@@ -9,12 +9,12 @@ describe("User can create listing", () => {
     cy.route({
         method: "POST",
         url: "http://localhost:3000/api/v1/auth/sign_in",
-        reponse: "fixture:login_response.json",
+        response: "fixture:login_response.json",
     })
     cy.route({
         method: "GET",
         url: "http://localhost:3000/api/v1/auth/**",
-        reponse: "fixture:login_response.json",
+        response: "fixture:login_response.json",
     })
     cy.visit('/')
     cy.get('[data-cy=button]').contains("Login").click()

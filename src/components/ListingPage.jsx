@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Grid, Item, Label, Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import LoginButton from "./LoginButton"
 
 const ListingPage = () => {
   const [listings, setListings] = useState([]);
