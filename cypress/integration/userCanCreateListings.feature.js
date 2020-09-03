@@ -17,7 +17,7 @@ describe("User can create listing", () => {
         reponse: "fixture:login_response.json",
     })
     cy.visit('/')
-    cy.get("[data-cy=login]").click();
+    cy.get('[data-cy=button]').contains("Login").click()
     cy.get("[data-cy=login-form]").within(() => {
       cy.get("[data-cy=email]").type("user@mail.com");
       cy.get("[data-cy=password]").type("password");
