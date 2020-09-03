@@ -13,7 +13,7 @@ const SingleListing = (props) => {
   const getSingleListing = async () => {
     let id = listingId;
     let response = await axios.get(`/listings/${id}`);
-    setSingleListing(response.data.listing);
+    setSingleListing(response.data);
   };
 
   let listingContent = (
