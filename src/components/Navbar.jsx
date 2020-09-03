@@ -1,14 +1,16 @@
 import React from "react";
 import { Menu } from "semantic-ui-react";
 import LongMenu from "./LongMenu";
+import LoginButton from "./LoginButton"
+import { connect } from "react-redux"
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <div>
       <Menu secondary id="navbar">
         <Menu.Menu position="right">
           <Menu.Item>
-            <button data-cy="button" id="login-button">Login</button>
+            <LoginButton data-cy="button" id="login-button" />
           </Menu.Item>
 
           <Menu.Item>
@@ -24,4 +26,10 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+const mapStateToProps = (state) => {
+  return {
+    authenticated: state.authenticated
+  }
+}
+
+export default connect(mapStateToProps)(Navbar);
