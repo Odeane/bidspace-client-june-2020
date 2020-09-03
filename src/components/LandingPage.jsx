@@ -3,7 +3,6 @@ import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux"
 import LoginForm from "./LoginForm"
-import LoginButton from "./LoginButton"
 
 const LandingPage = (props) => {
   return (

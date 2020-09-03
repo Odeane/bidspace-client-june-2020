@@ -136,3 +136,16 @@ code {
   margin-right: 10%;
   margin-top: 5%;
 }
+
+#listing {
+  border: solid 2px;
+  padding: 2%;
+  position: fixed;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+}
+
+#scene {
+  display: inline-block;
+}

@@ -26,7 +26,7 @@ describe("User can create listing", () => {
   });
 
   it("user can click on create listing", () => {
-    cy.get("[data-cy=button]").contains("Create Listing").click();
+    cy.get("[data-cy=button]").contains("Rent out a space!").click();
     cy.get("[data-cy=listing-form]").within(() => {
       cy.get("[data-cy=button]").contains("Parking").click();
       cy.get("[data-cy=button]").contains("Indoor").click();
