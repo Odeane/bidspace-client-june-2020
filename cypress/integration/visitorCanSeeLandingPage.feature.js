@@ -4,27 +4,27 @@ describe("Landing page successfully render", () => {
   })
   
   it("vistiors can see different elements", () => {
-    cy.get("#logo").should("be.visible")
-    cy.get("#login-button").should("be.visible")
-    cy.get("#signup-button").should("be.visible")
-    cy.get("#burger-menu").should("be.visible")
-    cy.get("#rentout-button").should("be.visible")
-    cy.get("#rent-button").should("be.visible")
+    cy.get('#logo').should("be.visible")
+    cy.get('[data-cy=button]').should("contain", "Login")
+    cy.get('[data-cy=button]').should("contain", "Signup")
+    cy.get('#burger-menu').should("be.visible")
+    cy.get('[data-cy=button]').should("contain", "Rent a space!")
+    cy.get('[data-cy=button]').should("contain", "Rent out a space!")
   })
  
   it("visitors can see items on burger menu", () => {
-    cy.get("#burger-menu").click()
-    cy.contains("FAQs")
-    cy.contains("Contact us")
+    cy.get('#burger-menu').click()
+    cy.get('[data-cy=button]').should("contain", "FAQs")
+    cy.get('[data-cy=button]').should("contain", "Contact us")
   })
 
   it('visit or can navigate to landlord page', () => {
-    cy.get("#rentout-button").click()
+    cy.get('[data-cy=button]').contains("Rent out a space!").click()
     cy.get("#rentout-title").contains("Landlord Rent your Space")
   })
 
   it('visitor can navigate to listing page', () => {
-    cy.get('#rent-button').click()
+    cy.get('[data-cy=button]').contains("Rent a space!").click()
     cy.get("#rent-space-title").contains("Rent your space")
   })
 })
