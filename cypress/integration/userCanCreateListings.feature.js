@@ -28,14 +28,14 @@ describe("User can create listing", () => {
   it("user can click on create listing", () => {
     cy.get("[data-cy=button]").contains("Rent out a space!").click();
     cy.get("[data-cy=listing-form]").within(() => {
-      cy.get("[data-cy=button]").contains("Parking").click();
-      cy.get("[data-cy=button]").contains("Indoor").click();
+      cy.get("div[role='option']").contains("Parking").click({force: true});
+      cy.get("div[role='option']").contains("Indoors").click({force: true});
       cy.get("[data-cy=lead]").type("Writing a nice lead")
       cy.get("[data-cy=description]").type("A nice description aiming to give more information")
       cy.get("[data-cy=address]").type("111 Whatever Street, 11111 Stockholm")
       cy.get("[data-cy=price]").type(200)
-      cy.file_upload("img.jpeg", "#image-upload", "image/jpeg")
-      cy.get("[data-cy=button").contains("Save Lisiting").click()
+     
+      cy.get("[data-cy=button]").contains("Submit Listing").click()
     });
     cy.get("[data-cy=message]").should("contain", "The listing has been created successfully")
   });
