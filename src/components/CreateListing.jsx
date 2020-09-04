@@ -1,18 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import {
-  Icon,
-  Form,
-  TextArea,
-  Input,
-  Label,
-  Container,
-  Button,
-} from "semantic-ui-react";
+import { Form, TextArea, Input, Label, Button } from "semantic-ui-react";
 
 const CreateListing = () => {
   const [message, setMessage] = useState("");
-  const [renderListingForm, setRenderListingForm] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedScene, setSelectedScene] = useState("");
 
@@ -24,15 +15,16 @@ const CreateListing = () => {
   ];
 
   const submitListing = async (event) => {
+    debugger;
     event.preventDefault();
     let responseMessage, listingParams, response;
-    let { category, scene, lead, description, address, price } = event.target;
+    let { lead, description, address, price } = event.target;
     const headers = JSON.parse(localStorage.getItem("J-tockAuth-storage"));
 
     try {
       listingParams = {
-        category: category.value,
-        scene: scene.value,
+        category: selectedCategory,
+        scene: selectedScene,
         lead: lead.value,
         description: description.value,
         address: address.value,
@@ -51,7 +43,7 @@ const CreateListing = () => {
       setMessage(responseMessage);
     }
   };
-  const handleCategoryClick = (value) => {
+  const handleCategoryChange = (value) => {
     setSelectedCategory(value);
   };
 
@@ -61,80 +53,72 @@ const CreateListing = () => {
 
   return (
     <>
-      <Container id="listing">
-        <Form onSubmit={submitListing}>
-          <Form.Group data-cy="listing-form">
-            <h2>Rent my space</h2>
-            <Form.Select
-              onChange={(event, data) => {
-                handleCategoryClick(data.value);
-              }}
-              options={categoryOption}
-              placeholder="Parking"
-              id="parking"
-              name="parking"
-              label="Category"
-            />
-
-            <Form.Select
-              onChange={(event, data) => {
-                handleSceneChange(data.value);
-              }}
-              options={sceneOptions}
-              placeholder="Indoors or Outdoors"
-              id="scene"
-              name="scene"
-              label="Scene"
-            />
-
-            <Form.Field
-              control={TextArea}
-              data-cy="lead"
-              placeholder="Lead"
-              id="lead"
-              name="lead"
-              label="Lead"
-            />
-
-            <Form.Field
-              control={TextArea}
-              data-cy="description"
-              placeholder="Description"
-              name="description"
-              label="Description"
-              id="description"
-            />
-
-            <Form.Field
-              control={TextArea}
-              data-cy="address"
-              placeholder="Address"
-              name="address"
-              label="Address"
-            />
-         
-          <Input
+      <h2 data-cy="title">Rent my space</h2>
+      <Form data-cy="listing-form" onSubmit={submitListing}>
+        <Form.Group>
+          <Form.Select
+            onChange={(event, data) => {
+              handleCategoryChange(data.value);
+            }}
+            options={categoryOption}
+            placeholder="Parking"
+            id="parking"
+            name="parking"
+            label="Category"
+          />
+          <Form.Select
+            onChange={(event, data) => {
+              handleSceneChange(data.value);
+            }}
+            options={sceneOptions}
+            placeholder="Indoors or Outdoors"
+            id="scene"
+            name="scene"
+            label="Scene"
+          />
+        </Form.Group>
+        <Form.Group>
+          <Form.Field
+            control={Input}
+            data-cy="lead"
+            placeholder="Lead"
+            id="lead"
+            name="lead"
+            label="Lead"
+          />
+          <Form.Field
+            control={TextArea}
+            data-cy="description"
+            placeholder="Description"
+            name="description"
+            label="Description"
+            id="description"
+          />
+          <Form.Field
+            control={Input}
+            data-cy="address"
+            placeholder="Address"
+            name="address"
+            label="Address"
+          />
+        </Form.Group>
+        <Form.Group>
+        <Form.Field
+            control={Input}
             data-cy="price"
-            size="mini"
-            labelPosition="right"
-            type="text"
-            placeholder="Minium desired price"
-          >
-            <Label basic>SEK</Label>
-            <input />
-            <Label>.00</Label>
-          </Input>{" "}
-          <br /> <br />
-          
-          <Form.Group>
-            <Input id="image-upload" name="image" type="file" />
-          </Form.Group>
+            placeholder="Price"
+            name="price"
+            label="Price"
+          />
+        </Form.Group>
+        <Form.Group>
           <Button data-cy="button" type="submit">
             Submit Listing
           </Button>
-          </Form.Group>
-        </Form>
-      </Container>
+        </Form.Group>
+      </Form>
+      {message && <p data-cy="message">{message}</p>}
+      <br />
     </>
   );
 };

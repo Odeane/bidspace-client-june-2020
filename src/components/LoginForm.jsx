@@ -5,7 +5,6 @@ import auth from "../modules/auth";
 
 const LoginForm = (props) => {
   const authenticate = async (event) => {
-    debugger;
     event.preventDefault();
     try {
       let response = await auth.signIn(

@@ -18,9 +18,9 @@ describe("Landing page successfully render", () => {
     cy.get('[data-cy=button]').should("contain", "Contact us")
   })
 
-  it('visit or can navigate to landlord page', () => {
-    cy.get('[data-cy=button]').contains("Rent out a space!").click()
-    cy.get("#rentout-title").contains("Landlord Rent your Space")
+  it('visitors can navigate to landlord page', () => {
+    cy.get("[data-cy=button]").contains("Rent out a space!").click()
+    cy.get("[data-cy=title]").should("contain", "Rent my space")
   })
 
   it('visitor can navigate to listing page', () => {
