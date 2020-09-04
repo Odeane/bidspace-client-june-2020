@@ -26,7 +26,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "cy:open": "cypress open & yarn start --silent",
-    "cy:run": "BROWSER=none yarn start & cypress run"
+    "cy:run": "BROWSER=none yarn start & cypress run",
+    "start-server": "yarn start",
+    "ci": "start-server-and-test 'yarn start-server' http://localhost:8080 'yarn test'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -47,6 +49,7 @@
     "cypress": "4.11.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.4",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.13.1",
+    "start-server-and-test": "^1.11.3"
   }
 }

@@ -4,7 +4,7 @@ import { Item, Label } from "semantic-ui-react";
 
 const SingleListing = (props) => {
   const listingId = props.match.params.id;
-  const [singleListing, setSingleListing] = useState([]);
+  const [singleListing, setSingleListing] = useState({});
 
   useEffect(() => {
     getSingleListing();
@@ -13,32 +13,31 @@ const SingleListing = (props) => {
   const getSingleListing = async () => {
     let id = listingId;
     let response = await axios.get(`/listings/${id}`);
-    setSingleListing(response.data.listings);
+    setSingleListing(response.data);
   };
 
-  let listingContent = singleListing.map((listing) => (
+  let listingContent = (
     <Item.Group divided>
-      <Item data-cy={`listing-${listing.id}`} data-id={listing.id}>
+      <Item data-cy={`listing-${singleListing.id}`} data-id={singleListing.id}>
         <Item.Content>
-          <Item.Header data-cy="lead">{listing.lead}</Item.Header>
-          <Item.Meta data-cy="address">{listing.address}</Item.Meta>
-          <Item.Description data-cy="description">{listing.description}</Item.Description>
+          <Item.Header data-cy="lead">{singleListing.lead}</Item.Header>
+          <Item.Meta data-cy="address">{singleListing.address}</Item.Meta>
+          <Item.Description data-cy="description">
+            {singleListing.description}
+          </Item.Description>
           <Item.Extra>
-            <Label data-cy="scene">{listing.scene}</Label>
-            <Label data-cy="category">{listing.category}</Label>
-            <Label data-cy="price">{listing.price}</Label>
+            <Label data-cy="scene">{singleListing.scene}</Label>
+            <Label data-cy="category">{singleListing.category}</Label>
+            <Label data-cy="price">{singleListing.price}</Label>
           </Item.Extra>
         </Item.Content>
       </Item>
     </Item.Group>
-  ));
-
+  );
 
   return (
     <>
-      <div>
-        {listingContent}
-      </div>
+      <div>{listingContent}</div>
     </>
   );
 };
