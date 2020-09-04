@@ -14,10 +14,18 @@ const CreateListing = () => {
     { key: "o", text: "Outdoors", value: "outdoor" },
   ];
 
+  const toBase64 = (file) => 
+  new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
+
   const submitListing = async (event) => {
     event.preventDefault();
-    let responseMessage, listingParams, response;
-    let { lead, description, address, price } = event.target;
+    let responseMessage, listingParams, encodedImage, response;
+    let { lead, description, address, price, image } = event.target;
     const headers = JSON.parse(localStorage.getItem("J-tockAuth-storage"));
 
     try {
@@ -29,6 +37,12 @@ const CreateListing = () => {
         address: address.value,
         price: price.value,
       };
+
+      if (image.files[0]) {
+        encodedImage = await toBase64(image.files[0]);
+        listingParams.image = encodedImage;
+      }
+
       response = await axios.post(
         "http://localhost:3000/api/v1/listings",
         { listing: listingParams },
@@ -110,6 +124,11 @@ const CreateListing = () => {
             label="Price"
           />
         </Form.Group>
+
+        <Form.Group>
+            <Input id="image-upload" name="image" type="file" />
+        </Form.Group>
+
         <Form.Group>
           <Button data-cy="button" type="submit">
             Submit Listing
