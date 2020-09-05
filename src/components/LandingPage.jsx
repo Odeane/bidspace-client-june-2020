@@ -16,7 +16,7 @@ import {
 const LandingPage = (props) => {
   return (
     <>
-      <Segment size="massive" inverted>
+      <Segment id="top-segment" size="massive" inverted>
         <Container text>
           <Header as="h1" content="BidSpace" id="h1-header" inverted />
           <Header
