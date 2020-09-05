@@ -24,7 +24,7 @@ function LongMenu() {
   };
 
   return (
-    <div>
+    <>
       <IconButton id="burger-menu"
         aria-label="more"
         aria-controls="long-menu"
@@ -55,7 +55,7 @@ function LongMenu() {
           </MenuItem>
         ))}
       </Menu>
-    </div>
+    </>
   );
 }
 
