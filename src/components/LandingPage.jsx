@@ -48,13 +48,15 @@ const LandingPage = (props) => {
                 bordered
                 rounded
                 size="large"
-                src="https://i.redd.it/w3kr4m2fi3111.png"
+                src="https://cdn.pixabay.com/photo/2020/07/19/09/55/man-5419522_960_720.jpg"
               />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
             <Grid.Column textAlign="center">
-              <Button size="huge">Check out our spaces!</Button>
+              <Link data-cy="button" to="/rent-space">
+                <Button size="huge">Check out our spaces!</Button>
+              </Link>
             </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -66,7 +68,9 @@ const LandingPage = (props) => {
         <Grid container stackable verticalAlign="middle">
           <Grid.Row>
             <Grid.Column textAlign="center">
-              <Button size="huge">Rent out your space!</Button>
+              <Link data-cy="button" to="/rentout-space">
+                <Button size="huge">Rent out your space!</Button>
+              </Link>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
@@ -75,7 +79,7 @@ const LandingPage = (props) => {
                 bordered
                 rounded
                 size="large"
-                src="https://i.redd.it/w3kr4m2fi3111.png"
+                src="https://cdn.pixabay.com/photo/2015/10/12/15/10/parking-garage-984253_960_720.jpg"
               />
             </Grid.Column>
             <Grid.Column width={8}>
