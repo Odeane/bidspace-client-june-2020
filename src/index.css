@@ -148,3 +148,9 @@ transform: translate(-50%, -50%);
 #scene {
   display: inline-block;
 }
+
+.ui.placeholder.segment {
+  position: absolute;
+  left: 35%;
+  right: 35%;
+}

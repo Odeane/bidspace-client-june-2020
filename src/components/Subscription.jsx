@@ -5,13 +5,22 @@ import {
   CardNumberElement,
   CardExpiryElement,
   CardCVCElement,
-}
-  from "react-stripe-elements";
+} from "react-stripe-elements";
 import { Link } from "react-router-dom";
-import { Button, Form, Grid, Segment } from "semantic-ui-react";
+import {
+  Button,
+  Form,
+  Grid,
+  Segment,
+  Step,
+  Icon,
+  Container,
+  Header
+} from "semantic-ui-react";
 
 const Subscription = (props) => {
-  const [message, setMessage] = useState(null)
+  const [message, setMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const payWithStripe = async (event) => {
     event.preventDefault();
@@ -20,7 +29,7 @@ const Subscription = (props) => {
     if (stripeResponse.token) {
       stripeResponse.token && performPayment(stripeResponse.token.id);
     } else {
-      setMessage("Something went wrong!")
+      setErrorMessage("Something went wrong!");
     }
   };
 
@@ -35,44 +44,74 @@ const Subscription = (props) => {
       );
 
       if (response.data.paid === true) {
-        setMessage(response.data.message)
+        setMessage(response.data.message);
       }
     } catch (error) {
-      setMessage(error.response.data.message)
+      setErrorMessage(error.response.data.message);
     }
   };
 
   return (
     <>
-      {message && (
-        <>
-          <p data-cy="message">{message}</p>
-          <Link data-cy="link" to={{ pathname: "/" }}>
-            Back to listings
-          </Link>
-        </>
-      )}
-      <Segment placeholder>
-        <Grid columns={1} relaxed="very" stackable>
-          <Grid.Column>
-            <Form onSubmit={payWithStripe} id="payment-form">
-              <label>Card number</label>
-              <CardNumberElement />
+      <Container>
+        <Segment placeholder>
+          <Header as="h2">Payment Form</Header>
+          <Grid columns={1} relaxed="very" stackable>
+            <Grid.Column>
+              <Form onSubmit={payWithStripe} id="payment-form">
+                <label>Card number</label>
+                <CardNumberElement />
 
-              <label>Expiry Date</label>
-              <CardExpiryElement />
+                <label>Expiry Date</label>
+                <CardExpiryElement />
 
-              <label>CVC</label>
-              <CardCVCElement />
+                <label>CVC</label>
+                <CardCVCElement />
 
-              <Button data-cy="button" type="submit">
-                Submit Payment
-              </Button>
-            </Form>
-          </Grid.Column>
-        </Grid>
-      </Segment>
+                <Button data-cy="button" type="submit">
+                  Submit Payment
+                </Button>
+              </Form>
+            </Grid.Column>
+          </Grid>
+        </Segment>
+
+        {message && (
+          <>
+            <Step.Group>
+              <Step completed>
+                <Icon name="credit card" />
+                <Step.Content>
+                  <Step.Title data-cy="message">{message}</Step.Title>
+                  <Step.Description>
+                    <Link data-cy="link" to={{ pathname: "/" }}>
+                      Back to listings
+                    </Link>
+                  </Step.Description>
+                </Step.Content>
+              </Step>
+            </Step.Group>
+          </>
+        )}
+        {errorMessage && (
+          <>
+            <Step.Group>
+              <Step>
+                <Icon name="x" color="red"/>
+                <Step.Content>
+                  <Step.Title data-cy="message">{errorMessage}</Step.Title>
+                  <Step.Description>
+                    <Link data-cy="link" to={{ pathname: "/" }}>
+                      Back to listings
+                    </Link>
+                  </Step.Description>
+                </Step.Content>
+              </Step>
+            </Step.Group>
+          </>
+        )}
+      </Container>
     </>
-  )
-}
+  );
+};
 export default injectStripe(Subscription);
