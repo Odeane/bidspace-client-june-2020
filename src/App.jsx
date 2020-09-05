@@ -5,6 +5,8 @@ import LandingPage from "./components/LandingPage";
 import ListingPage from "./components/ListingPage"
 import LandlordPage from "./components/LandlordPage"
 import SingleListing from "./components/SingleListing"
+import { Elements } from "react-stripe-elements" 
+import Subscription from "./components/Subscription"
 
 const App = (props) => {
   return (
@@ -14,6 +16,9 @@ const App = (props) => {
         <Route exact path="/rent-space" component={ListingPage}></Route>
         <Route exact path="/rentout-space" component={LandlordPage}></Route>
         <Route exact path="/listing/:id" component={SingleListing}></Route>
+        <Elements>
+            <Route exact path="/subscription" component={Subscription}></Route>
+          </Elements>
       </Switch>
     </div>
   );
