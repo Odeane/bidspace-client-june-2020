@@ -19,6 +19,7 @@ const SingleListing = (props) => {
   let listingContent = (
     <Item.Group divided>
       <Item data-cy={`listing-${singleListing.id}`} data-id={singleListing.id}>
+      <Item.Image data-cy="image" src={singleListing.image} alt="listing image"/>
         <Item.Content>
           <Item.Header data-cy="lead">{singleListing.lead}</Item.Header>
           <Item.Meta data-cy="address">{singleListing.address}</Item.Meta>

@@ -18,6 +18,7 @@ const ListingPage = () => {
   let content = listings.map((listing) => (
     <Item.Group divided>
       <Item data-cy={`listing-${listing.id}`} data-id={listing.id}>
+        <Item.Image data-cy="image" src={listing.image} alt="listing image"/>
         <Item.Content>
           <Item.Header data-cy="lead">{listing.lead}</Item.Header>
           <Item.Meta id="category">{listing.category}</Item.Meta>
