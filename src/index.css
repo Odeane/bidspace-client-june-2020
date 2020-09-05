@@ -5,8 +5,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
-  width: 100vw;
 }
 
 code {
@@ -14,6 +12,17 @@ code {
     monospace;
 }
 
-h1 {
-  height:;
+.ui.segment {
+  padding-top: 5%;
+  padding-bottom: 10%;
+}
+
+#h1-header {
+  font-size: 1000%;
+  text-align: center;
+}
+
+#read-more {
+  margin-top: 2%;
+  margin-left: 42%;
 }

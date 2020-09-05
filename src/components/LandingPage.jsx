@@ -3,40 +3,52 @@ import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import LoginForm from "./LoginForm";
-import { Container, Header, Button, Icon, Segment, Grid, Image, Divider } from "semantic-ui-react"
+import {
+  Container,
+  Header,
+  Button,
+  Segment,
+  Grid,
+  Image,
+  Divider,
+} from "semantic-ui-react";
 
 const LandingPage = (props) => {
   return (
     <>
-    <Segment inverted>
-      <Container text>
-        <Header as="h1" content="BidSpace" inverted />
-        <Header
-          as="h2"
-          content="Find or rent a space that fits you!"
-          inverted
-        />
-        <Button primary size="huge">
+      <Segment size="massive" inverted>
+        <Container text>
+          <Header as="h1" content="BidSpace" id="h1-header" inverted />
+          <Header
+            as="h2"
+            content="Find or rent a space that fits you!"
+            inverted
+            textAlign="center"
+          />
+        </Container>
+        <Button id="read-more" primary size="huge">
           Read more below!
         </Button>
-      </Container>
       </Segment>
 
       <Segment vertical>
         <Grid container stackable verticalAlign="middle">
           <Grid.Row>
             <Grid.Column width={8}>
-              <Header as="h3">
-                We help you find your space.
-              </Header>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id in molestias similique cumque labore fugiat minus animi, voluptatum maxime, voluptas odio modi consectetur voluptatibus quos laboriosam illo dignissimos mollitia. Impedit?</p>
+              <Header as="h3">We help you find your space.</Header>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id in
+                molestias similique cumque labore fugiat minus animi, voluptatum
+                maxime, voluptas odio modi consectetur voluptatibus quos
+                laboriosam illo dignissimos mollitia. Impedit?
+              </p>
             </Grid.Column>
             <Grid.Column floated="right" width={6}>
               <Image
-              bordered
-              rounded
-              size="large"
-              src="https://i.redd.it/w3kr4m2fi3111.png"
+                bordered
+                rounded
+                size="large"
+                src="https://i.redd.it/w3kr4m2fi3111.png"
               />
             </Grid.Column>
           </Grid.Row>
@@ -52,7 +64,7 @@ const LandingPage = (props) => {
 
       <Segment vertical>
         <Grid container stackable verticalAlign="middle">
-        <Grid.Row>
+          <Grid.Row>
             <Grid.Column textAlign="center">
               <Button size="huge">Rent out your space!</Button>
             </Grid.Column>
@@ -60,17 +72,20 @@ const LandingPage = (props) => {
           <Grid.Row>
             <Grid.Column floated="left" width={6}>
               <Image
-              bordered
-              rounded
-              size="large"
-              src="https://i.redd.it/w3kr4m2fi3111.png"
+                bordered
+                rounded
+                size="large"
+                src="https://i.redd.it/w3kr4m2fi3111.png"
               />
             </Grid.Column>
             <Grid.Column width={8}>
-              <Header as="h3">
-                We help you find your space.
-              </Header>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Id in molestias similique cumque labore fugiat minus animi, voluptatum maxime, voluptas odio modi consectetur voluptatibus quos laboriosam illo dignissimos mollitia. Impedit?</p>
+              <Header as="h3">We help you find your space.</Header>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Id in
+                molestias similique cumque labore fugiat minus animi, voluptatum
+                maxime, voluptas odio modi consectetur voluptatibus quos
+                laboriosam illo dignissimos mollitia. Impedit?
+              </p>
             </Grid.Column>
           </Grid.Row>
         </Grid>
