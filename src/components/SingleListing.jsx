@@ -1,28 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Item, Label } from "semantic-ui-react";
+import LoginButton from "./LoginButton";
+import { connect } from "react-redux";
 
 const SingleListing = (props) => {
   const listingId = props.match.params.id;
   const [singleListing, setSingleListing] = useState({});
   const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    getSingleListing();
-  }, []);
-
-  const getSingleListing = async () => {
-    let id = listingId;
-    let response = await axios.get(`/listings/${id}`);
-    setSingleListing(response.data);
-  };
+  const isUserAuthenticated = props.authenticated;
 
   const submitBid = async (event) => {
     event.preventDefault();
     let responseMessage, bidParams, response;
     let bid = event.target;
     const headers = JSON.parse(localStorage.getItem("J-tockAuth-storage"));
-debugger
+
     try {
       bidParams = {
         bid: bid.value,
@@ -41,6 +34,33 @@ debugger
       setMessage(responseMessage);
     }
   }
+
+  let biddingField;
+  if (isUserAuthenticated) {
+    biddingField = (
+    <>
+    <input data-cy="input" type="number"/>
+    <button data-cy="button" onClick={submitBid}>Register Your Bid</button>
+    </>
+    )
+  } else { 
+    biddingField = (
+  <>
+  <LoginButton id="login" />
+  <p data-cy="message">You need to log in to bid</p>
+  </>
+    )
+  }
+
+  useEffect(() => {
+    getSingleListing();
+  }, []);
+
+  const getSingleListing = async () => {
+    let id = listingId;
+    let response = await axios.get(`/listings/${id}`);
+    setSingleListing(response.data);
+  };
 
   let listingContent = (
     <>
@@ -63,8 +83,7 @@ debugger
             <Label data-cy="price">{singleListing.price}</Label>
           </Item.Extra>
           <Item.Extra>
-            <input data-cy="input" type="number"/>
-            <button data-cy="button" onClick={submitBid}>Register Your Bid</button>
+            {biddingField}
           </Item.Extra>
         </Item.Content>
       </Item>
@@ -80,4 +99,10 @@ debugger
   );
 };
 
-export default SingleListing;
+const mapStateToProps = (state) => {
+  return {
+    authenticated: state.authenticated
+  };
+};
+
+export default connect(mapStateToProps)(SingleListing);
