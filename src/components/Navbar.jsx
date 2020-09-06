@@ -7,10 +7,30 @@ import { Link } from "react-router-dom";
 import LoginForm from "./LoginForm";
 
 const Navbar = (props) => {
+let isLoginVisible = props.renderLoginForm
+
   const [activeItem, setActiveItem] = useState("home");
   const handleItemClick = (e, { name }) => {
     setActiveItem(name);
   };
+
+  const handleFormClick = (e, { name }) => {
+    setActiveItem(name);
+
+    if (isLoginVisible) {
+      props.dispatch({
+        type: "LOGIN_FORM_VISIBILITY",
+        payload: { renderLoginForm: false },
+      });
+    } else {
+      props.dispatch({
+        type: "LOGIN_FORM_VISIBILITY",
+        payload: { renderLoginForm: true },
+      });
+    }
+  };
+
+
 
   return (
     <>
@@ -42,10 +62,9 @@ const Navbar = (props) => {
             position="right"
             name="login"
             active={activeItem === "login"}
-            onClick={handleItemClick}
-          >
-            <LoginButton data-cy="button" id="login-button" />
-          </Menu.Item>
+            onClick={handleFormClick}
+          />
+          
 
           <Menu.Item
             name="signup"
