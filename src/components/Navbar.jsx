@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Menu, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
+import auth from "../modules/auth";
 import LoginForm from "./LoginForm";
 
 const Navbar = (props) => {
@@ -31,9 +31,20 @@ const Navbar = (props) => {
     }
   };
 
+  const handleLogoutClick = (e, { name }) => {
+    setActiveItem(name);
+    auth.signOut();
+    props.dispatch({
+      type: "SIGNOUT",
+      payload: { authenticated: false },
+    })
+    document.location.reload(true)
+  }
+
   let becomeSubscriber;
   let registerUser;
   let userFunctions;
+  let login;
 
   if (isCurrentUserSubscriber === false && isUserAuthenticated) {
     becomeSubscriber = (
@@ -85,6 +96,28 @@ const Navbar = (props) => {
     );
   }
 
+  if (isUserAuthenticated) {
+    login = (
+      <Menu.Item
+            position="right"
+            name="logout"
+            active={activeItem === "logout"}
+            onClick={handleLogoutClick}
+            data-cy="button"
+          />
+    )
+  } else {
+    login = (
+      <Menu.Item
+            position="right"
+            name="login"
+            active={activeItem === "login"}
+            onClick={handleFormClick}
+            data-cy="button"
+          />
+    )
+  }
+
   return (
     <>
       <Segment inverted>
@@ -110,14 +143,7 @@ const Navbar = (props) => {
             data-cy="button"
           />
           {userFunctions}
-          <Menu.Item
-            position="right"
-            name="login"
-            active={activeItem === "login"}
-            onClick={handleFormClick}
-            data-cy="button"
-          />
-
+          {login}
           {registerUser}
           {becomeSubscriber}
         </Menu>

@@ -23,6 +23,12 @@ const rootReducer = (state = initialState, action) => {
         ...action.payload,
       };
 
+    case "SIGNOUT":
+      return {
+        ...state,
+        authenticated: false,
+      }
+
     default:
       return state;
   }
