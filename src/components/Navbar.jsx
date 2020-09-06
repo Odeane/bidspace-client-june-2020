@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Menu, Segment, Container, Button } from "semantic-ui-react";
+import { Menu, Segment } from "semantic-ui-react";
 import LoginButton from "./LoginButton";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -12,42 +12,43 @@ const Navbar = (props) => {
 
   return (
     <>
-    <Segment inverted>
-      <Menu id="navbar" inverted pointing secondary>
-        <Menu.Item
-          name="home"
-          active={activeItem === "home"}
-          onClick={handleItemClick}
-          as={Link}
-          to={{ pathname: "/" }}
-        />
-        <Menu.Item
-          name="messages"
-          active={activeItem === "messages"}
-          onClick={handleItemClick}
-          />
-        <Menu.Item
-          name="contact us"
-          active={activeItem === "contact us"}
-          onClick={handleItemClick}
+      <Segment inverted>
+        <Menu id="navbar" inverted pointing secondary>
+          <Menu.Item
+            name="home"
+            active={activeItem === "home"}
+            onClick={handleItemClick}
+            as={Link}
+            to={{ pathname: "/" }}
           />
           <Menu.Item
-          name="F A Q"
-          active={activeItem === "F A Q"}
-          onClick={handleItemClick}
-        />
-        <Menu.Item 
-        position="right"
-        name="login"
-        active={activeItem === "login"}
-          onClick={handleItemClick}>
-          <LoginButton data-cy="button" id="login-button" />
+            name="messages"
+            active={activeItem === "messages"}
+            onClick={handleItemClick}
+          />
+          <Menu.Item
+            name="contact us"
+            active={activeItem === "contact us"}
+            onClick={handleItemClick}
+          />
+          <Menu.Item
+            name="F A Q"
+            active={activeItem === "F A Q"}
+            onClick={handleItemClick}
+          />
+          <Menu.Item
+            position="right"
+            name="login"
+            active={activeItem === "login"}
+            onClick={handleItemClick}
+          >
+            <LoginButton data-cy="button" id="login-button" />
           </Menu.Item>
 
           <Menu.Item
-          name="signup"
-          active={activeItem === "signup"}
-          onClick={handleItemClick}
+            name="signup"
+            active={activeItem === "signup"}
+            onClick={handleItemClick}
           />
 
           <Menu.Item
@@ -57,9 +58,9 @@ const Navbar = (props) => {
             id="signup-button"
             name="become subscriber"
             active={activeItem === "become subscriber"}
-          onClick={handleItemClick}
+            onClick={handleItemClick}
           />
-      </Menu>
+        </Menu>
       </Segment>
     </>
   );

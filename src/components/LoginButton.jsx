@@ -10,7 +10,7 @@ const LoginButton = (props) => {
     });
   };
 
-  return <Menu.Item data-cy="button" id={props.id} onClick={clickHandler}>Login</Menu.Item>;
+  return <div data-cy="button" id={props.id} onClick={clickHandler}>Login</div>;
 };
 
 export default connect()(LoginButton);

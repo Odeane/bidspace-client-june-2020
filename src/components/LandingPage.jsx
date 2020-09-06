@@ -1,8 +1,6 @@
 import React from "react";
-import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import LoginForm from "./LoginForm";
 import {
   Container,
   Header,
