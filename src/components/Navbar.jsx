@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Menu, Segment, Container, Button } from "semantic-ui-react";
-import LongMenu from "./LongMenu";
 import LoginButton from "./LoginButton";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
@@ -27,6 +26,16 @@ const Navbar = (props) => {
           active={activeItem === "messages"}
           onClick={handleItemClick}
           />
+        <Menu.Item
+          name="contact us"
+          active={activeItem === "contact us"}
+          onClick={handleItemClick}
+          />
+          <Menu.Item
+          name="F A Q"
+          active={activeItem === "F A Q"}
+          onClick={handleItemClick}
+        />
         <Menu.Item 
         position="right"
         name="login"
@@ -50,10 +59,6 @@ const Navbar = (props) => {
             active={activeItem === "become subscriber"}
           onClick={handleItemClick}
           />
-
-          <Menu.Item>
-            <LongMenu />
-          </Menu.Item>
       </Menu>
       </Segment>
     </>

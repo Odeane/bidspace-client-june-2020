@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #45a29e;
+  background-color: #d1e8e2;
 }
 
 code {
@@ -31,4 +31,12 @@ code {
 #read-more {
   margin-top: 2%;
   margin-left: 42%;
+}
+
+#burger-icon {
+  background-color: white;
+}
+
+#botton-segment {
+  padding-bottom: 3%;
 }

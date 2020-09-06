@@ -64,7 +64,7 @@ const LandingPage = (props) => {
 
       <Divider horizontal>Or</Divider>
 
-      <Segment vertical>
+      <Segment id="botton-segment"vertical>
         <Grid container stackable verticalAlign="middle">
           <Grid.Row>
             <Grid.Column textAlign="center">
@@ -83,7 +83,7 @@ const LandingPage = (props) => {
               />
             </Grid.Column>
             <Grid.Column width={8}>
-              <Header as="h3">We help you find your space.</Header>
+              <Header as="h3">We help you rent out your space.</Header>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Id in
                 molestias similique cumque labore fugiat minus animi, voluptatum
