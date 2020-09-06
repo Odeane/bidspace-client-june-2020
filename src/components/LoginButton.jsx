@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Button } from "semantic-ui-react"
+import { Menu } from "semantic-ui-react"
 
 const LoginButton = (props) => {
   const clickHandler = () => {
@@ -10,7 +10,7 @@ const LoginButton = (props) => {
     });
   };
 
-  return <Button data-cy="button" id={props.id} onClick={clickHandler}>Login</Button>;
+  return <Menu.Item data-cy="button" id={props.id} onClick={clickHandler}>Login</Menu.Item>;
 };
 
 export default connect()(LoginButton);
