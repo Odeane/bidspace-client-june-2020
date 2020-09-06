@@ -7,6 +7,8 @@ import LoginForm from "./LoginForm";
 
 const Navbar = (props) => {
   let isLoginVisible = props.renderLoginForm;
+  let isUserAuthenticated = props.authenticated;
+  let isCurrentUserSubscriber = props.userRole === "subscriber" ? true : false;
 
   const [activeItem, setActiveItem] = useState("home");
   const handleItemClick = (e, { name }) => {
@@ -29,6 +31,60 @@ const Navbar = (props) => {
     }
   };
 
+  let becomeSubscriber;
+  let registerUser;
+  let userFunctions;
+
+  if (isCurrentUserSubscriber === false && isUserAuthenticated) {
+    becomeSubscriber = (
+      <Menu.Item
+        as={Link}
+        to={{ pathname: "/subscription" }}
+        data-cy="button"
+        id="signup-button"
+        name="become subscriber"
+        active={activeItem === "become subscriber"}
+        onClick={handleItemClick}
+      />
+    );
+  }
+
+  if (isCurrentUserSubscriber === false && isUserAuthenticated === false) {
+    registerUser = (
+      <Menu.Item
+        name="signup"
+        active={activeItem === "signup"}
+        onClick={handleItemClick}
+        data-cy="button"
+      />
+    );
+  }
+
+  if (isUserAuthenticated) {
+    userFunctions = (
+      <>
+      <Menu.Item
+        name="messages"
+        active={activeItem === "messages"}
+        onClick={handleItemClick}
+        data-cy="button"
+      />
+      <Menu.Item
+        name="my-account"
+        active={activeItem === "My Account"}
+        onClick={handleItemClick}
+        data-cy="button"
+      />
+      <Menu.Item
+        name="settings"
+        active={activeItem === "Settings"}
+        onClick={handleItemClick}
+        data-cy="button"
+      />
+      </>
+    );
+  }
+
   return (
     <>
       <Segment inverted>
@@ -39,12 +95,6 @@ const Navbar = (props) => {
             onClick={handleItemClick}
             as={Link}
             to={{ pathname: "/" }}
-            data-cy="button"
-          />
-          <Menu.Item
-            name="messages"
-            active={activeItem === "messages"}
-            onClick={handleItemClick}
             data-cy="button"
           />
           <Menu.Item
@@ -59,6 +109,7 @@ const Navbar = (props) => {
             onClick={handleItemClick}
             data-cy="button"
           />
+          {userFunctions}
           <Menu.Item
             position="right"
             name="login"
@@ -67,22 +118,8 @@ const Navbar = (props) => {
             data-cy="button"
           />
 
-          <Menu.Item
-            name="signup"
-            active={activeItem === "signup"}
-            onClick={handleItemClick}
-            data-cy="button"
-          />
-
-          <Menu.Item
-            as={Link}
-            to={{ pathname: "/subscription" }}
-            data-cy="button"
-            id="signup-button"
-            name="become subscriber"
-            active={activeItem === "become subscriber"}
-            onClick={handleItemClick}
-          />
+          {registerUser}
+          {becomeSubscriber}
         </Menu>
         {props.renderLoginForm && (
           <Menu position="right" inverted>
