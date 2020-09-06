@@ -52,7 +52,7 @@ const Navbar = (props) => {
         as={Link}
         to={{ pathname: "/subscription" }}
         data-cy="button"
-        id="signup-button"
+        id="subscribe-button"
         name="become subscriber"
         active={activeItem === "become subscriber"}
         onClick={handleItemClick}
@@ -60,13 +60,16 @@ const Navbar = (props) => {
     );
   }
 
-  if (isCurrentUserSubscriber === false && isUserAuthenticated === false) {
+  if (isUserAuthenticated === false) {
     registerUser = (
       <Menu.Item
-        name="signup"
+        name="Signup"
+        id="Signup"
         active={activeItem === "signup"}
         onClick={handleItemClick}
         data-cy="button"
+        as={Link}
+        to={{ pathname: "/registration" }}
       />
     );
   }

@@ -8,6 +8,7 @@ import SingleListing from "./components/SingleListing";
 import { Elements } from "react-stripe-elements";
 import Subscription from "./components/Subscription";
 import Navbar from "./components/Navbar";
+import SignUpForm from "./components/SignUpForm";
 
 const App = (props) => {
   return (
@@ -18,6 +19,7 @@ const App = (props) => {
         <Route exact path="/rent-space" component={ListingPage}></Route>
         <Route exact path="/rentout-space" component={LandlordPage}></Route>
         <Route exact path="/listing/:id" component={SingleListing}></Route>
+        <Route exact path="/registration" component={SignUpForm}></Route>
         <Elements>
           <Route exact path="/subscription" component={Subscription}></Route>
         </Elements>
@@ -29,6 +31,7 @@ const App = (props) => {
 const mapStateToProps = (state) => {
   return {
     renderLoginForm: state.renderLoginForm,
+    renderSignUpForm: state.renderSignUpForm,
     authenticated: state.authenticated,
   };
 };
