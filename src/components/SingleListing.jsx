@@ -20,7 +20,7 @@ const SingleListing = (props) => {
     event.preventDefault();
     let responseMessage, bidParams, response;
     let bid = biddingValue
-    const headers = JSON.parse(localStorage.getItem("J-tockAuth-storage"));
+    const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
 
     try {
       bidParams = {

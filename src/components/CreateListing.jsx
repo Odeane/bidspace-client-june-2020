@@ -23,11 +23,10 @@ const CreateListing = () => {
   });
 
   const submitListing = async (event) => {
-    debugger
     event.preventDefault();
     let responseMessage, listingParams, encodedImage, response;
     let { lead, description, address, price, image } = event.target;
-    const headers = JSON.parse(localStorage.getItem("J-tockAuth-storage"));
+    const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
 
     try {
       listingParams = {
