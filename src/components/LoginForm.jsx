@@ -29,7 +29,7 @@ const LoginForm = (props) => {
 
   return (
     <>
-      <Form data-cy="login-form" onSubmit={authenticate} id="login-form">
+      <Form inverted data-cy="login-form" onSubmit={authenticate} id="login-form">
         <Form.Group id="form-group">
           <Form.Field
             id="email"
