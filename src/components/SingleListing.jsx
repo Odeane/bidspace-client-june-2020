@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 const SingleListing = (props) => {
   const listingId = props.match.params.id;
   const [singleListing, setSingleListing] = useState({});
+  const [images, setImages] = useState([])
   const [message, setMessage] = useState("");
   const isUserAuthenticated = props.authenticated;
 
@@ -59,18 +60,27 @@ const SingleListing = (props) => {
   const getSingleListing = async () => {
     let id = listingId;
     let response = await axios.get(`/listings/${id}`);
-    setSingleListing(response.data);
+    setSingleListing(response.data.listing);
+    setImages(response.data.listing.images)
+    
   };
+
+
 
   let listingContent = (
     <>
     <Item.Group divided>
       <Item data-cy={`listing-${singleListing.id}`} data-id={singleListing.id}>
-        <Item.Image
-          data-cy="image"
-          src={singleListing.image}
-          alt="listing image"
-        />
+          {images.map(url =>
+            <Item.Image
+              data-cy="image"
+              src={url.url}
+              alt="listing image"
+            />  
+            )
+        }
+         
+          
         <Item.Content>
           <Item.Header data-cy="lead">{singleListing.lead}</Item.Header>
           <Item.Meta data-cy="address">{singleListing.address}</Item.Meta>
