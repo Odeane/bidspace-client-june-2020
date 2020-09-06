@@ -13,13 +13,12 @@ code {
     monospace;
 }
 
-#top-segment {
-  padding-top: 5%;
-  padding-bottom: 5%;
+#top-grid {
+  padding-bottom: 3%;
 }
 
-#navbar {
-  margin-bottom: 0;
+#middle-segment {
+  padding-top: 3%;
 }
 
 #h1-header {

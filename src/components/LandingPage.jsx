@@ -14,7 +14,9 @@ import {
 const LandingPage = (props) => {
   return (
     <>
-      <Segment id="top-segment" size="massive" inverted>
+      <Grid columns='equal' inverted>
+        <Grid.Row id="top-grid" color="black">
+          <Grid.Column>
         <Container text>
           <Header as="h1" content="BidSpace" id="h1-header" inverted />
           <Header
@@ -27,9 +29,11 @@ const LandingPage = (props) => {
         <Button id="read-more" primary size="huge">
           Read more below!
         </Button>
-      </Segment>
+        </Grid.Column>
+        </Grid.Row>
+        </Grid>
 
-      <Segment vertical>
+      <Segment id="middle-segment" vertical>
         <Grid container stackable verticalAlign="middle">
           <Grid.Row>
             <Grid.Column width={8}>
