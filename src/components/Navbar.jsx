@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const Navbar = (props) => {
   return (
     <>
-        <Menu inverted>
+        <Menu id="navbar" inverted>
           <Container>
             <Menu.Item position="right">
               <LoginButton data-cy="button" id="login-button" />

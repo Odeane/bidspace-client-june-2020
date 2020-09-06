@@ -16,6 +16,11 @@ code {
 #top-segment {
   padding-top: 5%;
   padding-bottom: 5%;
+  margin-top: -1%;
+}
+
+#navbar {
+  margin-bottom: 0;
 }
 
 #h1-header {
