@@ -9,12 +9,12 @@ describe("user can Sign up", () => {
     cy.visit("/")
   })
   it("by registrating with valid credentials", () => {
-    cy.get("#Signup").click();
-    cy.get('[cy-data=form]').within(() => {
-      cy.get('[cy-data=email]').type("user@mail.com");
-      cy.get('[cy-data=password]').type("password");
-      cy.get('[cy-data=confirm-password]').type("password")
-      cy.get(['cy-data=submit']).should("contain", "Signup").click();
+    cy.get("[data-cy=button]").contains("Signup").click();
+    cy.get("[data-cy=sign-up]").within(() => {
+      cy.get("[data-cy=email]").type("user@mail.com");
+      cy.get("[data-cy=password]").type("password");
+      cy.get("[data-cy=password-confirmation]").type("password");
+      cy.get("[data-cy=button]").contains("Sign up now!").click();
     });
   })
 })

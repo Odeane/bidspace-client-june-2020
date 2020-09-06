@@ -9,9 +9,7 @@ describe("Landing page successfully render", () => {
     cy.get('[data-cy=button]').should("contain", "Check out our spaces!")
     cy.get('[data-cy=button]').should("contain", "Rent out your space!")
     cy.get('[data-cy=button]').should("contain", "Home")
-    cy.get('[data-cy=button]').should("contain", "Messages")
     cy.get('[data-cy=button]').should("contain", "Contact Us")
-    cy.get('[data-cy=button]').should("contain", "Become Subscriber")
     cy.get('[data-cy=button]').should("contain", "F A Q")
   })
 

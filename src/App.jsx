@@ -24,6 +24,7 @@ const App = (props) => {
           <Route exact path="/subscription" component={Subscription}></Route>
         </Elements>
       </Switch>
+      {props.renderSignUpForm && <SignUpForm />}
     </>
   );
 };

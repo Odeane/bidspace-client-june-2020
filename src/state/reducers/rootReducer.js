@@ -8,6 +8,7 @@ const rootReducer = (state = initialState, action) => {
         authenticated: true,
         currentUser: action.payload.currentUser,
         renderLoginForm: false,
+        renderSignUpForm: false,
       };
 
     case "FAIL_AUTHENTICATE":
@@ -22,6 +23,12 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         ...action.payload,
       };
+
+    case "SIGNUP_FORM_VISIBILITY":
+      return {
+        ...state,
+        ...action.payload,
+      }
 
     case "SIGNOUT":
       return {

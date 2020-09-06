@@ -64,7 +64,7 @@ const Navbar = (props) => {
     registerUser = (
       <Menu.Item
         name="Signup"
-        id="Signup"
+        id="signup"
         active={activeItem === "signup"}
         onClick={handleItemClick}
         data-cy="button"
