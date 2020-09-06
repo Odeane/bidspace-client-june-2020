@@ -1,41 +1,106 @@
-import React from "react";
-import { Menu } from "semantic-ui-react";
-import LongMenu from "./LongMenu";
-import LoginButton from "./LoginButton";
+import React, { useState } from "react";
+import { Menu, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+
+import LoginForm from "./LoginForm";
 
 const Navbar = (props) => {
+  let isLoginVisible = props.renderLoginForm;
+
+  const [activeItem, setActiveItem] = useState("home");
+  const handleItemClick = (e, { name }) => {
+    setActiveItem(name);
+  };
+
+  const handleFormClick = (e, { name }) => {
+    setActiveItem(name);
+
+    if (isLoginVisible) {
+      props.dispatch({
+        type: "LOGIN_FORM_VISIBILITY",
+        payload: { renderLoginForm: false },
+      });
+    } else {
+      props.dispatch({
+        type: "LOGIN_FORM_VISIBILITY",
+        payload: { renderLoginForm: true },
+      });
+    }
+  };
+
   return (
-    <div>
-      <Menu secondary id="navbar">
-        <Menu.Menu position="right">
-          <Menu.Item>
-            <LoginButton data-cy="button" id="login-button" />
-          </Menu.Item>
+    <>
+      <Segment inverted>
+        <Menu id="navbar" inverted pointing secondary>
+          <Menu.Item
+            name="home"
+            active={activeItem === "home"}
+            onClick={handleItemClick}
+            as={Link}
+            to={{ pathname: "/" }}
+            data-cy="button"
+          />
+          <Menu.Item
+            name="messages"
+            active={activeItem === "messages"}
+            onClick={handleItemClick}
+            data-cy="button"
+          />
+          <Menu.Item
+            name="contact us"
+            active={activeItem === "contact us"}
+            onClick={handleItemClick}
+            data-cy="button"
+          />
+          <Menu.Item
+            name="F A Q"
+            active={activeItem === "F A Q"}
+            onClick={handleItemClick}
+            data-cy="button"
+          />
+          <Menu.Item
+            position="right"
+            name="login"
+            active={activeItem === "login"}
+            onClick={handleFormClick}
+            data-cy="button"
+          />
 
-          <Menu.Item>
-            <button data-cy="button" id="signup-button">Signup</button>
-          </Menu.Item>
+          <Menu.Item
+            name="signup"
+            active={activeItem === "signup"}
+            onClick={handleItemClick}
+            data-cy="button"
+          />
 
-          <Menu.Item as={Link} to={{ pathname: "/subscription" }} data-cy="button" id="signup-button" name="subscription">
-            <button >Become Subscriber</button>
-          </Menu.Item>
-
-          <Menu.Item>
-          <LongMenu />
-          </Menu.Item>
-        </Menu.Menu>
-      </Menu>
-    </div>
+          <Menu.Item
+            as={Link}
+            to={{ pathname: "/subscription" }}
+            data-cy="button"
+            id="signup-button"
+            name="become subscriber"
+            active={activeItem === "become subscriber"}
+            onClick={handleItemClick}
+          />
+        </Menu>
+        {props.renderLoginForm && (
+          <Menu position="right" inverted>
+            <Menu.Item position="right">
+              <LoginForm />
+            </Menu.Item>
+          </Menu>
+        )}
+      </Segment>
+    </>
   );
 };
 
 const mapStateToProps = (state) => {
   return {
     renderLoginForm: state.renderLoginForm,
-    authenticated: state.authenticated
-  }
-}
+    authenticated: state.authenticated,
+  };
+};
 
 export default connect(mapStateToProps)(Navbar);

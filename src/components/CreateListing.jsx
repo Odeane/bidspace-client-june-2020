@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Form, TextArea, Input, Label, Button } from "semantic-ui-react";
+import { Form, TextArea, Input, Button } from "semantic-ui-react";
 
 const CreateListing = () => {
   const [message, setMessage] = useState("");

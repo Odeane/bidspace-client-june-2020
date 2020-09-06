@@ -7,10 +7,13 @@ import LandlordPage from "./components/LandlordPage";
 import SingleListing from "./components/SingleListing";
 import { Elements } from "react-stripe-elements";
 import Subscription from "./components/Subscription";
+import Navbar from "./components/Navbar";
+import LoginForm from "./components/LoginForm"
 
 const App = (props) => {
   return (
-    <div>
+    <>
+      <Navbar />
       <Switch>
         <Route exact path="/" component={LandingPage}></Route>
         <Route exact path="/rent-space" component={ListingPage}></Route>
@@ -20,7 +23,7 @@ const App = (props) => {
           <Route exact path="/subscription" component={Subscription}></Route>
         </Elements>
       </Switch>
-    </div>
+    </>
   );
 };
 

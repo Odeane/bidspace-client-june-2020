@@ -5,8 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  height: 100vh;
-  width: 100vw;
+  background-color: whitesmoke;
 }
 
 code {
@@ -14,143 +13,28 @@ code {
     monospace;
 }
 
-#left-pane {
-  background-color: #3a4f41;
-  width: 50%;
-  position: fixed;
-  align-items: left;
-  left: 0;
-  height: 100vh;
+#top-grid {
+  padding-bottom: 3%;
 }
 
-#right-pane {
-  background-color: #dec3be;
-  width: 50%;
-  position: fixed;
-  align-items: right;
-  right: 0;
-  height: 100vh;
+#middle-segment {
+  padding-top: 3%;
 }
 
-#rent-button {
-  background-color: #3a4f41;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border: none;
-  color: #dec3be;
-  font-size: xx-large;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  outline: none;
+#h1-header {
+  font-size: 1000%;
+  text-align: center;
 }
 
-#rent-button:hover {
-  color: #e1dee3;
+#read-more {
+  margin-top: 2%;
+  margin-left: 42%;
 }
 
-#rentout-button {
-  background-color: #dec3be;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  border: none;
-  color: #3a4f41;
-  font-size: xx-large;
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 51%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  outline: none;
+#burger-icon {
+  background-color: white;
 }
 
-#rentout-button:hover {
-  color: #e1dee3;
-}
-
-#navbar {
-  background-color: transparent;
-}
-
-#login-button {
-  float: right;
-  color: #3a4f41;
-  border: none;
-  font-weight: bold;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: transparent;
-  outline: none;
-}
-
-#login-button:hover {
-  float: right;
-  color: #e1dee3;
-  outline: none;
-  border-bottom: 2px solid;
-  border-color: #e1dee3;
-}
-
-#signup-button {
-  float: right;
-  color: #3a4f41;
-  border: none;
-  font-weight: bold;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: transparent;
-  outline: none;
-}
-
-#signup-button:hover {
-  float: right;
-  color: #e1dee3;
-  outline: none;
-  border-bottom: 2px solid;
-  border-color: #e1dee3;
-}
-
-#logo {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: auto;
-  max-height: 15vh;
-  width: auto;
-  max-width: 50vw;
-}
-
-#hamburger-menu {
-  color: #3a4f41;
-}
-
-#hamburger-menu:hover {
-  float: right;
-  color: #e1dee3;
-  outline: none;
-}
-
-#form-group {
-  float: right;
-  margin-right: 10%;
-  margin-top: 5%;
-}
-
-#listing {
-  border: solid 2px;
-  padding: 2%;
-  position: fixed;
-left: 50%;
-top: 50%;
-transform: translate(-50%, -50%);
-}
-
-#scene {
-  display: inline-block;
-}
-
-.ui.placeholder.segment {
-  position: absolute;
-  left: 35%;
-  right: 35%;
+#botton-segment {
+  padding-bottom: 3%;
 }

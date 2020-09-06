@@ -35,7 +35,7 @@ describe("user can bid on listing", () => {
         cy.get("[data-cy=password]").type("password");
         cy.get("[data-cy=button]").contains("Submit").click();
       });
-      cy.get("[data-cy=button]").contains("Rent a space!").click();
+      cy.get("[data-cy=button]").contains("Check out our spaces!").click();
       cy.get("[data-cy=listing-2]").within(() => {
         cy.get("[data-cy=button]").click();
       });
@@ -66,7 +66,7 @@ describe("user can bid on listing", () => {
         });
 
         cy.visit("/");
-        cy.get("[data-cy=button]").contains("Rent a space!").click();
+        cy.get("[data-cy=button]").contains("Check out our spaces!").click();
         cy.get("[data-cy=listing-2]").within(() => {
           cy.get("[data-cy=button]").click();
         });
