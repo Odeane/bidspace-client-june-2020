@@ -18,7 +18,7 @@ const SingleListing = (props) => {
   const submitBid = async (event) => {
     event.preventDefault();
     let responseMessage, bidParams, response;
-    let bid = biddingValue
+    let bid = biddingValue;
     const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
 
     try {
@@ -43,7 +43,6 @@ const SingleListing = (props) => {
   let biddingField;
   if (isUserAuthenticated) {
     biddingField = (
-     
       <form onSubmit={submitBid}>
         <input
           value={biddingValue}
@@ -51,16 +50,12 @@ const SingleListing = (props) => {
           data-cy="input"
           type="number"
         />
-        <button data-cy="button" >
-          Register Your Bid
-        </button>
+        <button data-cy="button">Register Your Bid</button>
       </form>
-      
     );
   } else {
     biddingField = (
       <>
-        <LoginButton id="login" />
         <p data-cy="message">You need to log in to bid</p>
       </>
     );
