@@ -27,7 +27,7 @@ describe("User can create listing", () => {
     });
 
     it("user can click on create listing", () => {
-      cy.get("[data-cy=button]").contains("Rent out a space!").click();
+      cy.get("[data-cy=button]").contains("Rent out your space!").click();
       cy.get("[data-cy=listing-form]").within(() => {
         cy.get("div[role='option']").contains("Parking").click({ force: true });
         cy.get("div[role='option']").contains("Indoors").click({ force: true });
@@ -78,7 +78,7 @@ context("unsuccessfully", () => {
     });
   });
   it("unsuccessfully without title", () => {
-    cy.get("[data-cy=button]").contains("Rent out a space!").click();
+    cy.get("[data-cy=button]").contains("Rent out your space!").click();
     cy.get("[data-cy=listing-form]").within(() => {
       cy.get("div[role='option']").contains("Parking").click({ force: true });
       cy.get("div[role='option']").contains("Indoors").click({ force: true });

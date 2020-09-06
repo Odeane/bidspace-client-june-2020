@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Item, Label } from "semantic-ui-react";
-import LoginButton from "./LoginButton";
 import { connect } from "react-redux";
 
 const SingleListing = (props) => {
@@ -46,7 +45,6 @@ const SingleListing = (props) => {
   } else { 
     biddingField = (
   <>
-  <LoginButton id="login" />
   <p data-cy="message">You need to log in to bid</p>
   </>
     )

@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Menu, Segment } from "semantic-ui-react";
-import LoginButton from "./LoginButton";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import LoginForm from "./LoginForm";
 
 const Navbar = (props) => {
-let isLoginVisible = props.renderLoginForm
+  let isLoginVisible = props.renderLoginForm;
 
   const [activeItem, setActiveItem] = useState("home");
   const handleItemClick = (e, { name }) => {
@@ -30,8 +29,6 @@ let isLoginVisible = props.renderLoginForm
     }
   };
 
-
-
   return (
     <>
       <Segment inverted>
@@ -42,34 +39,39 @@ let isLoginVisible = props.renderLoginForm
             onClick={handleItemClick}
             as={Link}
             to={{ pathname: "/" }}
+            data-cy="button"
           />
           <Menu.Item
             name="messages"
             active={activeItem === "messages"}
             onClick={handleItemClick}
+            data-cy="button"
           />
           <Menu.Item
             name="contact us"
             active={activeItem === "contact us"}
             onClick={handleItemClick}
+            data-cy="button"
           />
           <Menu.Item
             name="F A Q"
             active={activeItem === "F A Q"}
             onClick={handleItemClick}
+            data-cy="button"
           />
           <Menu.Item
             position="right"
             name="login"
             active={activeItem === "login"}
             onClick={handleFormClick}
+            data-cy="button"
           />
-          
 
           <Menu.Item
             name="signup"
             active={activeItem === "signup"}
             onClick={handleItemClick}
+            data-cy="button"
           />
 
           <Menu.Item
@@ -82,11 +84,13 @@ let isLoginVisible = props.renderLoginForm
             onClick={handleItemClick}
           />
         </Menu>
-        <Menu position="right" inverted>
-          <Menu.Item position="right">
-            {props.renderLoginForm && <LoginForm />}
-          </Menu.Item>
-        </Menu>
+        {props.renderLoginForm && (
+          <Menu position="right" inverted>
+            <Menu.Item position="right">
+              <LoginForm />
+            </Menu.Item>
+          </Menu>
+        )}
       </Segment>
     </>
   );
