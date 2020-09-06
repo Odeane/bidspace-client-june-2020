@@ -50,14 +50,14 @@ const LandingPage = (props) => {
                 bordered
                 rounded
                 size="large"
-                src="https://cdn.pixabay.com/photo/2020/07/19/09/55/man-5419522_960_720.jpg"
+                src="https://miro.medium.com/max/920/1*YHrlHo8UNguNsKXzHx-kSw.jpeg"
               />
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
             <Grid.Column textAlign="center">
               <Link data-cy="button" to="/rent-space">
-                <Button size="huge">Check out our spaces!</Button>
+                <Button color="black" size="huge">Check out our spaces!</Button>
               </Link>
             </Grid.Column>
           </Grid.Row>
@@ -71,7 +71,7 @@ const LandingPage = (props) => {
           <Grid.Row>
             <Grid.Column textAlign="center">
               <Link data-cy="button" to="/rentout-space">
-                <Button size="huge">Rent out your space!</Button>
+                <Button color="black" size="huge">Rent out your space!</Button>
               </Link>
             </Grid.Column>
           </Grid.Row>
@@ -81,7 +81,7 @@ const LandingPage = (props) => {
                 bordered
                 rounded
                 size="large"
-                src="https://cdn.pixabay.com/photo/2015/10/12/15/10/parking-garage-984253_960_720.jpg"
+                src="https://advancedparking.co.uk/wp-content/uploads/2019/11/solutionimg1.png"
               />
             </Grid.Column>
             <Grid.Column width={8}>
