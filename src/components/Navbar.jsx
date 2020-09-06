@@ -4,6 +4,8 @@ import LoginButton from "./LoginButton";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+import LoginForm from "./LoginForm";
+
 const Navbar = (props) => {
   const [activeItem, setActiveItem] = useState("home");
   const handleItemClick = (e, { name }) => {
@@ -60,6 +62,11 @@ const Navbar = (props) => {
             active={activeItem === "become subscriber"}
             onClick={handleItemClick}
           />
+        </Menu>
+        <Menu position="right" inverted>
+          <Menu.Item position="right">
+            {props.renderLoginForm && <LoginForm />}
+          </Menu.Item>
         </Menu>
       </Segment>
     </>

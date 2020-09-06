@@ -8,6 +8,7 @@ import SingleListing from "./components/SingleListing";
 import { Elements } from "react-stripe-elements";
 import Subscription from "./components/Subscription";
 import Navbar from "./components/Navbar";
+import LoginForm from "./components/LoginForm"
 
 const App = (props) => {
   return (
