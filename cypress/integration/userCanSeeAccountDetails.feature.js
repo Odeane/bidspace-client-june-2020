@@ -25,13 +25,13 @@ describe("User can see account page", () => {
     });
   });
 
-  it("Visitors can see listing one", () => {
+  it("User can see listing one", () => {
     cy.get("[data-cy=button]").contains("My Account").click();
     cy.get("[data-cy=listing-1]").within(() => {
       cy.get("[data-cy=lead]").should("contain", "Vacant");
       cy.get("[data-cy=scene]").should("contain", "indoor");
       cy.get("[data-cy=image]").should("exist");
-      cy.get("#category").should("contain", "Parking spot");
+      cy.get("[data-cy=category]").should("contain", "Parking spot");
     });
   });
 
@@ -43,7 +43,7 @@ describe("User can see account page", () => {
       );
       cy.get("[data-cy=scene]").should("contain", "indoor");
       cy.get("[data-cy=image]").should("exist");
-      cy.get("#category").should("contain", "Parking spot");
+      cy.get("[data-cy=category]").should("contain", "Parking spot");
     });
   });
 });
