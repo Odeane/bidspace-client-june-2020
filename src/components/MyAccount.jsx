@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {Item, Label, Button, Icon } from "semantic-ui-react";
+import { Item, Label, Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 const MyAccount = () => {
@@ -34,7 +34,6 @@ const MyAccount = () => {
         </Item.Content>
       </Item>
     </Item.Group>
-    
   ));
 
   return (
