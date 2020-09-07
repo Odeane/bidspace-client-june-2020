@@ -21,7 +21,7 @@ const SingleListing = (props) => {
     let responseMessage, bidParams, response;
     let bid = biddingValue;
     const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
-
+    debugger
     try {
       bidParams = {
         bid: parseFloat(bid),
