@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import {Item, Label, Button, Icon } from "semantic-ui-react";
+import { Link } from "react-router-dom";
 
 const MyAccount = () => {
   const [myListing, setMyListing] = useState([]);
@@ -9,22 +11,35 @@ const MyAccount = () => {
   }, []);
 
   const getListing = async () => {
-    let response = await axios.get("/account");
+    let response = await axios.get("account/listings");
     setMyListing(response.data.listings);
   };
 
   let content = myListing.map((listing) => (
-    <div data-cy={`listing-${listing.id}`}>
-      <img data-cy="image" src={listing.image} />
-      <h1 data-cy="lead">{listing.lead}</h1>
-      <h2 data-cy="category">{listing.category}</h2>
-      <h2 data-cy="scene">{listing.scene}</h2>
-    </div>
+    <Item.Group divided>
+      <Item data-cy={`listing-${listing.id}`} data-id={listing.id}>
+        <Item.Image data-cy="image" src={listing.image} alt="listing image" />
+        <Item.Content>
+          <Item.Header data-cy="lead">{listing.lead}</Item.Header>
+          <Item.Meta data-cy="category">{listing.category}</Item.Meta>
+          <Item.Extra>
+            <Label data-cy="scene">{listing.scene}</Label>
+            <Link to={`listing/${listing.id}`}>
+              <Button data-cy="button" primary floated="right">
+                Listing Details
+                <Icon name="right chevron" />
+              </Button>
+            </Link>
+          </Item.Extra>
+        </Item.Content>
+      </Item>
+    </Item.Group>
+    
   ));
 
   return (
     <div>
-      <h1>{content}</h1>
+      <div>{content}</div>
     </div>
   );
 };

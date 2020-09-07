@@ -21,7 +21,7 @@ const App = (props) => {
         <Route exact path="/rentout-space" component={LandlordPage}></Route>
         <Route exact path="/listing/:id" component={SingleListing}></Route>
         <Route exact path="/registration" component={SignUpForm}></Route>
-        <Route exact path="/account" component={MyAccount}></Route>
+        <Route exact path="/account/listings" component={MyAccount}></Route>
         <Elements>
           <Route exact path="/subscription" component={Subscription}></Route>
         </Elements>

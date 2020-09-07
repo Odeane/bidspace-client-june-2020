@@ -3,7 +3,7 @@ describe("User can see account page", () => {
     cy.server();
     cy.route({
       method: "GET",
-      url: "http://localhost:3000/api/v1/account",
+      url: "http://localhost:3000/api/v1/account/listings",
       response: "fixture:account_index.json",
     });
     cy.route({

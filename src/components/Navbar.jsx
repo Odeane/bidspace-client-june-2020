@@ -89,7 +89,7 @@ const Navbar = (props) => {
         onClick={handleItemClick}
         data-cy="button"
         as={Link}
-        to={{ pathname: "/account"}}
+        to={{ pathname: "/account/listings"}}
       />
       <Menu.Item
         name="settings"
