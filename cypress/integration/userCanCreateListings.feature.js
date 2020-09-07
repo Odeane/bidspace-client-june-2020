@@ -39,8 +39,6 @@ describe("User can create listing", () => {
           "111 Whatever Street, 11111 Stockholm"
         );
         cy.get("[data-cy=price]").type(200);
-        cy.file_upload("img.jpeg", "#image-upload", "image/jpeg");
-
         cy.get("[data-cy=button]").contains("Submit Listing").click();
       });
       cy.get("[data-cy=message]").should(
@@ -87,7 +85,6 @@ context("unsuccessfully", () => {
       );
       cy.get("[data-cy=address]").type("111 Whatever Street, 11111 Stockholm");
       cy.get("[data-cy=price]").type(200);
-      cy.file_upload("img.jpeg", "#image-upload", "image/jpeg");
 
       cy.get("[data-cy=button]").contains("Submit Listing").click();
     });

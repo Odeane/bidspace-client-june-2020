@@ -18,7 +18,6 @@ const CreateListing = () => {
 
   const toBase64 = (file) =>
     new Promise((resolve, reject) => {
-      debugger;
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => resolve(reader.result);
@@ -139,6 +138,7 @@ const CreateListing = () => {
           imgExtension={[".jpg", ".gif", ".png", ".gif"]}
           maxFileSize={5242880}
           withPreview={true}
+          data-cy="file-input"
         />
 
         <Form.Group>
