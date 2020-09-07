@@ -40,7 +40,7 @@ const CreateListing = () => {
 
       if (image.files[0]) {
         encodedImage = await toBase64(image.files[0]);
-        listingParams.image = encodedImage;
+        listingParams.images = [encodedImage];
       }
 
       response = await axios.post(
