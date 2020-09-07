@@ -1,0 +1,18 @@
+{
+  "listings": [
+    {
+      "id": 1,
+      "lead": "Vacant",
+      "scene": "indoor",
+      "category": "Parking spot",
+      "image": "https://i.redd.it/w3kr4m2fi3111.png"
+    },
+    {
+      "id": 2,
+      "lead": "Great parking spot in central of Stockholm.",
+      "scene": "indoor",
+      "category": "Parking spot",
+      "image": "https://i.redd.it/w3kr4m2fi3111.png"
+    }
+  ]
+}
