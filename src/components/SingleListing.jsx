@@ -16,6 +16,7 @@ const SingleListing = (props) => {
   };
 
   const submitBid = async (event) => {
+
     event.preventDefault();
     let responseMessage, bidParams, response;
     let bid = biddingValue;
@@ -23,12 +24,13 @@ const SingleListing = (props) => {
 
     try {
       bidParams = {
-        bid: bid.value,
+        bid: parseFloat(bid),
+        listing_id: singleListing.id
       };
 
       response = await axios.post(
         "http://localhost:3000/api/v1/biddings",
-        { bid: biddingValue },
+        { bidding: bidParams },
         { headers: headers }
       );
 
@@ -44,7 +46,7 @@ const SingleListing = (props) => {
   if (isUserAuthenticated) {
     biddingField = (
       <form onSubmit={submitBid}>
-        <input
+        <input id={singleListing.id}
           value={biddingValue}
           onChange={onChangeHandler}
           data-cy="input"
