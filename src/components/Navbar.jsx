@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { Menu, Segment } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-
+import auth from "../modules/auth";
 import LoginForm from "./LoginForm";
 
 const Navbar = (props) => {
   let isLoginVisible = props.renderLoginForm;
+  let isUserAuthenticated = props.authenticated;
+  let isCurrentUserSubscriber = props.userRole === "subscriber" ? true : false;
 
   const [activeItem, setActiveItem] = useState("home");
   const handleItemClick = (e, { name }) => {
@@ -29,6 +31,96 @@ const Navbar = (props) => {
     }
   };
 
+  const handleLogoutClick = (e, { name }) => {
+    setActiveItem(name);
+    auth.signOut();
+    props.dispatch({
+      type: "SIGNOUT",
+      payload: { authenticated: false },
+    })
+    document.location.reload(true)
+  }
+
+  let becomeSubscriber;
+  let registerUser;
+  let userFunctions;
+  let login;
+
+  if (isCurrentUserSubscriber === false && isUserAuthenticated) {
+    becomeSubscriber = (
+      <Menu.Item
+        as={Link}
+        to={{ pathname: "/subscription" }}
+        data-cy="button"
+        id="subscribe-button"
+        name="become subscriber"
+        active={activeItem === "become subscriber"}
+        onClick={handleItemClick}
+      />
+    );
+  }
+
+  if (isUserAuthenticated === false) {
+    registerUser = (
+      <Menu.Item
+        name="Signup"
+        id="signup"
+        active={activeItem === "signup"}
+        onClick={handleItemClick}
+        data-cy="button"
+        as={Link}
+        to={{ pathname: "/registration" }}
+      />
+    );
+  }
+
+  if (isUserAuthenticated) {
+    userFunctions = (
+      <>
+      <Menu.Item
+        name="messages"
+        active={activeItem === "messages"}
+        onClick={handleItemClick}
+        data-cy="button"
+      />
+      <Menu.Item
+        name="my-account"
+        active={activeItem === "My Account"}
+        onClick={handleItemClick}
+        data-cy="button"
+      />
+      <Menu.Item
+        name="settings"
+        active={activeItem === "Settings"}
+        onClick={handleItemClick}
+        data-cy="button"
+      />
+      </>
+    );
+  }
+
+  if (isUserAuthenticated) {
+    login = (
+      <Menu.Item
+            position="right"
+            name="logout"
+            active={activeItem === "logout"}
+            onClick={handleLogoutClick}
+            data-cy="button"
+          />
+    )
+  } else {
+    login = (
+      <Menu.Item
+            position="right"
+            name="login"
+            active={activeItem === "login"}
+            onClick={handleFormClick}
+            data-cy="button"
+          />
+    )
+  }
+
   return (
     <>
       <Segment inverted>
@@ -39,12 +131,6 @@ const Navbar = (props) => {
             onClick={handleItemClick}
             as={Link}
             to={{ pathname: "/" }}
-            data-cy="button"
-          />
-          <Menu.Item
-            name="messages"
-            active={activeItem === "messages"}
-            onClick={handleItemClick}
             data-cy="button"
           />
           <Menu.Item
@@ -59,30 +145,10 @@ const Navbar = (props) => {
             onClick={handleItemClick}
             data-cy="button"
           />
-          <Menu.Item
-            position="right"
-            name="login"
-            active={activeItem === "login"}
-            onClick={handleFormClick}
-            data-cy="button"
-          />
-
-          <Menu.Item
-            name="signup"
-            active={activeItem === "signup"}
-            onClick={handleItemClick}
-            data-cy="button"
-          />
-
-          <Menu.Item
-            as={Link}
-            to={{ pathname: "/subscription" }}
-            data-cy="button"
-            id="signup-button"
-            name="become subscriber"
-            active={activeItem === "become subscriber"}
-            onClick={handleItemClick}
-          />
+          {userFunctions}
+          {login}
+          {registerUser}
+          {becomeSubscriber}
         </Menu>
         {props.renderLoginForm && (
           <Menu position="right" inverted>
