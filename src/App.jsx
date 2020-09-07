@@ -9,6 +9,7 @@ import { Elements } from "react-stripe-elements";
 import Subscription from "./components/Subscription";
 import Navbar from "./components/Navbar";
 import SignUpForm from "./components/SignUpForm";
+import MyAccount from "./components/MyAccount";
 
 const App = (props) => {
   return (
@@ -20,6 +21,7 @@ const App = (props) => {
         <Route exact path="/rentout-space" component={LandlordPage}></Route>
         <Route exact path="/listing/:id" component={SingleListing}></Route>
         <Route exact path="/registration" component={SignUpForm}></Route>
+        <Route exact path="/account" component={MyAccount}></Route>
         <Elements>
           <Route exact path="/subscription" component={Subscription}></Route>
         </Elements>

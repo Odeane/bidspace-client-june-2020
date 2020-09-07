@@ -88,6 +88,8 @@ const Navbar = (props) => {
         active={activeItem === "My Account"}
         onClick={handleItemClick}
         data-cy="button"
+        as={Link}
+        to={{ pathname: "/account"}}
       />
       <Menu.Item
         name="settings"
