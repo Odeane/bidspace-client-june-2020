@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Form, TextArea, Input, Button } from "semantic-ui-react";
+import ImageUploader from "react-images-upload";
 
 const CreateListing = () => {
   const [message, setMessage] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedScene, setSelectedScene] = useState("");
+  const [pictures, setPictures] = useState([]);
 
   const categoryOption = [{ key: "p", text: "Parking", value: "parking" }];
 
@@ -14,19 +16,19 @@ const CreateListing = () => {
     { key: "o", text: "Outdoors", value: "outdoor" },
   ];
 
-  const toBase64 = (file) => 
-  new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => resolve(reader.result);
-    reader.onerror = (error) => reject(error);
-  });
+  const toBase64 = (file) =>
+    new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
 
   const submitListing = async (event) => {
     event.preventDefault();
-    let responseMessage, listingParams, encodedImage, response;
-    let { lead, description, address, price, image } = event.target;
-    const headers = JSON.parse(localStorage.getItem("J-tockAuth-storage"));
+    let responseMessage, listingParams, response;
+    let { lead, description, address, price, images } = event.target;
+    const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
 
     try {
       listingParams = {
@@ -36,12 +38,8 @@ const CreateListing = () => {
         description: description.value,
         address: address.value,
         price: price.value,
+        images: pictures,
       };
-
-      if (image.files[0]) {
-        encodedImage = await toBase64(image.files[0]);
-        listingParams.image = encodedImage;
-      }
 
       response = await axios.post(
         "http://localhost:3000/api/v1/listings",
@@ -62,6 +60,15 @@ const CreateListing = () => {
 
   const handleSceneChange = (value) => {
     setSelectedScene(value);
+  };
+
+  const onDrop = async (picture) => {
+    const encodedImages = []
+    for (let image of picture) {
+      const encodedImage = await toBase64(image);
+      encodedImages.push(encodedImage)
+    }
+    setPictures(encodedImages);
   };
 
   return (
@@ -116,7 +123,7 @@ const CreateListing = () => {
           />
         </Form.Group>
         <Form.Group>
-        <Form.Field
+          <Form.Field
             control={Input}
             data-cy="price"
             placeholder="Price"
@@ -125,9 +132,14 @@ const CreateListing = () => {
           />
         </Form.Group>
 
-        <Form.Group>
-            <Input id="image-upload" name="image" type="file" />
-        </Form.Group>
+        <ImageUploader
+          withIcon={true}
+          onChange={onDrop}
+          imgExtension={[".jpg", ".gif", ".png", ".gif"]}
+          maxFileSize={5242880}
+          withPreview={true}
+          data-cy="file-input"
+        />
 
         <Form.Group>
           <Button data-cy="button" type="submit">
