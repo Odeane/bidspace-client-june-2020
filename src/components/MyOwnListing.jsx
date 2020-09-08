@@ -20,7 +20,7 @@ const MyOwnListing = (props) => {
     });
     setMySingleListing(response.data.listing);
     setImages(response.data.listing.images);
-    setBiddings(response.data.listing.bidding);
+    setBiddings(response.data.listing.biddings);
   };
 
   let myListingContent = (
@@ -66,29 +66,6 @@ const MyOwnListing = (props) => {
           </Item.Content>
         </Item>
       </Item.Group>
-      
-      {biddings.map((bid) => (
-       <div data-cy={`bid-${bid.id}`}> 
-        <Card.Group >
-                <Card>
-                  <Card.Content >
-                    <Card.Description >{bid.bid}</Card.Description>
-                  </Card.Content>
-                  <Card.Content extra>
-                    <div className="ui two buttons">
-                      <Button basic color="green">
-                        Approve
-                      </Button>
-                      <Button basic color="red">
-                        Decline
-                      </Button>
-                    </div>
-                  </Card.Content>
-                </Card>
-                </Card.Group>
-                </div>
-              ))}
-              
     </>
   );
 
