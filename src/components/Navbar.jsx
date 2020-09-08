@@ -37,9 +37,9 @@ const Navbar = (props) => {
     props.dispatch({
       type: "SIGNOUT",
       payload: { authenticated: false },
-    })
-    document.location.reload(true)
-  }
+    });
+    document.location.reload(true);
+  };
 
   let becomeSubscriber;
   let registerUser;
@@ -77,24 +77,26 @@ const Navbar = (props) => {
   if (isUserAuthenticated) {
     userFunctions = (
       <>
-      <Menu.Item
-        name="messages"
-        active={activeItem === "messages"}
-        onClick={handleItemClick}
-        data-cy="button"
-      />
-      <Menu.Item
-        name="my-account"
-        active={activeItem === "My Account"}
-        onClick={handleItemClick}
-        data-cy="button"
-      />
-      <Menu.Item
-        name="settings"
-        active={activeItem === "Settings"}
-        onClick={handleItemClick}
-        data-cy="button"
-      />
+        <Menu.Item
+          name="messages"
+          active={activeItem === "messages"}
+          onClick={handleItemClick}
+          data-cy="button"
+        />
+        <Menu.Item
+          name="my-account"
+          active={activeItem === "My Account"}
+          onClick={handleItemClick}
+          data-cy="button"
+          as={Link}
+          to={{ pathname: "/account/listings" }}
+        />
+        <Menu.Item
+          name="settings"
+          active={activeItem === "Settings"}
+          onClick={handleItemClick}
+          data-cy="button"
+        />
       </>
     );
   }
@@ -102,23 +104,23 @@ const Navbar = (props) => {
   if (isUserAuthenticated) {
     login = (
       <Menu.Item
-            position="right"
-            name="logout"
-            active={activeItem === "logout"}
-            onClick={handleLogoutClick}
-            data-cy="button"
-          />
-    )
+        position="right"
+        name="logout"
+        active={activeItem === "logout"}
+        onClick={handleLogoutClick}
+        data-cy="button"
+      />
+    );
   } else {
     login = (
       <Menu.Item
-            position="right"
-            name="login"
-            active={activeItem === "login"}
-            onClick={handleFormClick}
-            data-cy="button"
-          />
-    )
+        position="right"
+        name="login"
+        active={activeItem === "login"}
+        onClick={handleFormClick}
+        data-cy="button"
+      />
+    );
   }
 
   return (
@@ -166,7 +168,7 @@ const mapStateToProps = (state) => {
   return {
     renderLoginForm: state.renderLoginForm,
     authenticated: state.authenticated,
-    userRole: state.currentUser.role
+    userRole: state.currentUser.role,
   };
 };
 

@@ -23,7 +23,7 @@ const SingleListing = (props) => {
     try {
       bidParams = {
         bid: parseFloat(bid),
-        listing_id: singleListing.id
+        listing_id: singleListing.id,
       };
 
       response = await axios.post(
@@ -44,7 +44,8 @@ const SingleListing = (props) => {
   if (isUserAuthenticated) {
     biddingField = (
       <form onSubmit={submitBid}>
-        <input id={singleListing.id}
+        <input
+          id={singleListing.id}
           value={biddingValue}
           onChange={onChangeHandler}
           data-cy="input"
