@@ -35,7 +35,7 @@ describe("User can see account page", () => {
     });
   });
 
-  it("user can see his/hers listings", () => {
+  it("user can see listing two", () => {
     cy.get("[data-cy=listing-2]").within(() => {
       cy.get("[data-cy=lead]").should(
         "contain",

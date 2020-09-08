@@ -7,15 +7,21 @@ const MyOwnListing = (props) => {
   let id = listingId;
   const [mySingleListing, setMySingleListing] = useState({});
   const [images, setImages] = useState([]);
+  const [biddings, setBiddings] = useState([]);
 
   useEffect(() => {
     getMySingleListing();
   }, []);
 
   const getMySingleListing = async () => {
-    let response = await axios.get(`account/listings/${id}`);
+    debugger
+    const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
+    let response = await axios.get(`account/listings/${id}`, {
+      headers: headers,
+    });
     setMySingleListing(response.data.listing);
     setImages(response.data.listing.images);
+    setBiddings(response.data.listing.bidding);
   };
 
   let myListingContent = (
@@ -38,6 +44,11 @@ const MyOwnListing = (props) => {
               <Label data-cy="scene">{mySingleListing.scene}</Label>
               <Label data-cy="category">{mySingleListing.category}</Label>
               <Label data-cy="price">{mySingleListing.price}</Label>
+                {biddings.map((bid) => (
+                  <div data-cy={`bid-${bid.id}`}>
+                  <h3>{bid.bid}</h3>
+                  </div>
+                ))}
             </Item.Extra>
           </Item.Content>
         </Item>

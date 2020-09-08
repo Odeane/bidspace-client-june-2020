@@ -29,6 +29,8 @@ describe("user can see their own single listing", () => {
         "contain",
         "Heated garage in the middle of Stockholm that fits one big SUV."
       );
+      cy.get('[data-cy=bid-1]').should("contain", "150")
+      cy.get('[data-cy=bid-2]').should("contain", "100")
     });
     cy.get("#listing-1").should("not.exist");
     cy.get("#listing-3").should("not.exist");
