@@ -23,6 +23,11 @@ const MyOwnListing = (props) => {
     setBiddings(response.data.listing.biddings);
   };
 
+  const acceptBidding = async (event) => {
+    id = event.target.dataset.cy
+    let response = await axios.put(`biddings/${id}`);
+  };
+
   let myListingContent = (
     <>
       <Item.Group divided>
@@ -45,16 +50,21 @@ const MyOwnListing = (props) => {
               <Label data-cy="price">{mySingleListing.price}</Label>
               {biddings.map((bid) => (
                 <Card.Group>
-                  <Card >
+                  <Card>
                     <div data-cy={`bid-${bid.id}`}>
                       <h3>{bid.bid}</h3>
                     </div>
                     <Card.Content extra>
                       <div className="ui two buttons">
-                        <Button data-cy={`approve-${bid.id}`} basic color="green">
+                        <Button
+                          onClick={acceptBidding}
+                          data-cy={bid.id}
+                          basic
+                          color="green"
+                        >
                           Approve
                         </Button>
-                        <Button data-cy='decline' basic color="red">
+                        <Button data-cy="decline" basic color="red">
                           Decline
                         </Button>
                       </div>

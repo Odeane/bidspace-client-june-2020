@@ -45,7 +45,7 @@ describe('User can accept or reject bid', () => {
 
     it('user can approve bidding', () => {
       cy.get("[data-cy=bid-2]").should("contain", "100")
-      cy.get("[data-cy='approve-2']").click();
+      cy.get("[data-cy='2']").click();
       cy.get("[data-cy='message']").should("contain", "You have accepted a bid, please contact the bidder.");
     });
 
