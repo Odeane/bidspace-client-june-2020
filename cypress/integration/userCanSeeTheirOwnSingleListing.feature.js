@@ -1,5 +1,5 @@
 describe("user can see their own single listing", () => {
-  beforeEach(()=> {
+  beforeEach(() => {
     cy.server();
     cy.route({
       method: "GET",

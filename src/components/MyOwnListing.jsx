@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Item, Label } from "semantic-ui-react";
-import { Button, Card} from 'semantic-ui-react'
+import { Button, Card } from "semantic-ui-react";
 
 const MyOwnListing = (props) => {
   const listingId = props.match.params.id;
@@ -15,7 +15,7 @@ const MyOwnListing = (props) => {
   }, []);
 
   const getMySingleListing = async () => {
-    debugger
+    debugger;
     const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
     let response = await axios.get(`account/listings/${id}`, {
       headers: headers,
@@ -52,11 +52,11 @@ const MyOwnListing = (props) => {
                       <h3>{bid.bid}</h3>
                     </div>
                     <Card.Content extra>
-                      <div className='ui two buttons'>
-                        <Button basic color='green'>
+                      <div className="ui two buttons">
+                        <Button basic color="green">
                           Approve
-                          </Button>
-                        <Button basic color='red'>
+                        </Button>
+                        <Button basic color="red">
                           Decline
                         </Button>
                       </div>
