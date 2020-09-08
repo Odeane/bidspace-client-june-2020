@@ -15,7 +15,6 @@ const MyOwnListing = (props) => {
   }, []);
 
   const getMySingleListing = async () => {
-    debugger;
     const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
     let response = await axios.get(`account/listings/${id}`, {
       headers: headers,
