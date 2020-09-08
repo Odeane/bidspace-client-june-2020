@@ -45,16 +45,16 @@ const MyOwnListing = (props) => {
               <Label data-cy="price">{mySingleListing.price}</Label>
               {biddings.map((bid) => (
                 <Card.Group>
-                  <Card>
+                  <Card >
                     <div data-cy={`bid-${bid.id}`}>
                       <h3>{bid.bid}</h3>
                     </div>
                     <Card.Content extra>
                       <div className="ui two buttons">
-                        <Button basic color="green">
+                        <Button data-cy={`approve-${bid.id}`} basic color="green">
                           Approve
                         </Button>
-                        <Button basic color="red">
+                        <Button data-cy='decline' basic color="red">
                           Decline
                         </Button>
                       </div>
