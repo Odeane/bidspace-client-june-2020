@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Item, Label } from "semantic-ui-react";
-import { Button, Card } from "semantic-ui-react";
+import { Item, Label, Button, Card } from "semantic-ui-react";
 
 const MyOwnListing = (props) => {
   const listingId = props.match.params.id;
