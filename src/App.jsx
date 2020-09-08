@@ -10,6 +10,8 @@ import Subscription from "./components/Subscription";
 import Navbar from "./components/Navbar";
 import SignUpForm from "./components/SignUpForm";
 import MyAccount from "./components/MyAccount";
+import MyOwnListing from "./components/MyOwnListing";
+
 
 const App = (props) => {
   return (
@@ -22,6 +24,7 @@ const App = (props) => {
         <Route exact path="/listing/:id" component={SingleListing}></Route>
         <Route exact path="/registration" component={SignUpForm}></Route>
         <Route exact path="/account/listings" component={MyAccount}></Route>
+        <Route exact path="/account/listings/:id" component={MyOwnListing}></Route>
         <Elements>
           <Route exact path="/subscription" component={Subscription}></Route>
         </Elements>

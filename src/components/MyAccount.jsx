@@ -25,7 +25,7 @@ const MyAccount = () => {
           <Item.Meta data-cy="category">{listing.category}</Item.Meta>
           <Item.Extra>
             <Label data-cy="scene">{listing.scene}</Label>
-            <Link to={`listing/${listing.id}`}>
+            <Link to={`listings/${listing.id}`}>
               <Button data-cy="button" primary floated="right">
                 Listing Details
                 <Icon name="right chevron" />
