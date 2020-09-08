@@ -12,12 +12,12 @@
       {
         "id": 1,
         "bid": 150,
-        "user_id": 12
+        "email": "user1@mail.com"
       },
       {
         "id": 2,
         "bid": 100,
-        "user_id": 13
+        "email": "user2@mail.com"
       }
     ]
   }
