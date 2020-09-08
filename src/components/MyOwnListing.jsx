@@ -8,6 +8,7 @@ const MyOwnListing = (props) => {
   const [mySingleListing, setMySingleListing] = useState({});
   const [images, setImages] = useState([]);
   const [biddings, setBiddings] = useState([]);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     getMySingleListing();
@@ -24,8 +25,27 @@ const MyOwnListing = (props) => {
   };
 
   const acceptBidding = async (event) => {
-    id = event.target.dataset.cy
-    let response = await axios.put(`biddings/${id}`);
+    let biddingParams, responseMessage, response;
+
+    const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
+    id = event.target.dataset.cy;
+
+    try {
+      biddingParams = {
+        status: "accepted",
+      };
+      let response = await axios.put(
+        `biddings/${id}`,
+        { params: biddingParams },
+        { headers: headers }
+      );
+
+      responseMessage = response.data.message;
+    } catch (error) {
+      responseMessage = response.data.error;
+    } finally {
+      setMessage(responseMessage);
+    }
   };
 
   let myListingContent = (
@@ -82,6 +102,7 @@ const MyOwnListing = (props) => {
   return (
     <div>
       <h1>{myListingContent}</h1>
+      <h3 data-cy="message">{message}</h3>
     </div>
   );
 };
