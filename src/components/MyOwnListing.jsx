@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Item, Label } from "semantic-ui-react";
+import { Button, Card} from 'semantic-ui-react'
 
 const MyOwnListing = (props) => {
   const listingId = props.match.params.id;
@@ -44,11 +45,25 @@ const MyOwnListing = (props) => {
               <Label data-cy="scene">{mySingleListing.scene}</Label>
               <Label data-cy="category">{mySingleListing.category}</Label>
               <Label data-cy="price">{mySingleListing.price}</Label>
-                {biddings.map((bid) => (
-                  <div data-cy={`bid-${bid.id}`}>
-                  <h3>{bid.bid}</h3>
-                  </div>
-                ))}
+              {biddings.map((bid) => (
+                <Card.Group>
+                  <Card>
+                    <div data-cy={`bid-${bid.id}`}>
+                      <h3>{bid.bid}</h3>
+                    </div>
+                    <Card.Content extra>
+                      <div className='ui two buttons'>
+                        <Button basic color='green'>
+                          Approve
+                          </Button>
+                        <Button basic color='red'>
+                          Decline
+                        </Button>
+                      </div>
+                    </Card.Content>
+                  </Card>
+                </Card.Group>
+              ))}
             </Item.Extra>
           </Item.Content>
         </Item>
