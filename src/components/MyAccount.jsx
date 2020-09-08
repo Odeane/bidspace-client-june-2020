@@ -11,7 +11,9 @@ const MyAccount = () => {
   }, []);
 
   const getListing = async () => {
-    let response = await axios.get("account/listings");
+    const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
+    let response = await axios.get("account/listings",
+     {headers: headers});
     setMyListing(response.data.listings);
   };
 
