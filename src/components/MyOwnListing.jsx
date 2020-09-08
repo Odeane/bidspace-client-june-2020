@@ -1,22 +1,22 @@
-import React, {useEffect, useState} from 'react'
-import axios from 'axios'
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Item, Label } from "semantic-ui-react";
 
 const MyOwnListing = (props) => {
   const listingId = props.match.params.id;
   let id = listingId;
-  const [mySingleListing, setMySingleListing] = useState({})
+  const [mySingleListing, setMySingleListing] = useState({});
   const [images, setImages] = useState([]);
 
   useEffect(() => {
-    getMySingleListing()
-  }, [])
+    getMySingleListing();
+  }, []);
 
   const getMySingleListing = async () => {
-  let response = await axios.get(`account/listings/${id}`)
-    setMySingleListing(response.data.listing)
+    let response = await axios.get(`account/listings/${id}`);
+    setMySingleListing(response.data.listing);
     setImages(response.data.listing.images);
-}
+  };
 
   let myListingContent = (
     <>
@@ -49,7 +49,7 @@ const MyOwnListing = (props) => {
     <div>
       <h1>{myListingContent}</h1>
     </div>
-  )
-}
+  );
+};
 
-export default MyOwnListing
+export default MyOwnListing;
