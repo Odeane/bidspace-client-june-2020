@@ -24,11 +24,12 @@ const MyOwnListing = (props) => {
     setBiddings(response.data.listing.biddings);
   };
 
-  const acceptBidding = async (event) => {
+  const handleBidding = async (event) => {
+    debugger;
     let biddingParams, responseMessage, response;
 
     const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
-    id = event.target.dataset.cy;
+    id = event.target.id;
 
     try {
       biddingParams = {
@@ -77,14 +78,19 @@ const MyOwnListing = (props) => {
                     <Card.Content extra>
                       <div className="ui two buttons">
                         <Button
-                          onClick={acceptBidding}
-                          data-cy={bid.id}
+                          id={bid.id}
+                          onClick={handleBidding}
+                          data-cy={`approve-${bid.id}`}
                           basic
                           color="green"
                         >
                           Approve
                         </Button>
-                        <Button data-cy="decline" basic color="red">
+                        <Button 
+                          id={bid.id} 
+                          onClick={handleBidding}
+                          data-cy={`decline-${bid.id}`}
+                          basic color="red">
                           Decline
                         </Button>
                       </div>

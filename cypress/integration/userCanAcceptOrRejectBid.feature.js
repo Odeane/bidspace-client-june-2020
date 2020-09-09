@@ -17,6 +17,11 @@ describe("User can accept or reject bid", () => {
         url: "http://localhost:3000/api/v1/biddings/2",
         response: '{"message": "You have accepted this bid!"}',
       });
+      cy.route({
+        method: "PUT",
+        url: "http://localhost:3000/api/v1/biddings/1",
+        response: '{"message": "You have rejected the bid!"}',
+      });
 
       cy.visit("/account/listings");
       cy.get("[data-cy=listing-2]").within(() => {
@@ -49,10 +54,19 @@ describe("User can accept or reject bid", () => {
 
     it("user can approve bidding", () => {
       cy.get("[data-cy=bid-2]").should("contain", "100");
-      cy.get("[data-cy='2']").click();
+      cy.get("[data-cy='approve-2']").click();
       cy.get("[data-cy='message']").should(
         "contain",
         "You have accepted this bid!"
+      );
+    });
+
+    it("user can reject bidding", () => {
+      cy.get("[data-cy=bid-1]").should("contain", "150");
+      cy.get("[data-cy='decline-1']").click();
+      cy.get("[data-cy='message']").should(
+        "contain",
+        "You have rejected the bid"
       );
     });
   });
