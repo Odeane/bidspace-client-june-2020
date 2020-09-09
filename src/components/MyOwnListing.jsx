@@ -27,13 +27,16 @@ const MyOwnListing = (props) => {
   const handleBidding = async (event) => {
     debugger;
     let biddingParams, responseMessage, response;
-
+    let stat = event.target.dataset.cy
+    var pattern = /[a-z]/g;
+    let status = stat.match(pattern).join('')
+  
     const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
     id = event.target.id;
 
     try {
       biddingParams = {
-        status: "accepted",
+        status: status,
       };
       let response = await axios.put(
         `biddings/${id}`,
@@ -80,7 +83,7 @@ const MyOwnListing = (props) => {
                         <Button
                           id={bid.id}
                           onClick={handleBidding}
-                          data-cy={`approve-${bid.id}`}
+                          data-cy={`accepted-${bid.id}`}
                           basic
                           color="green"
                         >
@@ -89,7 +92,7 @@ const MyOwnListing = (props) => {
                         <Button 
                           id={bid.id} 
                           onClick={handleBidding}
-                          data-cy={`decline-${bid.id}`}
+                          data-cy={`rejected-${bid.id}`}
                           basic color="red">
                           Decline
                         </Button>
