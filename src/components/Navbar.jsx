@@ -137,7 +137,7 @@ const Navbar = (props) => {
           />
           <Menu.Item
             as={Link}
-            to={{ pathname: "/contactus" }}
+            to={{ pathname: "/contact-us" }}
             name="contact us"
             active={activeItem === "contact us"}
             onClick={handleItemClick}
