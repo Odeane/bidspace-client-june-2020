@@ -1,0 +1,40 @@
+{
+  "biddings": [
+    {
+      "id": 1,
+      "bid": 500.0,
+      "status": "accepted",
+      "listing": {
+        "id": 1,
+        "lead": "Apartment in Vasa",
+        "scene": "indoor",
+        "category": "Apartment",
+        "image": "https://i.redd.it/w3kr4m2fi3111.png"
+      }
+    },
+    {
+      "id": 2,
+      "bid": 600.0,
+      "status": "pending",
+      "listing": {
+        "id": 2,
+        "lead": "Parking spot by Ullevi",
+        "scene": "outdoor",
+        "category": "Parking spot",
+        "image": "https://i.redd.it/w3kr4m2fi3111.png"
+      }
+    },
+    {
+      "id": 3,
+      "bid": 700.0,
+      "status": "rejected",
+      "listing": {
+        "id": 3,
+        "lead": "Dungeon in Kville",
+        "scene": "indoor",
+        "category": "Apartment",
+        "image": "https://i.redd.it/w3kr4m2fi3111.png"
+      }
+    }
+  ]
+}
