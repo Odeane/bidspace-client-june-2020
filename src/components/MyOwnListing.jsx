@@ -93,14 +93,14 @@ const MyOwnListing = (props) => {
                                   color="green"
                                 >
                                   Approve
-                        </Button>
+                                </Button>
                                 <Button
                                   id={bid.id}
                                   onClick={handleBidding}
                                   data-cy={`rejected-${bid.id}`}
                                   basic color="red">
                                   Decline
-                        </Button>
+                                </Button>
                               </>
                             ) :
                             (
@@ -117,8 +117,6 @@ const MyOwnListing = (props) => {
           </Item.Content>
         </Item>
       </Item.Group>
-
-
     </>
   );
 
