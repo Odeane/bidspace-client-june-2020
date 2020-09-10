@@ -28,7 +28,7 @@ const App = (props) => {
         <Route exact path="/account/listings" component={MyAccount}></Route>
         <Route exact path="/account/listings/:id" component={MyOwnListing}></Route>
         <Route exact path="/faq" component={Faq}></Route>
-        <Route exact path="/contactus" component={ContactUs}></Route>
+        <Route exact path="/contact-us" component={ContactUs}></Route>
         <Elements>
           <Route exact path="/subscription" component={Subscription}></Route>
         </Elements>
