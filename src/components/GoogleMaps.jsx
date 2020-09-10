@@ -15,10 +15,10 @@ const GoogleMaps = ({ listings, ...props }) => {
         onReady={() => setListing(listings)}
         google={props.google}
       >
-        {listing.map((list) => (
+        {listings.map((listing) => (
           <Marker
-            title={list.title}
-            position={{ lat: list.latitude, lng: list.longitude }}
+            title={listing.title}
+            position={{ lat: listing.latitude, lng: listing.longitude }}
           />
         ))}
         {/* <Marker
