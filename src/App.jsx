@@ -12,6 +12,7 @@ import SignUpForm from "./components/SignUpForm";
 import MyAccount from "./components/MyAccount";
 import MyOwnListing from "./components/MyOwnListing";
 import Faq from "./components/Faq"
+import ContactUs from "./components/ContactUs"
 
 
 const App = (props) => {
@@ -27,6 +28,7 @@ const App = (props) => {
         <Route exact path="/account/listings" component={MyAccount}></Route>
         <Route exact path="/account/listings/:id" component={MyOwnListing}></Route>
         <Route exact path="/faq" component={Faq}></Route>
+        <Route exact path="/contactus" component={ContactUs}></Route>
         <Elements>
           <Route exact path="/subscription" component={Subscription}></Route>
         </Elements>
