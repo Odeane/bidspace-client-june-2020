@@ -1,6 +1,7 @@
 describe('User can see their bids', () => {
   describe('successfully', () => {
     before(() => {
+      cy.server();
       cy.route({
         method: "GET",
         url: "http://localhost:3000/api/v1/account/listings",
@@ -46,8 +47,8 @@ describe('User can see their bids', () => {
           cy.get("[data-cy=listing-scene]").should("contain", "indoor");
           cy.get("[data-cy=listing-category]").should("contain", "Apartment");
 
-          cy.get("[data-cy=bid-status]").should("contain", "active");
-          cy.get("[data-cy=bid-offer]").should("contain", "500.0");
+          cy.get("[data-cy=bid-status]").should("contain", "accepted");
+          cy.get("[data-cy=bid-offer]").should("contain", "500");
         })
       })
     });
@@ -61,7 +62,7 @@ describe('User can see their bids', () => {
           cy.get("[data-cy=listing-category]").should("contain", "Parking spot");
 
           cy.get("[data-cy=bid-status]").should("contain", "pending");
-          cy.get("[data-cy=bid-offer]").should("contain", "600.0");
+          cy.get("[data-cy=bid-offer]").should("contain", "600");
         })
       })
     });
@@ -75,7 +76,7 @@ describe('User can see their bids', () => {
           cy.get("[data-cy=listing-category]").should("contain", "Apartment");
 
           cy.get("[data-cy=bid-status]").should("contain", "rejected");
-          cy.get("[data-cy=bid-offer]").should("contain", "700.0");
+          cy.get("[data-cy=bid-offer]").should("contain", "700");
         })
       })
     });

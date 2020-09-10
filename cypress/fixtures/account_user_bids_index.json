@@ -3,7 +3,7 @@
     {
       "id": 1,
       "bid": 500.0,
-      "status": "active",
+      "status": "accepted",
       "listing": {
         "id": 1,
         "lead": "Apartment in Vasa",
