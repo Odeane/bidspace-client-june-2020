@@ -15,12 +15,12 @@ describe("User can accept or reject bid", () => {
       cy.route({
         method: "PUT",
         url: "http://localhost:3000/api/v1/biddings/2",
-        response: '{"message": "You have accepted this bid!"}',
+        response: '{"message": "You have accepted this bid from user2@mail.com"}',
       });
       cy.route({
         method: "PUT",
         url: "http://localhost:3000/api/v1/biddings/1",
-        response: '{"message": "You have rejected the bid!"}',
+        response: '{"message": "You have rejected the bid from user3@mail.com"}',
       });
 
       cy.visit("/account/listings");
@@ -52,21 +52,32 @@ describe("User can accept or reject bid", () => {
       cy.get("#listing-3").should("not.exist");
     });
 
-    it("user can approve bidding", () => {
-      cy.get("[data-cy=bid-2]").should("contain", "100");
-      cy.get("[data-cy='accepted-2']").click();
-      cy.get("[data-cy='message']").should(
-        "contain",
-        "You have accepted this bid!"
-      );
-    });
 
     it("user can reject bidding", () => {
       cy.get("[data-cy=bid-1]").should("contain", "150");
+      cy.route({
+        method: "GET",
+        url: "http://localhost:3000/api/v1/account/listings/2",
+        response: "fixture:account_show_rejected.json",
+      });
       cy.get("[data-cy='rejected-1']").click();
       cy.get("[data-cy='message']").should(
         "contain",
-        "You have rejected the bid"
+        "You have rejected the bid from user3@mail.com"
+      );
+    });
+
+    it("user can approve bidding", () => {
+      cy.get("[data-cy=bid-2]").should("contain", "100");
+      cy.route({
+        method: "GET",
+        url: "http://localhost:3000/api/v1/account/listings/2",
+        response: "fixture:account_show_accepted.json",
+      });
+      cy.get("[data-cy='accepted-2']").click();
+      cy.get("[data-cy='message']").should(
+        "contain",
+        "You have accepted this bid from user2@mail.com"
       );
     });
   });
