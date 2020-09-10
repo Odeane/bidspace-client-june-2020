@@ -9,6 +9,7 @@ const MyOwnListing = (props) => {
   const [images, setImages] = useState([]);
   const [biddings, setBiddings] = useState([]);
   const [message, setMessage] = useState("");
+  const [user, setUser] = useState([])
 
   useEffect(() => {
     getMySingleListing();
@@ -25,7 +26,6 @@ const MyOwnListing = (props) => {
   };
 
   const handleBidding = async (event) => {
-    debugger;
     let biddingParams, responseMessage, response;
     let stat = event.target.dataset.cy
     var pattern = /[a-z]/g;
@@ -60,7 +60,7 @@ const MyOwnListing = (props) => {
           data-id={mySingleListing.id}
         >
           {images.map((url) => (
-            <Item.Image data-cy="image" src={url.url} alt="listing image" />
+            <Item.Image data-cy="image" src={url} alt="listing image" />
           ))}
           <Item.Content>
             <Item.Header data-cy="lead">{mySingleListing.lead}</Item.Header>
@@ -73,10 +73,12 @@ const MyOwnListing = (props) => {
               <Label data-cy="category">{mySingleListing.category}</Label>
               <Label data-cy="price">{mySingleListing.price}</Label>
               {biddings.map((bid) => (
+                <>
                 <Card.Group>
                   <Card>
                     <div data-cy={`bid-${bid.id}`}>
-                      <h3>{bid.bid}</h3>
+                      <h4>Incoming offer from: <em>{bid.user.email}</em></h4>
+                      <h3>Amount: {bid.bid} SEK</h3>
                     </div>
                     <Card.Content extra>
                       <div className="ui two buttons">
@@ -98,20 +100,23 @@ const MyOwnListing = (props) => {
                         </Button>
                       </div>
                     </Card.Content>
-                  </Card>
-                </Card.Group>
-              ))}
+                  </Card>  
+                  </Card.Group>
+                </>
+              ))} 
             </Item.Extra>
           </Item.Content>
         </Item>
       </Item.Group>
+      
+
     </>
   );
 
   return (
     <div>
       <h1>{myListingContent}</h1>
-      <h3 data-cy="message">{message}</h3>
+      <h3 data-cy="message">{message}</h3> 
     </div>
   );
 };
