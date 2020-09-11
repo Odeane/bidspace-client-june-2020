@@ -34,7 +34,7 @@ const SingleListing = (props) => {
 
       responseMessage = response.data.message;
     } catch (error) {
-      responseMessage = response.data.error;
+      responseMessage = error.response.data.message;
     } finally {
       setMessage(responseMessage);
     }
