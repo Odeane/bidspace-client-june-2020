@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Item, Label } from "semantic-ui-react";
+import { Item, Label, Image, Grid, Container, Header, Divider, Form, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 
 const SingleListing = (props) => {
@@ -43,21 +43,21 @@ const SingleListing = (props) => {
   let biddingField;
   if (isUserAuthenticated) {
     biddingField = (
-      <form onSubmit={submitBid}>
-        <input
+      <Form onSubmit={submitBid}>
+        <Form.Input
           id={singleListing.id}
           value={biddingValue}
           onChange={onChangeHandler}
           data-cy="input"
           type="number"
         />
-        <button data-cy="button">Register Your Bid</button>
-      </form>
+        <Button positive data-cy="button">Register Your Bid</Button>
+      </Form>
     );
   } else {
     biddingField = (
       <>
-        <p data-cy="message">You need to log in to bid</p>
+        <Container text data-cy="message"><strong>You need to log in to bid</strong></Container>
       </>
     );
   }
@@ -71,41 +71,54 @@ const SingleListing = (props) => {
     let response = await axios.get(`/listings/${id}`);
     setSingleListing(response.data.listing);
     setImages(response.data.listing.images);
+    debugger;
   };
 
   let listingContent = (
     <>
-      <Item.Group divided>
-        <Item
+      <Container textAlign="justified" divided
           data-cy={`listing-${singleListing.id}`}
           data-id={singleListing.id}
         >
-          {images.map((url) => (
-            <Item.Image data-cy="image" src={url.url} alt="listing image" />
-          ))}
-
-          <Item.Content>
-            <Item.Header data-cy="lead">{singleListing.lead}</Item.Header>
-            <Item.Meta data-cy="address">{singleListing.address}</Item.Meta>
-            <Item.Description data-cy="description">
+            <Header as="h1" size="huge" data-cy="lead">{singleListing.lead}</Header>
+            <Divider />
+            <Container text data-cy="address"><strong>{singleListing.address}</strong></Container>
+            <Divider />
+            <Container text data-cy="description">
               {singleListing.description}
-            </Item.Description>
-            <Item.Extra>
-              <Label data-cy="scene">{singleListing.scene}</Label>
-              <Label data-cy="category">{singleListing.category}</Label>
-              <Label data-cy="price">{singleListing.price}</Label>
-            </Item.Extra>
-            <Item.Extra>{biddingField}</Item.Extra>
-          </Item.Content>
-        </Item>
-      </Item.Group>
+            </Container>
+            <Divider />
+            <Container text>
+              <Label size="massive" data-cy="scene">{singleListing.scene}</Label>
+              <Label size="massive" data-cy="category">{singleListing.category}</Label>
+              <Label size="massive" data-cy="price">Target Price: {singleListing.price}kr</Label>
+              </Container>
+              <Divider />
+            <Container>{biddingField}</Container>
+      </Container>
     </>
   );
 
   return (
     <>
-      <div>{listingContent}</div>
-      <div> {message && <p data-cy="message">{message}</p>}</div>
+      <Grid centered column={1} divided padded>
+        <Grid.Row stretched>
+          <Grid.Column width={4}>
+            {images.map((image) => (
+              <Image
+                id="listing-image"
+                data-cy="image"
+                src={image.url}
+                alt="listing image"
+              />
+            ))}
+          </Grid.Column>
+          <Grid.Column width={8}>
+            <div>{listingContent}</div>
+            <div> {message && <p data-cy="message">{message}</p>}</div>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     </>
   );
 };
