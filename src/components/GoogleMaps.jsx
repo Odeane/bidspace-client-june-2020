@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { GoogleApiWrapper, Map, Marker, InfoWindow } from "google-maps-react";
 import { connect } from "react-redux";
 import { Image } from "semantic-ui-react";
@@ -6,11 +6,10 @@ import { Image } from "semantic-ui-react";
 const GoogleMaps = ({ listings, ...props }) => {
   const [listing, setListing] = useState([]);
   const [activeMarker, setActiveMarker] = useState({});
-  const [selectedPlace, setSelectedPlace] = useState({});
   const [infoWindow, setInfoWindow] = useState(false);
+
   const handleMarkerClick = (e, marker) => {
     setActiveMarker(marker);
-    setSelectedPlace(props);
     setInfoWindow(true);
   };
   return (
@@ -21,7 +20,7 @@ const GoogleMaps = ({ listings, ...props }) => {
           lng: 18.05388,
         }}
         zoom={8}
-        onReady={() => setListing(listings)}
+        onReady={() => setListing(listing)}
         google={props.google}
       >
         {listings.map((listing) => (
@@ -42,11 +41,6 @@ const GoogleMaps = ({ listings, ...props }) => {
             <Image centered size="small" src={activeMarker.image} />
           </div>
         </InfoWindow>
-
-        {/* <Marker
-              title={"Odeane's address"}
-              position={{ lat: 59.26752, lng: 18.05388 }}
-            /> */}
       </Map>
     </div>
   );
