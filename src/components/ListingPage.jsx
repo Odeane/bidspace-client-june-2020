@@ -38,7 +38,7 @@ const ListingPage = () => {
   ));
 
   return (
-    <>
+    <div id="listing-page">
       <h1 id="rent-space-title">Rent your space</h1>
       <Grid columns={2} relaxed="very">
         <Grid.Column>
@@ -48,7 +48,7 @@ const ListingPage = () => {
           <GoogleMaps listings={listings} />
         </Grid.Column>
       </Grid>
-    </>
+    </div>
   );
 };
 
