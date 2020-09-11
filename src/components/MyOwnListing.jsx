@@ -8,7 +8,7 @@ const MyOwnListing = (props) => {
   const [images, setImages] = useState([]);
   const [biddings, setBiddings] = useState([]);
   const [message, setMessage] = useState("");
-  const [reopenMessage, setReopenMessage] = useState('')
+  const [reopenMessage, setReopenMessage] = useState("");
 
   useEffect(() => {
     getMySingleListing();
@@ -57,19 +57,16 @@ const MyOwnListing = (props) => {
     let responseReopenMessage, response;
 
     try {
-      let response = await axios.put(`account/listings/${listingId}`,
-        { headers: headers },
-      )
+      let response = await axios.put(`account/listings/${listingId}`, {
+        headers: headers,
+      });
       responseReopenMessage = response.data.message;
     } catch (error) {
       responseReopenMessage = response.data.error;
     } finally {
       setReopenMessage(responseReopenMessage);
     }
-
-  }
-  
-
+  };
 
   let myListingContent = (
     <>
@@ -91,62 +88,67 @@ const MyOwnListing = (props) => {
               <Label data-cy="scene">{mySingleListing.scene}</Label>
               <Label data-cy="category">{mySingleListing.category}</Label>
               <Label data-cy="price">{mySingleListing.price}</Label>
-               
-              {mySingleListing.tenant ?
-              (
-                <button data-cy="reopen-button" onClick={reOpenListing} >Reopen Listing</button>
-              ):(
+
+              {mySingleListing.tenant ? (
+                <button data-cy="reopen-button" onClick={reOpenListing}>
+                  Reopen Listing
+                </button>
+              ) : (
                 <div>
-                {
-                  biddings.map((bid) => (
-                    
+                  {biddings.map((bid) => (
                     <>
-                      <div>
-                    
-                      </div>
+                      <div></div>
                       <Card.Group>
                         <Card>
                           <div data-cy={`bid-${bid.id}`}>
-                            <h4>Incoming offer from: <em>{bid.user.email}</em></h4>
+                            <h4>
+                              Incoming offer from: <em>{bid.user.email}</em>
+                            </h4>
                             <h3>Amount: {bid.bid} SEK</h3>
                           </div>
                           <Card.Content extra>
                             <div className="ui two buttons">
-                              {bid.status === 'pending' ?
-                                (
-                                  <>
-                                    <Button
-                                      id={bid.id}
-                                      onClick={handleBidding}
-                                      data-cy={`accepted-${bid.id}`}
-                                      basic
-                                      color="green"
-                                    >
-                                      Approve
-                                </Button>
-                                    <Button
-                                      id={bid.id}
-                                      onClick={handleBidding}
-                                      data-cy={`rejected-${bid.id}`}
-                                      basic color="red">
-                                      Decline
-                                </Button>
-                                  </>
-                                ) :
-                                (
-                                  <h1 style={{ color: bid.status === 'accepted' ? 'green' : 'red' }}>This bid is {bid.status}</h1>
-                                )
-                              }
+                              {bid.status === "pending" ? (
+                                <>
+                                  <Button
+                                    id={bid.id}
+                                    onClick={handleBidding}
+                                    data-cy={`accepted-${bid.id}`}
+                                    basic
+                                    color="green"
+                                  >
+                                    Approve
+                                  </Button>
+                                  <Button
+                                    id={bid.id}
+                                    onClick={handleBidding}
+                                    data-cy={`rejected-${bid.id}`}
+                                    basic
+                                    color="red"
+                                  >
+                                    Decline
+                                  </Button>
+                                </>
+                              ) : (
+                                <h1
+                                  style={{
+                                    color:
+                                      bid.status === "accepted"
+                                        ? "green"
+                                        : "red",
+                                  }}
+                                >
+                                  This bid is {bid.status}
+                                </h1>
+                              )}
                             </div>
                           </Card.Content>
                         </Card>
                       </Card.Group>
                     </>
-                  ))
-                }
+                  ))}
                 </div>
-                )
-              }
+              )}
             </Item.Extra>
           </Item.Content>
         </Item>
