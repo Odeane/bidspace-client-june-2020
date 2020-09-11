@@ -46,14 +46,6 @@ const GoogleMaps = ({ listings, ...props }) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return {
-    renderInfoWindow: state.renderInfoWindow,
-  };
-};
-
-export default connect(mapStateToProps)(
-  GoogleApiWrapper({
-    apiKey: process.env.REACT_APP_API_KEY,
-  })(GoogleMaps)
-);
+export default GoogleApiWrapper({
+  apiKey: process.env.REACT_APP_API_KEY,
+})(GoogleMaps);

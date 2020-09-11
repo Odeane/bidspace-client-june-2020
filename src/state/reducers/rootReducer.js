@@ -36,12 +36,6 @@ const rootReducer = (state = initialState, action) => {
         authenticated: false,
       }
 
-    case "INFO_WINDOW_VISIBILITY":
-      return {
-        ...state,
-        ...action.payload,
-      }
-
     default:
       return state;
   }

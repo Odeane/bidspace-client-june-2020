@@ -4,7 +4,6 @@ const initialState = {
   renderLoginForm: false,
   renderSignUpForm: false,
   errorMessage: "",
-  renderInfoWindow: false,
 };
 
 export default initialState;
