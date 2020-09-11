@@ -8,7 +8,7 @@ const MyOwnListing = (props) => {
   const [images, setImages] = useState([]);
   const [biddings, setBiddings] = useState([]);
   const [message, setMessage] = useState("");
-
+  const [reopenMessage, setReopenMessage] = useState('')
 
   useEffect(() => {
     getMySingleListing();
@@ -52,6 +52,25 @@ const MyOwnListing = (props) => {
     }
   };
 
+  const reOpenListing = async (event) => {
+    const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
+    let responseMessage, response;
+
+    try {
+      let response = axios.put(`account/listings/${listingId}`,
+        { headers: headers },
+      )
+      responseMessage = response.data.message;
+    } catch (error) {
+      responseMessage = response.data.error;
+    } finally {
+      setReopenMessage(responseMessage);
+    }
+
+  }
+  
+
+
   let myListingContent = (
     <>
       <Item.Group divided>
@@ -74,6 +93,10 @@ const MyOwnListing = (props) => {
               <Label data-cy="price">{mySingleListing.price}</Label>
               {biddings.map((bid) => (
                 <>
+                  <div>
+                    {bid.status === "accepted" &&
+                      <button name={null} data-cy="reopen-button" onClick={reOpenListing}>Reopen Listing</button>}
+                  </div>
                   <Card.Group>
                     <Card>
                       <div data-cy={`bid-${bid.id}`}>
@@ -124,6 +147,7 @@ const MyOwnListing = (props) => {
     <div>
       <h1>{myListingContent}</h1>
       <h3 data-cy="message">{message}</h3>
+      <h3 data-cy="message">{reopenMessage}</h3>
     </div>
   );
 };
