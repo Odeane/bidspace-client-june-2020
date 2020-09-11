@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Grid, Item, Label, Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
+import GoogleMaps from "./GoogleMaps";
 
 const ListingPage = () => {
   const [listings, setListings] = useState([]);
@@ -18,7 +19,7 @@ const ListingPage = () => {
   let content = listings.map((listing) => (
     <Item.Group divided>
       <Item data-cy={`listing-${listing.id}`} data-id={listing.id}>
-        <Item.Image data-cy="image" src={listing.image} alt="listing image"/>
+        <Item.Image data-cy="image" src={listing.image} alt="listing image" />
         <Item.Content>
           <Item.Header data-cy="lead">{listing.lead}</Item.Header>
           <Item.Meta id="category">{listing.category}</Item.Meta>
@@ -44,10 +45,7 @@ const ListingPage = () => {
           <div>{content}</div>
         </Grid.Column>
         <Grid.Column>
-          <img
-            src="https://www.google.com/maps/d/thumbnail?mid=1Q0KaFi_mtsXrkPd9jfIEwRu4wyk&hl=en"
-            alt=""
-          />
+          <GoogleMaps listings={listings} />
         </Grid.Column>
       </Grid>
     </>
