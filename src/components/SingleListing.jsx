@@ -71,7 +71,6 @@ const SingleListing = (props) => {
     let response = await axios.get(`/listings/${id}`);
     setSingleListing(response.data.listing);
     setImages(response.data.listing.images);
-    debugger;
   };
 
   let listingContent = (
