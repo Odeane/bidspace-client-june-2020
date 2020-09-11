@@ -1,0 +1,18 @@
+{
+  "listing": {
+    "id": 2,
+    "lead": "Great parking spot in central of Stockholm.",
+    "scene": "indoor",
+    "category": "Parking spot",
+    "images": ["https://i.redd.it/w3kr4m2fi3111.png"],
+    "description": "Heated garage in the middle of Stockholm that fits one big SUV.",
+    "address": "Sibyllegatan 18, 11442 Stockholm",
+
+    "price": 200,
+    "biddings": [],
+    "tenant": {
+      "id": 1,
+      "email":"user@email.com"
+    }
+  }
+}

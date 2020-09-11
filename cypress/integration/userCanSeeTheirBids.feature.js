@@ -34,6 +34,7 @@ describe("User can see their bids", () => {
         cy.get("[data-cy=password]").type("password");
         cy.get("[data-cy=button]").contains("Submit").click();
       });
+
       cy.scrollTo("top");
       cy.wait(2000);
       cy.get("[data-cy=button]").contains("My Account").click();
@@ -128,6 +129,7 @@ describe("User can see their bids", () => {
         cy.get("[data-cy=password]").type("password");
         cy.get("[data-cy=button]").contains("Submit").click();
       });
+
       cy.scrollTo("top");
       cy.wait(2000);
       cy.get("[data-cy=button]").contains("My Account").click();

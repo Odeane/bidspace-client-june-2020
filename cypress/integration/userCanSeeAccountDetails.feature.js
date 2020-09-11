@@ -26,6 +26,7 @@ describe("User can see account page", () => {
   });
 
   it("User can see listing one", () => {
+    cy.wait(2000)
     cy.get("[data-cy=button]").contains("My Account").click();
     cy.get("[data-cy=listing-1]").within(() => {
       cy.get("[data-cy=lead]").should("contain", "Vacant");
