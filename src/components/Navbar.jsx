@@ -176,4 +176,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default (Navbar);
+export default connect(mapStateToProps)(Navbar);

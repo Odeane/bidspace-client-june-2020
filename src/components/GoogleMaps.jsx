@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { GoogleApiWrapper, Map, Marker, InfoWindow } from "google-maps-react";
 import { connect } from "react-redux";
+import { Image } from "semantic-ui-react";
 
 const GoogleMaps = ({ listings, ...props }) => {
   const [listing, setListing] = useState([]);
   const [activeMarker, setActiveMarker] = useState({});
   const [selectedPlace, setSelectedPlace] = useState({});
-
+  const [infoWindow, setInfoWindow] = useState(false);
   const handleMarkerClick = (e, marker) => {
     setActiveMarker(marker);
     setSelectedPlace(props);
-    props.dispatch({
-      type: "INFO_WINDOW_VISIBILITY",
-      payload: { renderInfoWindow: true },
-    });
+    setInfoWindow(true);
   };
-
   return (
     <div>
       <Map
@@ -30,13 +27,19 @@ const GoogleMaps = ({ listings, ...props }) => {
         {listings.map((listing) => (
           <Marker
             onClick={handleMarkerClick}
-            title={listing.title}
+            title={listing.lead}
+            image={listing.image}
             position={{ lat: listing.latitude, lng: listing.longitude }}
           />
         ))}
-        <InfoWindow marker={activeMarker} visible={props.renderInfoWindow}>
+        <InfoWindow
+          onClose={() => setInfoWindow(false)}
+          marker={activeMarker}
+          visible={infoWindow}
+        >
           <div>
-            <p>Hello</p>
+            <h3>{activeMarker.title}</h3>
+            <Image centered size="small" src={activeMarker.image} />
           </div>
         </InfoWindow>
 
