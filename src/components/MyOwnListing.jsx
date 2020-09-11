@@ -3,6 +3,7 @@ import axios from "axios";
 import { Item, Label, Button, Card } from "semantic-ui-react";
 
 const MyOwnListing = (props) => {
+  debugger
   const listingId = props.match.params.id;
   const [mySingleListing, setMySingleListing] = useState({});
   const [images, setImages] = useState([]);
@@ -15,7 +16,6 @@ const MyOwnListing = (props) => {
   }, []);
 
   const getMySingleListing = async () => {
-  debugger
     const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
     let response = await axios.get(`account/listings/${listingId}`, {
       headers: headers,
@@ -54,7 +54,6 @@ const MyOwnListing = (props) => {
   };
 
   const reOpenListing = async () => {
-    
     const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
     let responseReopenMessage, response;
 
@@ -93,10 +92,15 @@ const MyOwnListing = (props) => {
               <Label data-cy="scene">{mySingleListing.scene}</Label>
               <Label data-cy="category">{mySingleListing.category}</Label>
               <Label data-cy="price">{mySingleListing.price}</Label>
+               
+              {mySingleListing.tenant ?
+              (
                 <button data-cy="reopen-button" onClick={reOpenListing} >Reopen Listing</button>
-              
+              ):(
+                <div>
                 {
                   biddings.map((bid) => (
+                    
                     <>
                       <div>
                     
@@ -141,6 +145,9 @@ const MyOwnListing = (props) => {
                     </>
                   ))
                 }
+                </div>
+                )
+              }
             </Item.Extra>
           </Item.Content>
         </Item>
