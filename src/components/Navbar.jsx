@@ -136,12 +136,16 @@ const Navbar = (props) => {
             data-cy="button"
           />
           <Menu.Item
+            as={Link}
+            to={{ pathname: "/contact-us" }}
             name="contact us"
             active={activeItem === "contact us"}
             onClick={handleItemClick}
             data-cy="button"
           />
           <Menu.Item
+            as={Link}
+            to={{ pathname: "/faq" }}
             name="F A Q"
             active={activeItem === "F A Q"}
             onClick={handleItemClick}

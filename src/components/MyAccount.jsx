@@ -5,9 +5,11 @@ import { Link } from "react-router-dom";
 
 const MyAccount = () => {
   const [myListing, setMyListing] = useState([]);
+  const [myBiddings, setMyBiddings] = useState([])
 
   useEffect(() => {
     getListing();
+    getBids()
   }, []);
 
   const getListing = async () => {
@@ -15,6 +17,39 @@ const MyAccount = () => {
     let response = await axios.get("account/listings", { headers: headers });
     setMyListing(response.data.listings);
   };
+
+
+  const getBids = async () => {
+    
+    const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
+    let response = await axios.get("/account/biddings", { headers: headers });
+    setMyBiddings(response.data.biddings)
+  }
+
+  let bids
+    
+  if (myBiddings.length > 0) {
+    bids = myBiddings.map(mybid => (
+      <div data-cy='user-bids' >
+        <div data-cy={`bid-${mybid.listing.id}`}>
+          <img data-cy='listing-image' src={mybid.listing.image} alt="parking" />
+          <h1 data-cy="listing-lead" >{mybid.listing.lead}</h1>
+          <h1 data-cy="listing-scene" >{mybid.listing.scene}</h1>
+          <h1 data-cy="listing-category" >{mybid.listing.category}</h1>
+          <h1 data-cy="bid-status" >{mybid.status}</h1>
+          <h1 data-cy="bid-offer" >{mybid.bid}</h1>
+        </div>
+      </div>
+    ))
+  } else {
+    bids = (
+      <>
+        <h1 data-cy='message'>You have not placed any bids.</h1>
+      </>
+    ) 
+  } 
+    
+  
 
   let content = myListing.map((listing) => (
     <Item.Group divided>
@@ -39,6 +74,7 @@ const MyAccount = () => {
 
   return (
     <div>
+      <div>{bids}</div>
       <div>{content}</div>
     </div>
   );
