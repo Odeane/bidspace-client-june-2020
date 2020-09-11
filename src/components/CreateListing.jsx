@@ -49,7 +49,7 @@ const CreateListing = () => {
 
       responseMessage = response.data.message;
     } catch (error) {
-      responseMessage = response.data.error;
+      responseMessage = error.response.data.errors;
     } finally {
       setMessage(responseMessage);
     }
