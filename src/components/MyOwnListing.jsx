@@ -3,7 +3,6 @@ import axios from "axios";
 import { Item, Label, Button, Card } from "semantic-ui-react";
 
 const MyOwnListing = (props) => {
-  debugger
   const listingId = props.match.params.id;
   const [mySingleListing, setMySingleListing] = useState({});
   const [images, setImages] = useState([]);
@@ -58,7 +57,7 @@ const MyOwnListing = (props) => {
     let responseReopenMessage, response;
 
     try {
-      let response = axios.put(`account/listings/${listingId}`,
+      let response = await axios.put(`account/listings/${listingId}`,
         { headers: headers },
       )
       responseReopenMessage = response.data.message;
