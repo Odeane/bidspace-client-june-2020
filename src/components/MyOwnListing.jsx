@@ -9,7 +9,6 @@ const MyOwnListing = (props) => {
   const [biddings, setBiddings] = useState([]);
   const [message, setMessage] = useState("");
 
-
   useEffect(() => {
     getMySingleListing();
   }, []);
@@ -27,9 +26,9 @@ const MyOwnListing = (props) => {
 
   const handleBidding = async (event) => {
     let biddingParams, responseMessage, response;
-    let stat = event.target.dataset.cy
+    let stat = event.target.dataset.cy;
     var pattern = /[a-z]/g;
-    let status = stat.match(pattern).join('')
+    let status = stat.match(pattern).join("");
 
     const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
     const bidId = event.target.id;
@@ -43,7 +42,7 @@ const MyOwnListing = (props) => {
         { params: biddingParams },
         { headers: headers }
       );
-      getMySingleListing()
+      getMySingleListing();
       responseMessage = response.data.message;
     } catch (error) {
       responseMessage = response.data.error;
@@ -77,37 +76,48 @@ const MyOwnListing = (props) => {
                   <Card.Group>
                     <Card>
                       <div data-cy={`bid-${bid.id}`}>
-                        <h4>Incoming offer from: <em>{bid.user.email}</em></h4>
+                        <h4>
+                          Incoming offer from: <em>{bid.user.email}</em>
+                        </h4>
                         <h3>Amount: {bid.bid} SEK</h3>
                       </div>
                       <Card.Content extra>
                         <div className="ui two buttons">
-                          {bid.status === 'pending' ?
-                            (
-                              <>
-                                <Button
-                                  id={bid.id}
-                                  onClick={handleBidding}
-                                  data-cy={`accepted-${bid.id}`}
-                                  basic
-                                  color="green"
-                                >
-                                  Approve
-                                </Button>
-                                <Button
-                                  id={bid.id}
-                                  onClick={handleBidding}
-                                  data-cy={`rejected-${bid.id}`}
-                                  basic color="red">
-                                  Decline
-                                </Button>
-                              </>
-                            ) :
-                            (
-                              <h1 style={{ color: bid.status === 'accepted' ? 'green' : 'red' }}>This bid is {bid.status}</h1>
-                            )
-                          }
+                          {bid.status === "pending" ? (
+                            <>
+                              <Button
+                                id={bid.id}
+                                onClick={handleBidding}
+                                data-cy={`accepted-${bid.id}`}
+                                basic
+                                color="green"
+                              >
+                                Approve
+                              </Button>
+                              <Button
+                                id={bid.id}
+                                onClick={handleBidding}
+                                data-cy={`rejected-${bid.id}`}
+                                basic
+                                color="red"
+                              >
+                                Decline
+                              </Button>
+                            </>
+                          ) : (
+                            <h1
+                              style={{
+                                color:
+                                  bid.status === "accepted" ? "green" : "red",
+                              }}
+                            >
+                              This bid is {bid.status}
+                            </h1>
+                          )}
                         </div>
+                        {bid.status === "accepted" && (
+                          <button data-cy="button">Reopen</button>
+                        )}
                       </Card.Content>
                     </Card>
                   </Card.Group>

@@ -28,7 +28,7 @@ describe("User can relist their property", () => {
       cy.get("#listing-1").should("not.exist");
       cy.get("#listing-3").should("not.exist");
     });
-
+    
     it("user can approve bidding", () => {
       cy.get("[data-cy=bid-2]").should("contain", "100");
       cy.route({
@@ -37,6 +37,10 @@ describe("User can relist their property", () => {
         response: "fixture:account_show_accepted.json",
       });
       cy.get("[data-cy='accepted-2']").click();
+      cy.get("[data-cy='message']").should(
+        "contain",
+        "You have accepted this bid from user2@mail.com"
+      );
     });
 
     it("user can reopen listing", () => {
