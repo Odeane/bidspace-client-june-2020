@@ -26,28 +26,31 @@ const MyOwnListing = (props) => {
   };
 
   const handleBidding = async (event) => {
-    let biddingParams, responseMessage, response;
+    let  responseMessage, response;
     let stat = event.target.dataset.cy;
     var pattern = /[a-z]/g;
     let status = stat.match(pattern).join("");
 
     const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
     const bidId = event.target.id;
+    
 
+    
     try {
-      biddingParams = {
-        status: status,
-      };
       let response = await axios.put(
         `biddings/${bidId}`,
-        { params: biddingParams },
+         { status: status },
         { headers: headers }
       );
-      getMySingleListing();
+      
       responseMessage = response.data.message;
+      if (status === "accepted") {
+        getMySingleListing();
+      }
     } catch (error) {
-      responseMessage = response.data.error;
-    } finally {
+      debugger
+      responseMessage = error.response.data.errors;
+    }finally {
       setMessage(responseMessage);
     }
   };
@@ -57,10 +60,11 @@ const MyOwnListing = (props) => {
     let responseReopenMessage, response;
 
     try {
-      let response = await axios.put(`account/listings/${listingId}`, {
+      let response = await axios.put(`account/listings/${listingId}`,{}, {
         headers: headers,
       });
       responseReopenMessage = response.data.message;
+      getMySingleListing();
     } catch (error) {
       responseReopenMessage = response.data.error;
     } finally {

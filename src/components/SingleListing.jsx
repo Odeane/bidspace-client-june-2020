@@ -25,9 +25,9 @@ const SingleListing = (props) => {
         bid: parseFloat(bid),
         listing_id: singleListing.id,
       };
-
+debugger
       response = await axios.post(
-        "http://localhost:3000/api/v1/biddings",
+        "/biddings",
         { bidding: bidParams },
         { headers: headers }
       );
