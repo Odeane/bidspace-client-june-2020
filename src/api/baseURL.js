@@ -7,6 +7,4 @@ if (process.env.NODE_ENV === "production") {
   apiUrl = "http://localhost:3000/api/v1";
 }
 
-axios.defaults.baseURL = apiUrl;
-
 export default apiUrl

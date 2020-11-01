@@ -1,4 +1,6 @@
 const initialState = {
+  fetchingListing: true,
+  fetchListingError: null,
   currentUser: { email: undefined, role: undefined },
   authenticated: false,
   renderLoginForm: false,

@@ -3,12 +3,15 @@ import axios from "axios";
 import { Grid, Item, Label, Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import GoogleMaps from "./GoogleMaps";
+import { connect } from "react-redux";
+import {fetchListings} from '../state/action/listingActions'
 
-const ListingPage = () => {
+const ListingPage = (props) => {
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
     getListings();
+    props.fetchListings()
   }, []);
 
   const getListings = async () => {
@@ -52,4 +55,5 @@ const ListingPage = () => {
   );
 };
 
-export default ListingPage;
+
+export default connect(null, { fetchListings })(ListingPage);
