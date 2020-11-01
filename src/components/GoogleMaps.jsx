@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { GoogleApiWrapper, Map, Marker, InfoWindow } from "google-maps-react";
-import { connect } from "react-redux";
 import { Image } from "semantic-ui-react";
 
 const GoogleMaps = ({ listings, ...props }) => {

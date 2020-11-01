@@ -13,13 +13,14 @@ export const fetchListings = () => async dispatch => {
     let response = await axios.get(`${apiUrl}/listings`)
     const { status, data } = response
     
-    if (status === 404) {
+    if(status === 404) {
       dispatch({type: FAIL_FETCH_LISTINGS, payload: 'No data was found'})
       return
     }
 
-    if (status > 399) {
-      dispatch({ type: FAIL_FETCH_LISTINGS, payload: 'Something is wrong with the request can you refresh your browser refresh and try again'})
+    if(status > 399) {
+      dispatch({ type: FAIL_FETCH_LISTINGS, payload: 'Something is wrong with the request can you refresh your browser refresh and try again' })
+      return
     }
 
     dispatch({

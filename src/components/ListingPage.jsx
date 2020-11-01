@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Grid, Item, Label, Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import GoogleMaps from "./GoogleMaps";
+// import GoogleMaps from "./GoogleMaps";
 import { connect } from "react-redux";
 import {fetchListings} from '../state/action/listingActions'
 
@@ -10,14 +9,15 @@ const ListingPage = (props) => {
   const [listings, setListings] = useState([]);
 
   useEffect(() => {
-    getListings();
+    // getListings();
     props.fetchListings()
+    // eslint-disable-next-line
   }, []);
 
-  const getListings = async () => {
-    let response = await axios.get(`/listings`);
-    setListings(response.data.listings);
-  };
+  // const getListings = async () => {
+  //   let response = await axios.get(`/listings`);
+  //   setListings(response.data.listings);
+  // };
 
   let content = listings.map((listing) => (
     <Item.Group divided>
@@ -48,12 +48,15 @@ const ListingPage = (props) => {
           <div>{content}</div>
         </Grid.Column>
         <Grid.Column>
-          <GoogleMaps listings={listings} />
+          {/*<GoogleMaps listings={listings} />*/}
         </Grid.Column>
       </Grid>
     </div>
   );
 };
 
+const mapStateToProps = (state) => {
+  console.log(state)
+}
 
-export default connect(null, { fetchListings })(ListingPage);
+export default connect(mapStateToProps, { fetchListings })(ListingPage);
