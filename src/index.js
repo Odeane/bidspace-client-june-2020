@@ -6,15 +6,10 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import axios from "axios";
+import apiUrl from './api/baseURL'
 import configureStore from "./state/store/configureStore";
 import { StripeProvider } from "react-stripe-elements";
 
-let apiUrl;
-if (process.env.NODE_ENV === "production") {
-  apiUrl = "https://bidspace.herokuapp.com/api/v1";
-} else {
-  apiUrl = "http://localhost:3000/api/v1";
-}
 axios.defaults.baseURL = apiUrl;
 
 const store = configureStore();
