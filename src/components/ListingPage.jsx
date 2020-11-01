@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Grid, Item, Label, Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import GoogleMaps from "./GoogleMaps";
@@ -10,7 +10,6 @@ const ListingPage = ({ lists = [], ...props}) => {
     props.fetchListings()
     // eslint-disable-next-line
   }, []);
-
 
   let content = lists.map((listing) => (
     <Item.Group divided>

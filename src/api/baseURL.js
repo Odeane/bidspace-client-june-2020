@@ -1,4 +1,3 @@
-import axios from "axios";
 
 let apiUrl;
 if (process.env.NODE_ENV === "production") {
