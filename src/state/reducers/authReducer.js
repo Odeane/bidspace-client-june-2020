@@ -1,6 +1,6 @@
 import initialState from "../store/initialState";
 
-const rootReducer = (state = initialState, action) => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case "AUTHENTICATE":
       return {
@@ -41,4 +41,4 @@ const rootReducer = (state = initialState, action) => {
   }
 };
 
-export default rootReducer; 
+export default authReducer; 

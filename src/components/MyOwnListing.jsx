@@ -12,6 +12,7 @@ const MyOwnListing = (props) => {
 
   useEffect(() => {
     getMySingleListing();
+    // eslint-disable-next-line
   }, []);
 
   const getMySingleListing = async () => {

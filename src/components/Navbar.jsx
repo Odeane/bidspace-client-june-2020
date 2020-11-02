@@ -172,7 +172,7 @@ const mapStateToProps = (state) => {
   return {
     renderLoginForm: state.renderLoginForm,
     authenticated: state.authenticated,
-    userRole: state.currentUser.role,
+    userRole: state.auth.currentUser.role,
   };
 };
 

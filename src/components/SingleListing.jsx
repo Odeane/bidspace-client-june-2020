@@ -64,6 +64,7 @@ const SingleListing = (props) => {
 
   useEffect(() => {
     getSingleListing();
+    // eslint-disable-next-line
   }, []);
 
   const getSingleListing = async () => {

@@ -101,9 +101,10 @@ const LandingPage = (props) => {
 };
 
 const mapStateToProps = (state) => {
+
   return {
-    renderLoginForm: state.renderLoginForm,
-    authenticated: state.authenticated,
+    renderLoginForm: state.auth.renderLoginForm,
+    authenticated: state.auth.authenticated,
   };
 };
 
