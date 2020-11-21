@@ -3,7 +3,7 @@ import { Grid, Item, Label, Button, Icon } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import GoogleMaps from "./GoogleMaps";
 import { connect } from "react-redux";
-import {fetchListings} from '../state/action/listingActions'
+import {fetchListings} from '../state/action/listingsActions'
 
 const ListingPage = ({ lists = [], ...props}) => {
   useEffect(() => {

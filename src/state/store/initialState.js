@@ -1,7 +1,12 @@
 const initialState = {
+  fetchingListings: true,
+  fetchListingsError: null,
+  listings: [],
   fetchingListing: true,
   fetchListingError: null,
-  listings: [],
+  listing: {},
+
+
   currentUser: { email: undefined, role: undefined },
   authenticated: false,
   renderLoginForm: false,
