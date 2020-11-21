@@ -4,7 +4,6 @@ import {
   FETCH_LISTINGS,
   FETCHING_LISTINGS,
   FAIL_FETCH_LISTINGS,
-  
   FETCH_LISTING,
   FETCHING_LISTING,
   FAIL_FETCH_LISTING,
@@ -38,24 +37,24 @@ export const fetchListings = () => async dispatch => {
 
 
 export const fetchListing = (id) => async dispatch => {
-  // dispatch({
-  //   type: FETCHING_LISTING
-  // })
+  dispatch({
+    type: FETCHING_LISTING
+  })
 
   try {
 
     let response = await axios.get(`${apiUrl}/listings/${id}`)
     let { status, data } = response
 
-    // if (status = 404) {
-    //   dispatch({ FAIL_FETCH_LISTING, payload: 'No data was found' })
-    //   return
-    // }
+    if (status === 404) {
+      dispatch({ FAIL_FETCH_LISTING, payload: 'No data was found' })
+      return
+    }
 
-    // if (status > 399) {
-    //   dispatch({ FAIL_FETCH_LISTING, payload: 'Something is wrong with the request can you refresh your browser refresh and try again' })
-    //   return
-    // }
+    if (status > 399) {
+      dispatch({ FAIL_FETCH_LISTING, payload: 'Something is wrong with the request can you refresh your browser refresh and try again' })
+      return
+    }
 
     dispatch({
       type: FETCH_LISTING,

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Item, Label, Image, Grid, Container, Header, Divider, Form, Button } from "semantic-ui-react";
+import { Label, Grid, Container, Header, Divider, Form, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { fetchListing } from "../state/action/listingsActions";
 
@@ -11,11 +11,8 @@ const SingleListing = (props) => {
     // eslint-disable-next-line
   }, []);
 
-
   const list = props.listing
-  
   const listingId = props.match.params.id;
-
 
   const [message, setMessage] = useState("");
   const [biddingValue, setBiddingValue] = useState("");
@@ -72,9 +69,6 @@ const SingleListing = (props) => {
           );
         }
         
-        
-        
-
   let listingContent = (
     <>
       <Container textAlign="justified" divided
