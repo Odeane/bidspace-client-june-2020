@@ -6,6 +6,7 @@ import auth from "../modules/auth";
 import LoginForm from "./LoginForm";
 
 const Navbar = (props) => {
+  
   let isLoginVisible = props.renderLoginForm;
   let isUserAuthenticated = props.authenticated;
   let isCurrentUserSubscriber = props.userRole === "subscriber" ? true : false;
@@ -169,9 +170,10 @@ const Navbar = (props) => {
 };
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
-    renderLoginForm: state.renderLoginForm,
-    authenticated: state.authenticated,
+    renderLoginForm: state.auth.renderLoginForm,
+    authenticated: state.auth.authenticated,
     userRole: state.auth.currentUser.role,
   };
 };

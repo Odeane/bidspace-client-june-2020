@@ -44,7 +44,7 @@ export const fetchListing = (id) => async dispatch => {
   try {
 
     let response = await axios.get(`${apiUrl}/listings/${id}`)
-    let { status, data } = response
+    const { status, data } = response
 
     if (status === 404) {
       dispatch({ FAIL_FETCH_LISTING, payload: 'No data was found' })
