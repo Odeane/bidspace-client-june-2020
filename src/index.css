@@ -13,37 +13,7 @@ code {
     monospace;
 }
 
-#top-grid {
-  padding-bottom: 3%;
-}
-
-#middle-segment {
-  padding-top: 3%;
-}
-
-#h1-header {
-  font-size: 1000%;
-  text-align: center;
-}
-
-#read-more {
-  margin-top: 2%;
-  margin-left: 42%;
-}
-
-#burger-icon {
-  background-color: white;
-}
-
-#botton-segment {
-  padding-bottom: 3%;
-}
-
-#listing-page {
-  padding-right: 8%;
-  padding-left: 1%;
-}
-#rent-space-title {
-  padding-bottom: 2%;
-  padding-top:2%;
+*{
+  margin: 0px;
+  padding: 0px;
 }

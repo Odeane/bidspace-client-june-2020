@@ -32,20 +32,20 @@ export const listingsReducer = (state = initialState, action) => {
         fetchListingsError: null,
         listings: action.payload
       }
-    // case FETCHING_LISTING:
-    //   return {
-    //     ...state,
-    //     fetchingListing: true,
-    //     fetchListingError: null,
-    //     listing: {}
-    //   }
-    // case FAIL_FETCH_LISTING:
-    //   return {
-    //     ...state,
-    //     fetchingListing: false,
-    //     fetchListingError: action.payload,
-    //     listing: {}
-    //   }
+    case FETCHING_LISTING:
+      return {
+        ...state,
+        fetchingListing: true,
+        fetchListingError: null,
+        listing: {}
+      }
+    case FAIL_FETCH_LISTING:
+      return {
+        ...state,
+        fetchingListing: false,
+        fetchListingError: action.payload,
+        listing: {}
+      }
     case FETCH_LISTING:
       return {
         ...state,

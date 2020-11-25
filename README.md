@@ -22,4 +22,3 @@ Start cypress and run the feature tests:
 
 ``` $ yarn run cy:open ```
 ``` $ yarn start ```
-

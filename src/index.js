@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import axios from "axios";
 import apiUrl from './api/baseURL'
 import configureStore from "./state/store/configureStore";
-import { StripeProvider } from "react-stripe-elements";
+
 
 axios.defaults.baseURL = apiUrl;
 
@@ -16,11 +16,9 @@ const store = configureStore();
 
 ReactDOM.render(
   <Provider store={store}>
-    <StripeProvider apiKey="pk_test_QicERB8w3kyqaYW3hUUQylRH">
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </StripeProvider>
   </Provider>,
   document.getElementById("root")
 );
