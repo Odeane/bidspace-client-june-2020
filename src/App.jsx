@@ -7,7 +7,6 @@ import LandlordPage from "./components/LandlordPage";
 import SingleListing from "./components/SingleListing";
 import { Elements } from "react-stripe-elements";
 import Subscription from "./components/Subscription";
-import Navbar from "./components/nav/Navbar";
 import SignUpForm from "./components/SignUpForm";
 import MyAccount from "./components/MyAccount";
 import MyOwnListing from "./components/MyOwnListing";

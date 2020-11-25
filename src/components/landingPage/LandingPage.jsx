@@ -8,6 +8,12 @@ const LandingPage = (props) => {
   return (
     <div className="header">
       <Navbar />
+      <div className="header__text-box">
+        <h1 className="heading-primary">
+          <span className="heading-primary--main">BidSpace</span>
+          <span className="heading-primary--sub">Everything You Need. All Right Here.</span>
+        </h1>
+      </div>
     </div>
   );
 };
