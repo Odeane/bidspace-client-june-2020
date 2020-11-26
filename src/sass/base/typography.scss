@@ -35,9 +35,17 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
+  letter-spacing: 0.2rem;
+  transition: all .2s;
+  
+  &:hover {
+        transform: skewY(2deg) skewX(15deg) scale(1.1);
+        text-shadow: .5rem 1rem 2rem rgba($secondary-color, .2);
+    }
 }
 
 .heading-tertiary {
+  color: $primary-color;
   font-size: $default-font-size;
   font-weight: 700;
   text-transform: uppercase;

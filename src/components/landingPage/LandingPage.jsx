@@ -17,16 +17,16 @@ const LandingPage = (props) => {
         </div>
       </div>
       <section className='section-about'>
-        <div>
+        <div class="u-center-text u-margin-bottom-big">
           <h2 className="heading-secondary">
             We will help you to find your space.
           </h2>
         </div>
         <div className="row">
           <div className="col-1-of-2">
-            <h3 className="heading-tertiary">Warm Up with Our Hot Specials</h3>
+            <h3 className="heading-tertiary u-margin-bottom-small">Warm Up with Our Hot Specials</h3>
             <p className="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe quos tempore aliquid voluptatibus aut voluptates omnis nihil error pariatur repellendus, cupiditate, consectetur quibusdam? Recusandae magnam distinctio adipisci iste, iure quia.</p>
-            <h3 className="heading-tertiary">Because location really is everything!</h3>
+            <h3 className="heading-tertiary  u-margin-bottom-small">Because location really is everything!</h3>
             <p className="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe quos tempore aliquid voluptatibus aut voluptates omnis nihil error pariatur repellendus, cupiditate, consectetur quibusdam? Recusandae magnam distinctio adipisci iste, iure quia.</p>
           </div>
           <div className="col-1-of-2">
