@@ -6,14 +6,13 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  
 
   .logo{
       color: $color-white;
       font-weight: 900;
       font-size: 5rem;
       flex: 1;
-      text-shadow: .5px .6px black;
+      text-shadow: .5px .6px $color-black;
     }
 
 
