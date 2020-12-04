@@ -1,14 +1,21 @@
+// Helpers
 @import "helpers/functions";
 @import "helpers/mixins";
 @import "helpers/variables";
 
+//Components
 @import "components/composition";
+@import "components/main-button";
 
+//Base
 @import "base/animations";
 @import "base/base";
 @import "base/typography";
 @import "base/utilities";
 
+//Layout
 @import "layout/header";
 @import "layout/navbar";
 @import "layout/grid";
+@import "layout/listings";
+@import "layout/about";

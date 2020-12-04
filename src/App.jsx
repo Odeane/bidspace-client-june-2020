@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
 import LandingPage from "./components/landingPage/LandingPage";
-import ListingPage from "./components/ListingPage";
+import Listings from "./components/listings/ListingPage";
 import LandlordPage from "./components/LandlordPage";
 import SingleListing from "./components/SingleListing";
 import { Elements } from "react-stripe-elements";
@@ -19,7 +19,7 @@ const App = (props) => {
     <div className='app'>
       <Switch>
         <Route exact path="/" component={LandingPage}></Route>
-        <Route path="/rent-space" component={ListingPage}></Route>
+        <Route path="/rent-space" component={Listings}></Route>
         <Route path="/rentout-space" component={LandlordPage}></Route>
         <Route path="/listing/:id" component={SingleListing}></Route>
         <Route path="/registration" component={SignUpForm}></Route>

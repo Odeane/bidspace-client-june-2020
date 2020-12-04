@@ -1,0 +1,18 @@
+.btn {
+  &:link,
+  &:visited {
+    position: relative;
+    top: 10rem;
+    color: $color-white;
+    background-color: rgba($secondary-color, 0.7);
+    text-transform: uppercase;
+    padding: 1.5rem 4rem;
+    font-size: 1.7rem;
+    border-radius: 2px;
+    box-shadow: 0 0.8rem 1.8rem rgba($color-black, 0.4);
+  }
+
+  &:hover {
+    box-shadow: 0 1.3rem 2rem rgba($color-black, 0.4);
+  }
+}

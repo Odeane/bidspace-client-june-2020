@@ -7,7 +7,7 @@ import '../../sass/main.scss'
 
 
 
-const navbar = (props) => {
+const NavBar = (props) => {
   return (
     <div className="navbar">
       <Link className='logo' to='/'>BidSpace</Link>
@@ -32,4 +32,4 @@ const mapStateToProps = (state) => {
 };
 
 
-export default connect(mapStateToProps)(navbar)
+export default connect(mapStateToProps)(NavBar)
