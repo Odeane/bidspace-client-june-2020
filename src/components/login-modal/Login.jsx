@@ -1,16 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux';
-import { Modal } from 'semantic-ui-react'
+import { Modal, Button } from 'semantic-ui-react'
+import { toggleFormRendering } from "../../state/action/authActions";
 
-function Login(state) {
-debugger
 
+function Login(props) {
+  console.log(props)
   return (
     <div>
       <Modal
-        open={state.renderLoginForm}
+        open={props.renderLoginForm}
       >
-      Login page
+        Login page
+        <Button onClick={props.toggleFormRendering}>Close</Button>
+        <h1>end</h1>
       </Modal>
     </div>
   )
@@ -22,4 +25,4 @@ const mapStateToProps = (state) => {
   };
 }
 
-export default connect(mapStateToProps)(Login)
+export default connect(mapStateToProps, { toggleFormRendering })(Login)

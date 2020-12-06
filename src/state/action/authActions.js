@@ -1,8 +1,8 @@
 import { RENDERLOGINFORM } from './types'
 
-export const renderLoginForm = () => dispatch => {
+export const toggleFormRendering = () => dispatch => {
   dispatch({
     type: RENDERLOGINFORM
   })
-} 
+}
 
