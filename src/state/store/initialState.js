@@ -7,7 +7,7 @@ const initialState = {
   listing: {},
 
 
-  currentUser: { email: undefined, role: undefined },
+  currentUser: { },
   authenticated: false,
   renderLoginForm: false,
   renderSignUpForm: false,

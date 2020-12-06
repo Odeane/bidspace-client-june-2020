@@ -1,5 +1,5 @@
 import auth from '../../modules/auth'
-import { RENDERLOGINFORM, AUTHENTICATE } from './types'
+import { RENDERLOGINFORM, AUTHENTICATE, FAIL_AUTHENTICATE } from './types'
 
 export const toggleFormRendering = () => dispatch => {
   dispatch({
@@ -7,18 +7,28 @@ export const toggleFormRendering = () => dispatch => {
   })
 }
 
-export const authenticate = () => async (dispatch, getState) => {
+export const authenticate = (event) => (dispatch, getState) => {
+  event.preventDefault()
   const email = getState().form.loginForm.values.email
   const password = getState().form.loginForm.values.password
-  
 
-  try {
-    let response = await auth.signIn(email, password)
-  } catch (error){
-    console.log(error)
-  }
-  
-  
+
+  auth.signIn(email, password)
+    .then(userDatas => {
+      dispatch({
+        type: AUTHENTICATE,
+        payload: userDatas
+      })
+    })
+    .catch(error => {
+      dispatch({
+        type: FAIL_AUTHENTICATE,
+        payload: error.response.data.errors[0]
+      })
+    });
+
+
+
   // dispatch({
   //   type: AUTHENTICATE
   // })
