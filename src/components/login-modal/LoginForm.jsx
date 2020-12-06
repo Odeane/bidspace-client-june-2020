@@ -1,16 +1,21 @@
 import React from 'react'
+import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form'
+import auth from "../../modules/auth";
+import { authenticate } from '../../state/action/authActions'
 
-function LoginForm() {
+function LoginForm(props) {
 
-  const renderField = ({ input, label, meta }) => {
+
+
+  const renderField = ({ input, label, type, meta }) => {
     return (
       <div>
         <label>
           {label}
         </label>
         <div>
-          <input {...input} />
+          <input {...input} type={type} />
         </div>
       </div>
   )
@@ -20,14 +25,14 @@ function LoginForm() {
     <div>
       <h1>Login</h1>
       <form>
-        <Field name='usename' type='text' component={ renderField} label='Email'/>
+        <Field name='email' type='email' component={ renderField} label='Email'/>
         <Field name='password' type='password' component={renderField} label='Password' />
         <div>
-          <button type="submit" >Log In</button>
+          <button type="submit"  onClick={props.authenticate}>Log In</button>
         </div>
       </form>
     </div>
   )
 }
 
-export default reduxForm({form: 'loginForm'})(LoginForm)
+export default connect(null, { authenticate })(reduxForm({form: 'loginForm'})(LoginForm))
