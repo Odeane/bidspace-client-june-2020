@@ -12,7 +12,6 @@ export const authenticate = (event) => (dispatch, getState) => {
   const email = getState().form.loginForm.values.email
   const password = getState().form.loginForm.values.password
 
-
   auth.signIn(email, password)
     .then(userDatas => {
       dispatch({
@@ -26,10 +25,4 @@ export const authenticate = (event) => (dispatch, getState) => {
         payload: error.response.data.errors[0]
       })
     });
-
-
-
-  // dispatch({
-  //   type: AUTHENTICATE
-  // })
 }

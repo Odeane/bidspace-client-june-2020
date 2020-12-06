@@ -75,7 +75,7 @@ const SingleListing = (props) => {
         data-cy={`listing-${list.id}`}
         data-id={list.id}
       >
-        <Header as="h1" size="huge" data-cy="lead">{list.lead}</Header>
+        <h1 data-cy="lead">{list.lead}</h1>
         <Divider />
         <Container text data-cy="address"><strong>{list.address}</strong></Container>
         <Divider />

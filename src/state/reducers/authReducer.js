@@ -14,15 +14,16 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         authenticated: true,
-        currentUser: {...action.payload.data},
-        // renderLoginForm: false,
+        currentUser: { ...action.payload.data },
+        errorMessage: '',
+        renderLoginForm: false,
         // renderSignUpForm: false,
       };
-
     case FAIL_AUTHENTICATE:
       return {
         ...state,
         errorMessage: action.payload,
+        authenticated: false,
         // renderLoginForm: true,
       };
     

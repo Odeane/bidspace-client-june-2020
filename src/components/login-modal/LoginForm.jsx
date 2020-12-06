@@ -4,9 +4,6 @@ import { Field, reduxForm } from 'redux-form'
 import { authenticate } from '../../state/action/authActions'
 
 function LoginForm(props) {
-
-
-
   const renderField = ({ input, label, type, meta }) => {
     return (
       <div>
@@ -23,6 +20,7 @@ function LoginForm(props) {
   return (
     <div>
       <h1>Login</h1>
+      <h3>{props.errorMessage}</h3>
       <form>
         <Field name='email' type='email' component={ renderField} label='Email'/>
         <Field name='password' type='password' component={renderField} label='Password' />
@@ -34,4 +32,10 @@ function LoginForm(props) {
   )
 }
 
-export default connect(null, { authenticate })(reduxForm({form: 'loginForm'})(LoginForm))
+const mapStateToProps = ({auth}) => {
+  return {
+    errorMessage: auth.errorMessage
+  };
+};
+
+export default connect(mapStateToProps, { authenticate })(reduxForm({form: 'loginForm'})(LoginForm))
