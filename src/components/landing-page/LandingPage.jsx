@@ -1,10 +1,9 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import '../../sass/main.scss'
 import Navbar from "../nav/Navbar";
 import MainButton from '../button/MainButton'
 import About from "../about-section/About";
-import Login from "../login-modal/Login"
 
 
 const LandingPage = (props) => {

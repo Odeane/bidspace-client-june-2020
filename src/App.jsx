@@ -12,7 +12,6 @@ import MyAccount from "./components/MyAccount";
 import MyOwnListing from "./components/MyOwnListing";
 import Faq from "./components/Faq"
 import ContactUs from "./components/ContactUs"
-import Login from "./components/login-modal/Login";
 
 
 const App = (props) => {

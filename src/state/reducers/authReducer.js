@@ -1,4 +1,4 @@
-import { renderLoginForm } from "../action/authActions";
+
 import initialState from "../store/initialState";
 
 const authReducer = (state = initialState, action) => {
