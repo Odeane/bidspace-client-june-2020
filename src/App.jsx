@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import LandingPage from "./components/landingPage/LandingPage";
+import LandingPage from "./components/landing-page/LandingPage";
 import Listings from "./components/listings/ListingPage";
 import LandlordPage from "./components/LandlordPage";
 import SingleListing from "./components/SingleListing";
@@ -12,6 +12,7 @@ import MyAccount from "./components/MyAccount";
 import MyOwnListing from "./components/MyOwnListing";
 import Faq from "./components/Faq"
 import ContactUs from "./components/ContactUs"
+import Login from "./components/login-modal/Login";
 
 
 const App = (props) => {

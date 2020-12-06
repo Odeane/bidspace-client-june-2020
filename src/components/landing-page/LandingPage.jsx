@@ -4,6 +4,7 @@ import '../../sass/main.scss'
 import Navbar from "../nav/Navbar";
 import MainButton from '../button/MainButton'
 import About from "../about-section/About";
+import Login from "../login-modal/Login"
 
 
 const LandingPage = (props) => {
@@ -11,6 +12,7 @@ const LandingPage = (props) => {
     <>
       <div className="header">
         <Navbar />
+        
         <div className="header__text-box">
           <h1 className="heading-primary">
             <span className="heading-primary--main">BidSpace</span>

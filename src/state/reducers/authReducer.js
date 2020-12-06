@@ -1,7 +1,16 @@
+import { renderLoginForm } from "../action/authActions";
 import initialState from "../store/initialState";
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
+    case "RENDERLOGINFORM":
+      return {
+        ...state,
+        renderLoginForm: !state.renderLoginForm
+      }
+    
+    
+    
     case "AUTHENTICATE":
       return {
         ...state,
