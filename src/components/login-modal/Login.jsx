@@ -11,7 +11,7 @@ function Login(props) {
       <Modal
         open={props.renderLoginForm}
       >
-        <LoginForm/>
+        <LoginForm />
         <Button onClick={props.toggleFormRendering}>Close</Button>
       </Modal>
     </div>

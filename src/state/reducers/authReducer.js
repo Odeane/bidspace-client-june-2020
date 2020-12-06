@@ -1,10 +1,10 @@
 
 import initialState from "../store/initialState";
-import { RENDERLOGINFORM, AUTHENTICATE, FAIL_AUTHENTICATE} from '../action/types'
+import { RENDER_LOGIN_FORM, AUTHENTICATE, FAIL_AUTHENTICATE, SIGN_OUT } from '../action/types'
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case RENDERLOGINFORM:
+    case RENDER_LOGIN_FORM:
       return {
         ...state,
         renderLoginForm: !state.renderLoginForm
@@ -26,28 +26,16 @@ const authReducer = (state = initialState, action) => {
         authenticated: false,
         // renderLoginForm: true,
       };
-    
-    
-    
-
-    case "LOGIN_FORM_VISIBILITY":
+    case SIGN_OUT:
       return {
         ...state,
-        ...action.payload,
-      };
-
+        authenticated: false,
+      }
     case "SIGNUP_FORM_VISIBILITY":
       return {
         ...state,
         ...action.payload,
       }
-
-    case "SIGNOUT":
-      return {
-        ...state,
-        authenticated: false,
-      }
-
     default:
       return state;
   }

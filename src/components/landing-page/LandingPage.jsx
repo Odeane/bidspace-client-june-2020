@@ -11,7 +11,7 @@ const LandingPage = (props) => {
     <>
       <div className="header">
         <Navbar />
-        
+
         <div className="header__text-box">
           <h1 className="heading-primary">
             <span className="heading-primary--main">BidSpace</span>
@@ -23,7 +23,7 @@ const LandingPage = (props) => {
           />
         </div>
       </div>
-      <About/>
+      <About />
     </>
   );
 };
@@ -31,7 +31,7 @@ const LandingPage = (props) => {
 const mapStateToProps = (state) => {
 
   return {
-    renderLoginForm: state.auth.renderLoginForm,
+    RENDER_LOGIN_FORM: state.auth.RENDER_LOGIN_FORM,
     authenticated: state.auth.authenticated,
   };
 };

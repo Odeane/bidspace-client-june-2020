@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Label, Grid, Container, Header, Divider, Form, Button } from "semantic-ui-react";
+import { Label, Grid, Container, Divider, Form, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { fetchListing } from "../state/action/listingsActions";
 

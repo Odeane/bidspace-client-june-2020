@@ -7,9 +7,9 @@ const initialState = {
   listing: {},
 
 
-  currentUser: { },
+  currentUser: {},
   authenticated: false,
-  renderLoginForm: false,
+  RENDER_LOGIN_FORM: false,
   renderSignUpForm: false,
   errorMessage: "",
 };

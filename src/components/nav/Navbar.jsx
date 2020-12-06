@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import Login from "../login-modal/Login";
-import { toggleFormRendering } from "../../state/action/authActions"
+import { toggleFormRendering, signingOut } from "../../state/action/authActions"
 import '../../sass/main.scss'
 
 
@@ -17,7 +17,7 @@ const NavBar = (props) => {
         <Link className='navbar__links-text' to='/rentout-space'>Post-a-space</Link>
         <Link className='navbar__links-text' to='/contact-us'>Contact</Link>
         <Link className='navbar__links-text' to='/faq'>FAQ</Link>
-        {!props.authenticated ? <Link onClick={props.toggleFormRendering} className='navbar__links-text' >Login</Link> : <Link className='navbar__links-text' >Log Out</Link>}
+        {!props.authenticated ? <Link onClick={props.toggleFormRendering} className='navbar__links-text' >Login</Link> : <Link onClick={props.signingOut} className='navbar__links-text' >Log Out</Link>}
         {props.authenticated ? null : <Link className='navbar__links-text' to='/registration'>Sign Up</Link>}
         {/* <Link className='navbar-text' to='/subscription'>Subscribe</Link> */}
       </div>
@@ -28,11 +28,11 @@ const NavBar = (props) => {
 }
 const mapStateToProps = (state) => {
   return {
-    renderLoginForm: state.auth.renderLoginForm,
+    RENDER_LOGIN_FORM: state.auth.RENDER_LOGIN_FORM,
     authenticated: state.auth.authenticated,
     userRole: state.auth.currentUser.role,
   };
 };
 
 
-export default connect(mapStateToProps, { toggleFormRendering })(NavBar)
+export default connect(mapStateToProps, { toggleFormRendering, signingOut })(NavBar)

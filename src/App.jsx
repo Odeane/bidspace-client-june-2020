@@ -38,7 +38,7 @@ const App = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    renderLoginForm: state.renderLoginForm,
+    RENDER_LOGIN_FORM: state.RENDER_LOGIN_FORM,
     renderSignUpForm: state.renderSignUpForm,
     authenticated: state.authenticated,
   };
