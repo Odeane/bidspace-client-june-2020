@@ -15,7 +15,7 @@ const Listings = ({ lists = [], ...props }) => {
     <div className='listing' key={listing.id}>
 
       <div className="listing__image">
-        <img src={listing.image} alt="" className="listing__image" />
+        <img src={listing.image} alt="" className="listing__image--size" />
       </div>
 
       <div className="listing__detail">
@@ -31,9 +31,9 @@ const Listings = ({ lists = [], ...props }) => {
     <>
       <NavBar/>
       <div className="listings">
-        <div>{content}</div>
-        <div className="map">
-          <GoogleMaps listings={lists} />
+        <div className='listings__content'>{content}</div>
+        <div className="listings__map">
+          <GoogleMaps className='listing__map' listings={lists} />
         </div>
       </div>
     </>

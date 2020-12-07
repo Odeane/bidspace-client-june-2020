@@ -1,12 +1,31 @@
+
 .listings{
   display: flex;
+
+  &__content{
+    flex: 1;
+  }
+
+  &__map{
+    flex: 1;
+
+  }
 }
+
+// .listing__map{
+//   width: 10rem;
+// }
 
 .listing{
   display: flex;
 
   &__image{
     height: 20rem;
+    
+    &--size{
+    object-fit: contain;
+    width: 40rem;
+    }
   }
 }
 

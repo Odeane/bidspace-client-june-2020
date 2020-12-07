@@ -28,7 +28,6 @@ export const authenticate = (event) => (dispatch, getState) => {
 }
 
 export const signingOut = () => (dispatch) => {
-
   auth
     .signOut()
     .then(response => {
