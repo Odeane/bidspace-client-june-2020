@@ -12,4 +12,6 @@ export const AUTHENTICATE = 'AUTHENTICATE'
 export const FAIL_AUTHENTICATE = 'FAIL_AUTHENTICATE'
 export const SIGN_OUT = 'SIGN_OUT'
 
+export const PROPOSE_BID ='PROPOSE_BID'
+
 

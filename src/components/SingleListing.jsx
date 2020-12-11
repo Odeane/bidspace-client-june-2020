@@ -3,6 +3,7 @@ import axios from "axios";
 import { Label, Container, Form, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { fetchListing } from "../state/action/listingsActions";
+import Bidding from "./bidding/Bidding";
 
 const SingleListing = (props) => {
 
@@ -93,11 +94,12 @@ const SingleListing = (props) => {
 
   return (
     <div>
-          <div>
+      <Bidding />
+          <div >
             {
               list.images ?
                 list.images.map(image => (
-                  <img src={image.url} alt="carlots"/>
+                  <img className='listing__image' src={image.url} alt="carlots"/>
                 ))
                 :
                 ('No images found')
@@ -107,7 +109,7 @@ const SingleListing = (props) => {
             <div>{listingContent}</div>
             <div> {message && <p data-cy="message">{message}</p>}</div>
           </div>
-
+      
     </div>
   );
 };

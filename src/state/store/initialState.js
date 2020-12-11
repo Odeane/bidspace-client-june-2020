@@ -6,12 +6,13 @@ const initialState = {
   fetchListingError: null,
   listing: {},
 
-
   currentUser: {},
   authenticated: false,
-  RENDER_LOGIN_FORM: false,
+  renderLoginForm: false,
   renderSignUpForm: false,
   errorMessage: "",
+
+  biddingResponseMessage: ''
 };
 
 export default initialState;
