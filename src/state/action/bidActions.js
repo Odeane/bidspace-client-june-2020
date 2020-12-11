@@ -1,15 +1,12 @@
 import axios from 'axios'
+import { PROPOSE_BID } from './types';
 
 export const submitBid = (listing_id) => async (dispatch, getState) => {
-  debugger
-  const bid = getState().form.biddingForm.values.bid
 
+  const bid = getState().form.biddingForm.values.bid
   const headers = JSON.parse(localStorage.getItem("J-tockAuth-Storage"));
 
-//I need to ddistpatch resonse message
-  
   try {
-
     let bidParams = {
       bid: parseFloat(bid),
       listing_id: listing_id,
@@ -21,7 +18,11 @@ export const submitBid = (listing_id) => async (dispatch, getState) => {
       { headers: headers }
     );
 
+    dispatch({
+      type: PROPOSE_BID,
+      payload: response.data
+    })
   } catch (error) {
-
+    //I need to handle possible errors
   }
 }

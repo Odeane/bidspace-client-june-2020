@@ -40,7 +40,7 @@ const Bidding = (props) => {
   )
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
   return {
     authenticated: state.auth.authenticated
   }
