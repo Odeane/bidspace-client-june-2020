@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import { Label, Container} from "semantic-ui-react";
+import { Label, Container } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { fetchListing } from "../state/action/listingsActions";
 import Bidding from "./bidding/Bidding";
 
 const SingleListing = (props) => {
-  
+
   const listingId = props.match.params.id;
   const list = props.listing
 
@@ -15,9 +15,9 @@ const SingleListing = (props) => {
   }, []);
 
   let listingContent = (
-      <div
-        data-cy={`listing-${list.id}`}
-        data-id={list.id}
+    <div
+      data-cy={`listing-${list.id}`}
+      data-id={list.id}
     >
       <div >
         {
@@ -29,29 +29,30 @@ const SingleListing = (props) => {
             ('No images found')
         }
       </div>
-        <h1 data-cy="lead">{list.lead}</h1>
-        <Container text data-cy="address"><strong>{list.address}</strong></Container>
+      <h1 data-cy="lead">{list.lead}</h1>
+      <Container text data-cy="address"><strong>{list.address}</strong></Container>
 
-        <div text data-cy="description">
-          {list.description}
-        </div>
-        <div>
-          <Label size="massive" data-cy="scene">{list.scene}</Label>
-          <Label size="massive" data-cy="category">{list.category}</Label>
-          <Label size="massive" data-cy="price">Target Price: {list.price}kr</Label>
-        </div>
+      <div text data-cy="description">
+        {list.description}
       </div>
+      <div>
+        <Label size="massive" data-cy="scene">{list.scene}</Label>
+        <Label size="massive" data-cy="category">{list.category}</Label>
+        <Label size="massive" data-cy="price">Target Price: {list.price}kr</Label>
+      </div>
+    </div>
   );
 
   return (
     <div>
-      <Bidding
-      listing_id={list.id} 
-      />
-          
-          <div>
-            <div>{listingContent}</div>
-          </div>
+      <div>
+        <div>{listingContent}</div>
+      </div>
+      <div>
+        <Bidding
+          listing_id={list.id}
+        />
+      </div>
     </div>
   );
 };

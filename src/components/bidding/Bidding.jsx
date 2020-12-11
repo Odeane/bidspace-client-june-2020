@@ -5,7 +5,6 @@ import { submitBid } from '../../state/action/bidActions'
 
 const Bidding = (props) => {
 
-
   const handleSubmit = (e) => {
     e.preventDefault()
     props.submitBid(props.listing_id)
@@ -36,13 +35,15 @@ const Bidding = (props) => {
   return (
     <div>
       {biddingField}
+      {props.bidmessage}
     </div>
   )
 }
 
 const mapStateToProps = (state) => {
   return {
-    authenticated: state.auth.authenticated
+    authenticated: state.auth.authenticated,
+    bidmessage: state.bids.biddingResponseMessage
   }
 };
 
