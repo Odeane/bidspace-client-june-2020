@@ -1,21 +1,29 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form'
+import { submitBid } from '../../state/action/bidActions'
 
 const Bidding = (props) => {
 
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    props.submitBid(props.listing_id)
+  }
+  
   let biddingField;
   if (props.authenticated) {
     biddingField = (
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           <Field
             data-cy="input"
+            name='bid'
             type="number"
             component='input'
             placeholder="0"
           />
-          <button data-cy="button">Register Your Bid</button>
+          <button type='submit' data-cy="button">Register Your Bid</button>
         </div>
       </form>
     );
@@ -32,10 +40,10 @@ const Bidding = (props) => {
   )
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     authenticated: state.auth.authenticated
   }
 };
 
-export default reduxForm({ form: 'biddingForm' })(connect(mapStateToProps)(Bidding))
+export default reduxForm({ form: 'biddingForm' })(connect(mapStateToProps, {submitBid})(Bidding))

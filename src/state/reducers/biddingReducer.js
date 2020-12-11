@@ -1,7 +1,7 @@
 import initialState from '../store/initialState'
 import { PROPOSE_BID } from '../action/types'
 
-export const biddingsReducer = (state= initialState, action) => {
+export const biddingsReducer = (state = initialState, action) => {
   switch (action.payload) {
     case PROPOSE_BID:
       return {

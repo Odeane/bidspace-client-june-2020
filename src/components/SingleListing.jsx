@@ -94,7 +94,9 @@ const SingleListing = (props) => {
 
   return (
     <div>
-      <Bidding />
+      <Bidding
+      listing_id={list.id} 
+      />
           <div >
             {
               list.images ?
