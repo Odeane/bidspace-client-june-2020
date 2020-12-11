@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Label, Grid, Container, Divider, Form, Button } from "semantic-ui-react";
+import { Label, Container, Form, Button } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { fetchListing } from "../state/action/listingsActions";
 
@@ -71,34 +71,29 @@ const SingleListing = (props) => {
         
   let listingContent = (
     <>
-      <Container textAlign="justified" divided
+      <div
         data-cy={`listing-${list.id}`}
         data-id={list.id}
       >
         <h1 data-cy="lead">{list.lead}</h1>
-        <Divider />
         <Container text data-cy="address"><strong>{list.address}</strong></Container>
-        <Divider />
-        <Container text data-cy="description">
+
+        <div text data-cy="description">
           {list.description}
-        </Container>
-        <Divider />
-        <Container text>
+        </div>
+        <div>
           <Label size="massive" data-cy="scene">{list.scene}</Label>
           <Label size="massive" data-cy="category">{list.category}</Label>
           <Label size="massive" data-cy="price">Target Price: {list.price}kr</Label>
-        </Container>
-        <Divider />
-        <Container>{biddingField}</Container>
-      </Container>
+        </div>
+        <div>{biddingField}</div>
+      </div>
     </>
   );
 
   return (
-    <>
-      <Grid centered column={1} divided padded>
-        <Grid.Row stretched>
-          <Grid.Column width={4}>
+    <div>
+          <div>
             {
               list.images ?
                 list.images.map(image => (
@@ -107,14 +102,13 @@ const SingleListing = (props) => {
                 :
                 ('No images found')
            }
-          </Grid.Column>
-          <Grid.Column width={8}>
+          </div>
+          <div>
             <div>{listingContent}</div>
             <div> {message && <p data-cy="message">{message}</p>}</div>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </>
+          </div>
+
+    </div>
   );
 };
 
