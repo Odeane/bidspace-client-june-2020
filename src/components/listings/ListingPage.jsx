@@ -22,7 +22,7 @@ const Listings = ({ lists = [], ...props }) => {
         <h1 data-cy="lead" className='listing__detail--lead'>{listing.lead}</h1>
         <h2 data-cy="category" className='listing__detail--category'>{listing.category}</h2>
         <h3 data-cy="scene" className='listing__detail--scene'>{listing.scene}</h3>
-        <Link className='btn-secondary' to={`listing/${listing.id}`} >Check me out</Link>
+        <Link className='btn-secondary' to={`listing/${listing.id}`} >Veiw space</Link>
       </div>
     </div>
   ));

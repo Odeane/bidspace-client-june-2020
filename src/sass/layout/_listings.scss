@@ -12,9 +12,9 @@
   }
 }
 
-// .listing__map{
-// width: 30rem;
-// }
+.listing__map{
+  position: fixed;
+}
 
 .listing {
   display: flex;
@@ -27,9 +27,11 @@
 
   &__image {
       width: 40rem;
+      height: 30rem;
       border-bottom-left-radius: 3rem;
       border-top-left-radius: 3rem;
       object-fit: cover;
+
   }
 
   &__detail{
