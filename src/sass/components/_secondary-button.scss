@@ -1,0 +1,16 @@
+.btn-secondary {
+  &:link,
+  &:visited {
+    position: relative;
+    color: $color-white;
+    background-color: rgba($primary-color, 0.7);
+    text-transform: uppercase;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    border-radius: 2px;
+  }
+
+  &:hover {
+    box-shadow: 0 1.3rem 2rem rgba($color-black, 0.4);
+  }
+}

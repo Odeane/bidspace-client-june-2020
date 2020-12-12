@@ -28,19 +28,18 @@ body {
   }
 }
 
-
-.heading-secondary{
+.heading-secondary {
   font-size: 3.5rem;
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
   letter-spacing: 0.2rem;
-  transition: all .2s;
-  
+  transition: all 0.2s;
+
   &:hover {
-        transform: skewY(2deg) skewX(15deg) scale(1.1);
-        text-shadow: .5rem 1rem 2rem rgba($secondary-color, .2);
-    }
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba($secondary-color, 0.2);
+  }
 }
 
 .heading-tertiary {
@@ -55,5 +54,22 @@ body {
 
   &:not(:last-child) {
     margin-bottom: 3rem;
+  }
+}
+
+.listing__detail {
+  width: 25rem;
+  &--lead {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &--category{
+    text-transform: capitalize;
+  }
+  &--scene{
+    text-transform: capitalize;
+    margin-bottom: 2rem;
   }
 }
