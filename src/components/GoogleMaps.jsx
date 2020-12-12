@@ -21,6 +21,7 @@ const GoogleMaps = ({ listings, ...props }) => {
         zoom={8}
         onReady={() => setListing(listing)}
         google={props.google}
+        className='listing__map'
       >
         {listings.map((listing) => (
           <Marker

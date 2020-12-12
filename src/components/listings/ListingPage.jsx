@@ -44,7 +44,7 @@ const Listings = ({ lists = [], ...props }) => {
       <div className="listings">
         <div className='listings__content'>{content}</div>
         <div className="listings__map">
-          <GoogleMaps className='listing__map' listings={lists} />
+          <GoogleMaps listings={lists} />
         </div>
       </div>
 

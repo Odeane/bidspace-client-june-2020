@@ -9,11 +9,16 @@
 
   &__map {
     flex: 1;
+    width: 20rem;
+
   }
 }
 
 .listing__map{
-  position: fixed;
+  position: fixed !important;
+
+  width: 50% !important;
+  height: 100% !important;
 }
 
 .listing {
