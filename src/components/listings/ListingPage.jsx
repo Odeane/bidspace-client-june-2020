@@ -14,29 +14,41 @@ const Listings = ({ lists = [], ...props }) => {
   let content = lists.map((listing) => (
     <div className='listing' key={listing.id}>
 
-      <div className="listing__image">
-        <img src={listing.image} alt="" className="listing__image--size" />
-      </div>
+
+        <img src={listing.image} alt="" className="listing__image" />
+     
 
       <div className="listing__detail">
-        <h4 data-cy="lead">{listing.lead}</h4>
-        <h1 data-cy="category">{listing.category}</h1>
-        <h1 data-cy="scene">{listing.scene}</h1>
-        <Link to={`listing/${listing.id}`} >Check me out</Link>
+        <h1 data-cy="lead" className='listing__detail--lead'>{listing.lead}</h1>
+        <h2 data-cy="category">{listing.category}</h2>
+        <h3 data-cy="scene">{listing.scene}</h3>
+        <Link className='btn' to={`listing/${listing.id}`} >Check me out</Link>
       </div>
     </div>
   ));
 
   return (
-    <>
-      <NavBar/>
+    <div>
+      <div className='listing__header'>
+        <NavBar />
+      </div>
+
+      <section>
+        <h1>Park where it is safe</h1>
+        <span>Over 30+ lots available</span>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        <br />
+        </p>
+      </section>
+
       <div className="listings">
         <div className='listings__content'>{content}</div>
         <div className="listings__map">
           <GoogleMaps className='listing__map' listings={lists} />
         </div>
       </div>
-    </>
+
+    </div>
   );
 };
 

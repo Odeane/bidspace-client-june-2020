@@ -9,7 +9,8 @@
   background-size: cover;
   background-position: top;
   position: relative;
-
+  margin: 2rem;
+  padding: .5rem;
   &__text-box {
     position: absolute;
     top: 50%;
@@ -17,4 +18,7 @@
     text-align: center;
     transform: translate(-50%, -50%);
   }
+
 }
+
+
