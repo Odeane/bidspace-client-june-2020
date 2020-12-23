@@ -76,8 +76,8 @@ const MyAccount = () => {
 
   return (
     <div>
-      <div>{bids}</div>
-      <div>{content}</div>
+    <div>{bids}</div>
+    <div>{content}</div>
     </div>
   );
 };

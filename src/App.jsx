@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import LandingPage from "./components/landing-page/LandingPage";
 import Listings from "./components/listings/ListingPage";
 import LandlordPage from "./components/LandlordPage";
-import SingleListing from "./components/SingleListing";
+import SingleListing from "./components/single-listing/SingleListing";
 import { Elements } from "react-stripe-elements";
 import Subscription from "./components/Subscription";
 import SignUpForm from "./components/SignUpForm";

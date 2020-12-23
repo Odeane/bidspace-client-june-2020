@@ -10,11 +10,10 @@
   &__map {
     flex: 1;
     width: 20rem;
-
   }
 }
 
-.listing__map{
+.listing__map {
   position: fixed !important;
 
   width: 50% !important;
@@ -28,18 +27,17 @@
   background-color: $color-grey-light;
   margin-bottom: 5rem;
   border-radius: 3rem;
-  box-shadow: 0px 0 1rem .15rem rgba($color-black, 0.15);
+  box-shadow: 0px 0 1rem 0.15rem rgba($color-black, 0.15);
 
   &__image {
-      width: 40rem;
-      height: 30rem;
-      border-bottom-left-radius: 3rem;
-      border-top-left-radius: 3rem;
-      object-fit: cover;
-
+    width: 40rem;
+    height: 30rem;
+    border-bottom-left-radius: 3rem;
+    border-top-left-radius: 3rem;
+    object-fit: cover;
   }
 
-  &__detail{
+  &__detail {
     margin-left: 2rem;
   }
 }
@@ -47,3 +45,15 @@
 .listing__header {
   background-color: rgba($color-black, 0.9);
 }
+
+.list__images {
+display: flex;
+justify-content: space-evenly;
+flex-wrap: wrap;
+
+
+}
+
+.list__image {
+    height: 50rem;
+  }

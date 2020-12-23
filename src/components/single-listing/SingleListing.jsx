@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { Label, Container } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { fetchListing } from "../state/action/listingsActions";
-import Bidding from "./bidding/Bidding";
+import { fetchListing } from "../../state/action/listingsActions";
+import Bidding from "../bidding/Bidding";
+import Navbar from "../nav/Navbar";
 
 const SingleListing = (props) => {
 
@@ -19,32 +20,34 @@ const SingleListing = (props) => {
       data-cy={`listing-${list.id}`}
       data-id={list.id}
     >
-      <div >
+      <h1 data-cy="lead">{list.lead}</h1>
+      <div className='list__images'>
         {
           list.images ?
             list.images.map(image => (
-              <img className='listing__image' src={image.url} alt="carlots" />
+              <img className='list__image' src={image.url} alt="carlots" />
             ))
             :
             ('No images found')
         }
       </div>
-      <h1 data-cy="lead">{list.lead}</h1>
-      <Container text data-cy="address"><strong>{list.address}</strong></Container>
+      
+      <h3 data-cy="address"><strong>{list.address}</strong></h3>
 
       <div text data-cy="description">
         {list.description}
       </div>
       <div>
-        <Label size="massive" data-cy="scene">{list.scene}</Label>
-        <Label size="massive" data-cy="category">{list.category}</Label>
-        <Label size="massive" data-cy="price">Target Price: {list.price}kr</Label>
+        <h2 className='listing__detail--category'  data-cy="scene">{list.scene}</h2>
+        <h2 data-cy="category">{list.category}</h2>
+        <span data-cy="price">Target Price: {list.price}kr</span>
       </div>
     </div>
   );
 
   return (
-    <div>
+    <div >
+      <Navbar />
       <div>
         <div>{listingContent}</div>
       </div>

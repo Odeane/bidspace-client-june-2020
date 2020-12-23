@@ -26,7 +26,7 @@ function LoginForm(props) {
         <Field name='email' type='email' component={renderField} label='Email' />
         <Field name='password' type='password' component={renderField} label='Password' required/>
         <div>
-          <Button color='white' inverted  className='login__btn' type="submit" onClick={props.authenticate}>Log In</Button>
+          <Button color='black' inverted  className='login__btn' type="submit" onClick={props.authenticate}>Log In</Button>
         </div>
       </form>
     </div>
