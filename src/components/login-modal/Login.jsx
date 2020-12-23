@@ -1,18 +1,19 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { Modal, Button } from 'semantic-ui-react'
+import { Modal, Icon } from 'semantic-ui-react'
 import { toggleFormRendering } from "../../state/action/authActions";
 import LoginForm from './LoginForm';
 
 
 function Login(props) {
   return (
-    <div>
+    <div className='modal'>
       <Modal
+        size='mini'
         open={props.renderLoginForm}
       >
+        <Icon color='red' name='close' onClick={props.toggleFormRendering} />
         <LoginForm />
-        <Button onClick={props.toggleFormRendering}>Close</Button>
       </Modal>
     </div>
   )
